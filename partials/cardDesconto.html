@@ -1,0 +1,317 @@
+<!-- partials/cardDesconto.html -->
+
+<div class="card card-small mt-2">
+  <!-- Card Header -->
+  <div class="card-header border-bottom">
+    <h3 class="card-title">Adicionar Cupom</h3>
+  </div>
+
+  <!-- Card Body -->
+  <div class="card-body">
+    <!-- Accordion -->
+    <div class="accordion" id="accordionCupom">
+      
+      <!-- Item 1: Informações Básicas -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Informações Básicas
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionCupom">
+          <div class="accordion-body">
+            <form id="formInfoBasicas">
+              <!-- Nome e Código do Cupom na mesma linha (nome com 2/3 da largura) -->
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label for="nomeCupom">Nome</label>
+                  <input type="text" class="form-control" id="nomeCupom" placeholder="Nome do cupom">
+                </div>
+                <div class="col-md-4">
+                  <label for="codigoCupom">Código do cupom</label>
+                  <input type="text" class="form-control" id="codigoCupom" placeholder="Ex: PROMO2025">
+                </div>
+              </div>
+              
+              <!-- Descrição (Text Area) -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label for="descricaoCupom">Descrição</label>
+                  <textarea class="form-control" id="descricaoCupom" rows="3" placeholder="Descreva o cupom"></textarea>
+                </div>
+              </div>
+              
+              <!-- Todos os outros campos em uma única linha -->
+              <div class="row mb-3">
+                <!-- Data de início -->
+                <div class="col-md-2">
+                  <label for="dataInicio">Data de início</label>
+                  <input type="date" class="form-control" id="dataInicio">
+                </div>
+                
+                <!-- Data de validade -->
+                <div class="col-md-2">
+                  <label for="dataValidade">Data de validade</label>
+                  <input type="date" class="form-control" id="dataValidade">
+                </div>
+                
+                <!-- Quantidade disponível -->
+                <div class="col-md-2">
+                  <label for="quantidadeDisponivel">Quantidade</label>
+                  <input type="number" class="form-control" id="quantidadeDisponivel" min="1">
+                </div>
+                
+                <!-- Tipo de desconto (com setinha) -->
+                <div class="col-md-2">
+                  <label for="tipoDesconto">Desconto em:</label>
+                  <select class="form-select" id="tipoDesconto">
+                    <option value="" selected disabled>Selecione</option>
+                    <option value="porcentagem">Porcentagem (%)</option>
+                    <option value="valor">Valor (R$)</option>
+                  </select>
+                </div>
+                
+                <!-- Valor mínimo (com R$) -->
+                <div class="col-md-2">
+                  <label for="valorMinimo">Valor mínimo</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend" style="height: 2.25rem;">
+                      <span class="input-group-text" style="height: 100%;">R$</span>
+                    </div>
+                    <input type="number" class="form-control" id="valorMinimo" min="0" step="0.01">
+                  </div>
+                </div>
+                
+                <!-- Valor do desconto (com R$) -->
+                <div class="col-md-2">
+                  <label for="valorDesconto">Valor desconto</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend" style="height: 2.25rem;">
+                      <span class="input-group-text" style="height: 100%;">R$</span>
+                    </div>
+                    <input type="number" class="form-control" id="valorDesconto" min="0" step="0.01">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Checkbox alinhado à esquerda -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="usoUnico">
+                    <label class="form-check-label" for="usoUnico">O cupom só poderá ser utilizado uma única vez por cliente</label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Botão Avançar -->
+              <div class="text-right mt-3">
+                <button type="button" class="btn btn-primary" id="btnAvancar">Avançar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 2: Segundo Item (Configurações Adicionais) -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Configurações Adicionais
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionCupom">
+          <div class="accordion-body">
+            <!-- Seleção de Unidade -->
+            <div class="row mb-4">
+              <div class="col-12">
+                <label for="selectUnidade" class="form-label">Selecione a Unidade</label>
+                <select class="form-select" id="selectUnidade">
+                  <option value="" selected disabled>Selecione uma unidade</option>
+                  <option value="unidade1">Unidade - Colônia de férias Lagoa - Flamengo</option>
+                  <option value="unidade2">Unidade - Colônia de férias Laranjeiras</option>
+                  <option value="unidade3">Unidade - Colônia de férias Tijuca</option>
+                  <option value="unidade4">Unidade - Colônia de férias Leblon - Paissandu</option>
+                  <option value="unidade5">Unidade - Festa Esportiva</option>
+                  <option value="unidade6">Unidade - Festa Pool Party</option>
+                  <option value="unidade7">Unidade - Festa Gecrear</option>
+                  <option value="unidade8">Unidade - Festa Anima-Ação</option>
+                  <option value="unidade9">Unidade - Festa Radical</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Conteúdo condicional (aparece apenas quando uma unidade é selecionada) -->
+            <div id="conteudoUnidade" class="d-none">
+              <!-- Abas para Horários e Complementos -->
+              <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="horarios-tab" data-bs-toggle="tab" data-bs-target="#horarios" type="button" role="tab" aria-controls="horarios" aria-selected="true">Horários</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="complementos-tab" data-bs-toggle="tab" data-bs-target="#complementos" type="button" role="tab" aria-controls="complementos" aria-selected="false">Complementos</button>
+                </li>
+              </ul>
+
+              <!-- Conteúdo das Abas -->
+              <div class="tab-content" id="myTabContent">
+                <!-- Aba de Horários -->
+                <div class="tab-pane fade show active" id="horarios" role="tabpanel" aria-labelledby="horarios-tab">
+                  <div class="row mb-3">
+                    <div class="col-12">
+                      <label for="selectServico" class="form-label">Selecione o Serviço</label>
+                      <select class="form-select" id="selectServico">
+                        <option value="" selected disabled>Selecione um serviço</option>
+                        <option value="servico1">Serviço - 2025 Julho - Semana de 14 a 18</option>
+                        <option value="servico2">Serviço - 2025 Julho - Semana de 07 a 11</option>
+                        <option value="servico3">Serviço - 2025 Julho - Diárias</option>
+                        <option value="servico4">Serviço - 2025 - Janeiro - Semana de 06 a 10</option>
+                        <option value="servico5">Serviço - 2025 - Janeiro - Semana de 13 a 17</option>
+                        <option value="servico6">Serviço - 2025 - Janeiro - Semana de 20 a 24</option>
+                        <option value="servico7">Serviço - 2025 - Janeiro - Semana de 27 a 31</option>
+                        <option value="servico8">Serviço - 2024 - 08 a 12 de julho</option>
+                        <option value="servico9">Serviço - 2024 - 15 a 19 de julho</option>
+                        <option value="servico10">Serviço - 2024 - 22 a 26 de julho</option>
+                        <option value="servico11">Serviço - 2024 - 29 de julho a 02 de agosto</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Períodos (aparece apenas quando um serviço é selecionado) -->
+                  <div id="periodos" class="d-none">
+                    <div class="row mb-3">
+                      <div class="col-12">
+                        <label class="form-label">Selecione os Períodos</label>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo1" id="periodo1">
+                          <label class="form-check-label" for="periodo1">Semana Tarde</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo2" id="periodo2">
+                          <label class="form-check-label" for="periodo2">Semana Tarde Estendida</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo3" id="periodo3">
+                          <label class="form-check-label" for="periodo3">Semana Manhã</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo4" id="periodo4">
+                          <label class="form-check-label" for="periodo4">Semana Integral</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo5" id="periodo5">
+                          <label class="form-check-label" for="periodo5">Semana Integral Estendido</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo6" id="periodo6">
+                          <label class="form-check-label" for="periodo6">08:00 às 12:00</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo7" id="periodo7">
+                          <label class="form-check-label" for="periodo7">13:00 às 17:00</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo8" id="periodo8">
+                          <label class="form-check-label" for="periodo8">13:00 às 19:00</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo9" id="periodo9">
+                          <label class="form-check-label" for="periodo9">08:00 às 17:00</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="periodo10" id="periodo10">
+                          <label class="form-check-label" for="periodo10">08:00 às 19:00</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Aba de Complementos -->
+                <div class="tab-pane fade" id="complementos" role="tabpanel" aria-labelledby="complementos-tab">
+                  <div class="row mb-3">
+                    <div class="col-12">
+                      <label class="form-label">Selecione os Complementos</label>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="complemento1" id="complemento1">
+                        <label class="form-check-label" for="complemento1">Lanche da manhã</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="complemento2" id="complemento2">
+                        <label class="form-check-label" for="complemento2">Almoço</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="complemento3" id="complemento3">
+                        <label class="form-check-label" for="complemento3">Lanche da tarde</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="complemento4" id="complemento4">
+                        <label class="form-check-label" for="complemento4">Jantar</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="row mt-4">
+              <div class="col-12 text-right">
+                <button type="button" class="btn btn-primary" id="btnSalvarCupom">Salvar Cupom</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- /Accordion -->
+  </div>
+  
+  <!-- Card Footer -->
+  <div class="card-footer text-center">
+    <button type="button" class="btn btn-secondary" id="btnVoltarCupons">
+      Voltar
+    </button>
+  </div>
+</div>

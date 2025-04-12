@@ -390,6 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
           .then(r => r.text())
           .then(html => {
             document.getElementById('cardCuponsPlaceholder').innerHTML = html;
+            setupCardCuponsEvents(); // Configura eventos específicos do card
           })
           .catch(err => console.error('Erro ao carregar cardCupons.html:', err));
       });
@@ -1580,3 +1581,117 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
       }
     }
 }); // Fim do DOMContentLoaded
+
+// =========================================================
+// 9) Lógica do Card "Cupons" e "Desconto"
+// =========================================================
+
+// Função para configurar eventos do card Cupons
+function setupCardCuponsEvents() {
+  const btnAdicionarCupom = document.getElementById('btnAdicionarCupom');
+  
+  if (btnAdicionarCupom) {
+    btnAdicionarCupom.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Carrega o cardDesconto.html e o injeta no mesmo placeholder do cardCupons
+      fetch('partials/cardDesconto.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('cardCuponsPlaceholder').innerHTML = html;
+          setupCardDescontoEvents(); // Configura eventos do card de desconto
+        })
+        .catch(error => console.error('Erro ao carregar cardDesconto.html:', error));
+    });
+  }
+}
+
+// Função para configurar eventos do card Desconto
+function setupCardDescontoEvents() {
+  // Botão "Avançar" no formulário do primeiro item do accordion
+  const btnAvancar = document.getElementById('btnAvancar');
+  
+  if (btnAvancar) {
+    btnAvancar.addEventListener('click', function() {
+      // Fecha o primeiro item do accordion
+      $('#collapseOne').collapse('hide');
+      
+      // Abre o segundo item do accordion
+      $('#collapseTwo').collapse('show');
+    });
+  }
+  
+  // Botão "Voltar" no footer
+  const btnVoltarCupons = document.getElementById('btnVoltarCupons');
+  
+  if (btnVoltarCupons) {
+    btnVoltarCupons.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Carrega o cardCupons.html novamente
+      fetch('partials/cardCupons.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('cardCuponsPlaceholder').innerHTML = html;
+          setupCardCuponsEvents(); // Configura eventos do card de cupons
+        })
+        .catch(error => console.error('Erro ao carregar cardCupons.html:', error));
+    });
+  }
+  
+  // Controle do segundo item do accordion (Configurações Adicionais)
+  const selectUnidade = document.getElementById('selectUnidade');
+  const conteudoUnidade = document.getElementById('conteudoUnidade');
+  const selectServico = document.getElementById('selectServico');
+  const periodos = document.getElementById('periodos');
+  const btnSalvarCupom = document.getElementById('btnSalvarCupom');
+  
+  // Evento ao selecionar uma unidade
+  if (selectUnidade) {
+    selectUnidade.addEventListener('change', function() {
+      if (selectUnidade.value) {
+        conteudoUnidade.classList.remove('d-none');
+        
+        // Resetar o dropdown de serviços para o estado inicial
+        if (selectServico) {
+          selectServico.selectedIndex = 0;
+        }
+        
+        // Ocultar a seção de períodos
+        if (periodos) {
+          periodos.classList.add('d-none');
+        }
+      } else {
+        conteudoUnidade.classList.add('d-none');
+      }
+    });
+  }
+  
+  // Evento ao selecionar um serviço (na aba Horários)
+  if (selectServico) {
+    selectServico.addEventListener('change', function() {
+      if (selectServico.value) {
+        periodos.classList.remove('d-none');
+      } else {
+        periodos.classList.add('d-none');
+      }
+    });
+  }
+  
+  // Botão Salvar Cupom
+  if (btnSalvarCupom) {
+    btnSalvarCupom.addEventListener('click', function() {
+      // Aqui você pode implementar a lógica para salvar o cupom
+      alert('Cupom salvo com sucesso!');
+      
+      // Carrega o cardCupons.html novamente
+      fetch('partials/cardCupons.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('cardCuponsPlaceholder').innerHTML = html;
+          setupCardCuponsEvents(); // Configura eventos do card de cupons
+        })
+        .catch(error => console.error('Erro ao carregar cardCupons.html:', error));
+    });
+  }
+}
