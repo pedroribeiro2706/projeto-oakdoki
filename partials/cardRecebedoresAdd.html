@@ -1,0 +1,163 @@
+<!-- partials/cardRecebedoresAdd.html -->
+<div class="card mt-2">
+    <form method="POST" id="formAddRecebedor">
+      <!-- Se houver tokens de segurança, inclua aqui -->
+      
+      <div class="card-header d-flex justify-content-end align-items-center">
+        <button type="button" class="btn btn-warning btn-sm me-2" id="btnSalvarRecebedorAddHeader">
+          Salvar
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" id="btnVoltarRecebedorAdd">
+          Voltar
+        </button>
+      </div>
+  
+      <div class="card-body">
+        <div class="container-fluid">
+          <!-- Primeira linha de inputs: Nome e Email -->
+          <div class="row">
+            <div class="col-lg-6 mb-3" id="div_name_beneficiary">
+              <label for="id_name_beneficiary" class="form-label">Nome</label>
+              <input type="text" name="name_beneficiary" placeholder="Nome" maxlength="40" class="form-control" id="id_name_beneficiary">
+            </div>
+            <div class="col-lg-6 mb-3" id="div_email">
+              <label for="id_email" class="form-label">Email</label>
+              <input type="text" name="email" placeholder="Email" maxlength="100" class="form-control" id="id_email">
+            </div>
+          </div>
+  
+          <!-- Segunda linha de inputs: Tipo de conta e Documento -->
+          <div class="row">
+            <div class="col-lg-6 mb-3" id="div_holder_type">
+              <label for="id_holder_type" class="form-label">Tipo de conta</label>
+              <select name="holder_type" class="form-control" id="id_holder_type">
+                <option value="I">Física</option>
+                <option value="C">Jurídica</option>
+              </select>
+            </div>
+            <div class="col-lg-6 mb-3" id="div_cpf_cnpj">
+              <label for="id_cpf_cnpj" class="form-label">Documento</label>
+              <input type="text" name="cpf_cnpj" placeholder="Documento" maxlength="11" class="form-control" id="id_cpf_cnpj">
+            </div>
+          </div>
+  
+          <!-- Terceira linha: Titular da conta e Banco -->
+          <div class="row">
+            <div class="col-lg-6 mb-3" id="div_holder_name">
+              <label for="id_holder_name" class="form-label">Titular da conta</label>
+              <input type="text" name="holder_name" placeholder="Titular da conta" maxlength="100" class="form-control" id="id_holder_name">
+            </div>
+            <div class="col-lg-6 mb-3" id="div_bank">
+              <label for="id_bank" class="form-label">Banco</label>
+              <input type="number" name="bank" placeholder="Banco" maxlength="6" class="form-control" id="id_bank">
+            </div>
+          </div>
+  
+          <!-- Quarta linha: Agência / Dígito e Conta / Dígito -->
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-9 mb-3" id="div_agency">
+                  <label for="id_agency" class="form-label">Agência</label>
+                  <input type="number" name="agency" placeholder="Agência" class="form-control" id="id_agency">
+                </div>
+                <div class="col-3 mb-3" id="div_agency_digit">
+                  <label for="id_agency_digit" class="form-label">Agência dígito</label>
+                  <input type="number" name="agency_digit" placeholder="Agência dígito" maxlength="1" class="form-control" id="id_agency_digit">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-9 mb-3" id="div_account_bank">
+                  <label for="id_account_bank" class="form-label">Conta</label>
+                  <input type="number" name="account_bank" placeholder="Conta" class="form-control" id="id_account_bank">
+                </div>
+                <div class="col-3 mb-3" id="div_account_bank_digit">
+                  <label for="id_account_bank_digit" class="form-label">Conta dígito</label>
+                  <input type="number" name="account_bank_digit" placeholder="Conta dígito" maxlength="1" class="form-control" id="id_account_bank_digit">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <hr class="my-4">
+  
+          <!-- Linha: 4 colunas -->
+          <div class="row">
+            <div class="col-lg-3 mb-3">
+              <label for="id_type_receivement" class="form-label">Tipo de recebimento</label>
+              <select name="type_receivement" class="form-select" id="id_type_receivement">
+                <option value="">-- Selecione --</option>
+                <option value="1">Conta corrente</option>
+                <option value="2">Conta poupança</option>
+                <option value="3">Conta corrente conjunta</option>
+                <option value="4">Conta poupança conjunta</option>
+              </select>
+            </div>
+            <div class="col-lg-3 mb-3">
+              <label for="id_type_anticipation" class="form-label">Modelo de antecipação</label>
+              <select name="type_anticipation" class="form-select" id="id_type_anticipation">
+                <option value="">-- Selecione --</option>
+                <option value="1">Recebimento por volume</option>
+                <option value="2">Recebimento em D+X</option>
+              </select>
+            </div>
+            <div class="col-lg-3 mb-3">
+              <label for="id_type_period" class="form-label">Periodicidade do saque</label>
+              <select name="type_period" class="form-select" id="id_type_period">
+                <option value="">-- Selecione --</option>
+                <option value="D">Diária</option>
+                <option value="S">Semanal</option>
+                <option value="M">Mensal</option>
+              </select>
+            </div>
+            <div class="col-lg-3 mb-3" id="div_vol_antecip">
+              <label for="id_vol_antecip" class="form-label">Volume antecipável(%)</label>
+              <input type="number" name="vol_antecip" value="0.0" placeholder="Volume antecipável(%)" min="0" step="0.01" class="form-control" id="id_vol_antecip">
+            </div>
+          </div>
+  
+          <!-- Linha: switches para Antecipação e Saque -->
+          <div class="row">
+            <div class="col-lg-6 mb-3" id="div_active_antecipation">
+              <div class="form-check form-switch">
+                <input type="checkbox" name="active_antecipation" class="form-check-input" id="id_active_antecipation">
+                <label class="form-check-label" for="id_active_antecipation">Antecipação automática</label>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-3" id="div_active_withdrawal">
+              <div class="form-check form-switch">
+                <input type="checkbox" name="active_withdrawal" class="form-check-input" id="id_active_withdrawal">
+                <label class="form-check-label" for="id_active_withdrawal">Saque automático</label>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Linha final: observações -->
+          <div class="row">
+            <div class="col-lg-3 mb-1">
+              <label>Obs: Taxa de 3,5% ao mês</label>
+            </div>
+            <div class="col-lg-3 mb-1">
+              <label>Obs: R$5,00 por saque</label>
+            </div>
+            <div class="col-lg-6 mb-1">
+              <!-- Espaço vazio para alinhamento -->
+            </div>
+          </div>
+  
+        </div> <!-- /container-fluid -->
+      </div> <!-- /card-body -->
+  
+      <div class="card-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-warning btn-sm me-2" id="btnSalvarRecebedorAddFooter">
+          Salvar
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" id="btnVoltarRecebedorAddFooter">
+          Voltar
+        </button>
+      </div>
+    </form>
+  </div>
+  

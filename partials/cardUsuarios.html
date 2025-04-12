@@ -1,0 +1,160 @@
+<!-- partials/cardUsuarios.html -->
+<div class="card card-small">
+    <div class="card-header border-bottom">
+        <h5 class="mb-0">Usuários</h5>
+    </div>
+  
+    <div class="card-body">
+        <form id="formPedidos" class="quick-post-form mb-3">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <label for="unidade" class="form-label">Unidade:</label>
+                <select class="form-select" name="unidade" id="unidade">
+                  <option value="">Todas as Unidades</option>
+                  <option value="colonia-de-ferias-lagoa">Colônia de férias Lagoa</option>
+                  <!-- Outras opções conforme necessário -->
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="servico" class="form-label">Serviço:</label>
+                <select class="form-select" name="servico" id="servico">
+                    <option value="">Escolha o serviço</option>
+                    <option value="2022---Dezembro---12-a-16">2022 - Dezembro - 12 a 16</option> 
+                    <option value="2022---Dezembro---19-a-22">2022 - Dezembro - 19 a 22</option> 
+                    <option value="2022---Dezembro---26-a-30">2022 - Dezembro - 26 a 30</option> 
+                    <option value="2022---Dezembro---Diarias">2022 - Dezembro - Diárias</option> 
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="horario" class="form-label">Horário:</label>
+                <select class="form-select" name="horario" id="horario">
+                    <option value="">Escolha o horário</option>
+                    <option value="GWVX9y3G25yeo24L">Semana Manhã</option>
+                    <option value="LKEnRyvldKAb52M0">Semana Tarde Estendida</option>
+                    <option value="wRPpMy16bjN3v9rV">Semana Integral</option>
+                    <option value="Y1lPaAZ12LND4RZM">Semana Integral Estendido</option>
+                    <option value="G0D3BNp9BjA1gXEx">Semana Tarde</option>
+                </select>
+            </div>            
+              <div class="col-md-3">
+                <label for="crianca" class="form-label">Criança:</label>
+                <input type="text" class="form-control" name="crianca" id="crianca" maxlength="50">
+              </div>
+            </div>
+            <div class="row g-3 mt-3">
+              <div class="col-md-3">
+                <label for="contratante" class="form-label">Contratante:</label>
+                <input type="text" class="form-control" name="contratante" id="contratante" maxlength="50">
+              </div>
+              <div class="col-md-3">
+                <label for="responsavel" class="form-label">Responsável:</label>
+                <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="50">
+              </div>
+              <div class="col-md-3">
+                <label for="pedido" class="form-label">N° do pedido:</label>
+                <input type="text" class="form-control" name="pedido" id="pedido">
+              </div>
+              <div class="col-md-3">
+                <label for="data" class="form-label">Data:</label>
+                <input type="date" class="form-control" name="data" id="data">
+              </div>
+            </div>
+            <div class="row g-3 mt-3">
+              <div class="col-md-6 d-flex justify-content-start align-items-end">
+                  <button type="button" class="btn btn-secondary me-2">Exportar Excel</button>
+                  <button type="button" class="btn btn-secondary" id="reportBtnPedidos">Exporar PDF</button>
+              </div>
+              <div class="col-md-6 d-flex justify-content-end align-items-end">
+                  <div>
+                      <label for="qtdOrders" class="form-label">Qtd de usuários:</label>
+                      <select class="form-select" name="qtdOrders" id="qtdOrders">
+                          <option value="20" selected>20 Pedidos (padrão)</option>
+                          <option value="30">30 Pedidos</option>
+                          <option value="50">50 Pedidos</option>
+                          <option value="100">100 Pedidos</option>
+                      </select>
+                  </div>
+                  <button type="button" class="btn btn-warning ms-2" id="btnFilterPedidos">Filtrar</button>
+              </div>
+            </div>
+          </form>
+          
+          <hr class="my-3" style="border-color: #6c757d;">
+  
+          <div class="table-responsive col-sm-12 mt-3">
+            <table class="table table-hover" id="userTable">
+                <thead>
+                  <tr style="text-align: center;">                      
+                    <th>Pedido</th>                      
+                    <th>Criança</th>
+                    <th>Inscrito por</th>                        
+                    <th>Idade</th>
+                    <th>Turno</th>
+                    <th>Telefone</th>
+                    <th>Detalhes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="text-align: center;">                      
+                    <td><button class="btn btn-secondary btn-sm">5957</button></td>                      
+                    <td>Catarina Costa do Nascimento<button class="btn btn-secondary btn-sm ms-2"><i class="bi bi-eye-fill"></i></button></td>
+                    <td>Cristiane</td>                        
+                    <td>4</td>
+                    <td>Semana Tarde</td>
+                    <td>21975426578</td>   
+                    <td><button class="btn btn-outline-info dropdown-toggle btn-sm collapsed" data-bs-toggle="collapse" data-bs-target="#detalhesUsuarios" aria-expanded="false">Detalhes</button></td>         
+                  </tr>
+                  <tr id="detalhesUsuarios" class="collapse" style="text-align: left;"> <!-- Hidden row for details -->
+                    <td colspan="7">
+                      <div>
+                        <strong>Refeição:</strong> <br>
+                        <hr>
+                        <strong>Cuidados especiais:</strong> <br>
+                        <hr>
+                        <strong>Presença:</strong> <br>
+                        <hr>
+                        <strong>Responsáveis autorizados:</strong> <br>
+                        <span class="mx-3"><i class="bi bi-person-check-fill"></i></span>Carlos Antônio do N. Silva,<br>
+                        <span class="mx-3"><i class="bi bi-person-check-fill"></i></span>Caio Costa do Nascimento,<br>
+                        <span class="mx-3"><i class="bi bi-person-check-fill"></i></span>Cristiane Costa da Silva <br>
+                        <hr>
+                        <strong>Documentos:</strong> <br>
+                        <span class="mx-3"><i class="bi bi-person-vcard-fill"></i></span>85577499453,<br>
+                        <span class="mx-3"><i class="bi bi-person-vcard-fill"></i></span>269059424,<br>
+                        <span class="mx-3"><i class="bi bi-person-vcard-fill"></i></span>110801452 <br>
+                        <hr>
+                        <strong>Assinatura:</strong> <br>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Repeat for other rows as needed -->
+                </tbody>
+            </table>
+        </div>
+        <!-- Paginação -->
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-1">
+        <nav aria-label="Page navigation">
+          <ul class="pagination mb-0">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">«</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">
+                1 <span class="visually-hidden">(página atual)</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">»</a></li>
+          </ul>
+        </nav>
+        <small class="text-muted">
+          Mostrando <strong>1 a 10</strong> de <strong>45</strong> pedidos
+        </small>
+      </div>
+    </div>
+  
+    <div class="card-footer text-center">
+    </div>
+  </div>
+  

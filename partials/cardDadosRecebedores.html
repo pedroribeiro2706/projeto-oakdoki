@@ -1,0 +1,84 @@
+<!-- partials/cardDadosRecebedores.html -->
+<div class="card mt-2">
+    <div class="card-header">
+      <h3 class="card-title">Resumo de Dados do Recebedor</h3>
+    </div>
+  
+    <div class="card-body">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" id="dadosRecebedorTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tab-dadosRecebedor-tab" data-bs-toggle="tab" data-bs-target="#tab-dadosRecebedor" type="button" role="tab" aria-controls="tab-dadosRecebedor" aria-selected="true">
+            Dados do Recebedor
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-dadosBancarios-tab" data-bs-toggle="tab" data-bs-target="#tab-dadosBancarios" type="button" role="tab" aria-controls="tab-dadosBancarios" aria-selected="false">
+            Dados Bancários
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab-configTransferencia-tab" data-bs-toggle="tab" data-bs-target="#tab-configTransferencia" type="button" role="tab" aria-controls="tab-configTransferencia" aria-selected="false">
+            Configurações
+          </button>
+        </li>
+      </ul>
+  
+      <!-- Tab panes -->
+      <div class="tab-content pt-3" id="dadosRecebedorTabContent">
+        <!-- Aba 1: Dados do Recebedor -->
+        <div class="tab-pane fade show active" id="tab-dadosRecebedor" role="tabpanel" aria-labelledby="tab-dadosRecebedor-tab">
+          <div class="row">
+            <div class="col-lg-12 mb-2">
+              <p><strong>Nome:</strong> Adalberto da Rocha Santos</p>
+              <p><strong>Documento:</strong> 14156396711</p>
+              <p><strong>Email:</strong> adalbertodarocha23@gmail.com</p>
+              <p><strong>Criado em:</strong> 22/11/2023 11:41</p>
+              <p><strong>Atualizado em:</strong> 22/11/2023 11:41</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Aba 2: Dados Bancários -->
+        <div class="tab-pane fade" id="tab-dadosBancarios" role="tabpanel" aria-labelledby="tab-dadosBancarios-tab">
+          <div class="row">
+            <div class="col-lg-12 mb-2">
+              <p><strong>Titular:</strong> Adalberto da Rocha Santos</p>
+              <p><strong>Banco:</strong> 260</p>
+              <p><strong>Agência:</strong> 1 - None</p>
+              <p><strong>Agência dígito:</strong> 9</p>
+              <p><strong>Conta:</strong> 84011228</p>
+              <p><strong>Conta dígito:</strong> 9</p>
+              <p><strong>Tipo:</strong> Conta corrente</p>
+              <p><strong>Criado em:</strong> 22/11/2023 11:41</p>
+              <p><strong>Atualizado em:</strong> 22/11/2023 11:41</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Aba 3: Configurações de Transferência e Antecipação -->
+        <div class="tab-pane fade" id="tab-configTransferencia" role="tabpanel" aria-labelledby="tab-configTransferencia-tab">
+            <div class="row mb-3">
+            <div class="col-lg-12">
+                <h5>Configurações de transferência</h5>
+                <p><strong>Transferência automática:</strong> <span class="text-danger">Desabilitado</span></p>
+            </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col-lg-12">
+                <h5>Configurações de antecipação</h5>
+                <p><strong>Antecipação automática:</strong> <span class="text-danger">Desabilitado</span></p>
+            </div>
+            </div>
+        </div>
+      </div> <!-- fim do tab-content -->
+    </div> <!-- fim do card-body -->
+  
+    <div class="card-footer text-center">
+      <button type="button" class="btn btn-secondary" id="btnVoltarDadosRecebedor">
+        Voltar
+      </button>
+    </div>
+  </div>
+  

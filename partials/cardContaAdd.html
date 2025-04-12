@@ -1,0 +1,127 @@
+<!-- partials/cardContaAdd.html -->
+<div class="card">
+    <form method="POST" id="formAddConta">
+      <!-- Se precisar de tokens de segurança, etc., inclua aqui -->
+  
+      <div class="card-header d-flex justify-content-end align-items-center">
+        <button type="button" class="btn btn-warning btn-sm me-2" id="btnSalvarAddContaHeader">
+          Salvar
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" id="btnVoltarAddContaHeader">
+          Voltar
+        </button>
+      </div>      
+  
+      <div class="card-body">
+        <div class="container-fluid">
+          <!-- Tipo de conta -->
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <label class="fw-bold">Tipo de conta</label>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="radio" 
+                  name="type_account" 
+                  id="type_account_pf" 
+                  value="PF"
+                >
+                <label class="form-check-label" for="type_account_pf">
+                  Pessoa Física
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="radio" 
+                  name="type_account" 
+                  id="type_account_pj" 
+                  value="PJ" 
+                  checked
+                >
+                <label class="form-check-label" for="type_account_pj">
+                  Pessoa Jurídica
+                </label>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Nome / Razão social & etc. -->
+          <div class="row">
+            <div class="col-sm-6 mb-3">
+              <label for="id_company_name">Razão social</label>
+              <input 
+                type="text" 
+                name="company_name" 
+                placeholder="Razão social" 
+                class="form-control" 
+                id="id_company_name"
+              >
+            </div>
+            <div class="col-sm-6 mb-3">
+              <label for="id_trading_name">Nome fantasia</label>
+              <input 
+                type="text" 
+                name="trading_name" 
+                placeholder="Nome fantasia" 
+                class="form-control" 
+                id="id_trading_name"
+              >
+            </div>
+          </div>
+  
+          <!-- CNPJ & Telefone -->
+          <div class="row">
+            <div class="col-sm-6 mb-3">
+              <label for="id_cpf_cnpj">CNPJ</label>
+              <input 
+                type="text" 
+                name="cpf_cnpj" 
+                placeholder="CNPJ" 
+                class="form-control" 
+                id="id_cpf_cnpj"
+              >
+            </div>
+            <div class="col-sm-6 mb-3">
+              <label for="id_phone">Telefone</label>
+              <input 
+                type="text" 
+                name="phone" 
+                placeholder="Telefone" 
+                class="form-control" 
+                id="id_phone"
+              >
+            </div>
+          </div>
+  
+          <!-- Upload de Logo -->
+          <div class="row">
+            <div class="col-sm-12 mb-3">
+              <label for="customFile">Logo da conta</label>
+              <input 
+                type="file" 
+                class="form-control" 
+                id="customFile" 
+                name="account_logo" 
+                accept="image/png, image/jpeg"
+              >
+            </div>
+          </div>
+        </div> <!-- /container-fluid -->
+      </div> <!-- /card-body -->
+  
+      <div class="card-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-warning btn-sm me-2" id="btnSalvarAddContaFooter">
+          Salvar
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" id="btnVoltarAddContaFooter">
+          Voltar
+        </button>
+      </div>      
+    </form>
+  </div>
+  

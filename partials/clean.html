@@ -1,0 +1,719 @@
+<div class="content-wrapper" style="min-height: 311.212px;">
+    <section class="content-header">
+        <h1 class="m-0">
+            <div class="col-lg-12 mb-2">
+                <ol class="breadcrumb">
+                </ol>
+            </div>
+        </h1>
+
+        <button class="scroller scroller-left scroller-sub-left btn" style="display:none;"><i
+                class="fas fa-chevron-left"></i></button>
+        <button class="scroller scroller-right scroller-sub-right btn" style="display:none;"><i
+                class="fas fa-chevron-right"></i></button>
+        <div class="tabs-wrapper text-sm">
+            <ul id="scroller" class="nav textCol nav-tabs navtSubs" style="border-bottom: none !important;">
+            </ul>
+        </div>
+        <div class="container-fluid">
+            <div class="row mb-2">
+
+                <div class="col-lg-12">
+                    <div class="row">
+
+                        <div class="col-lg-8 mt-3">
+                            <h5 class="">
+                                <form>
+                                    #
+                                    <input type="text" onkeypress="return onlynumberint();" name="order_id"
+                                        id="order_id" style="width: 113px; text-align: center;" value="6369">
+                                    <a class="btn btn-warning btn-sm" style="margin-bottom: 6px;"
+                                        onclick="changeOrder('saledetail')">Buscar</a> - Colônia de férias Lagoa -
+                                    Flamengo
+                                    <div class="col-lg-12">
+                                        <span id="error_find_order" style="color:red;"></span>
+                                    </div>
+                                </form>
+                            </h5>
+                        </div>
+                        <div class="col-lg-4 mt-3 text-right">
+                            <a href="/conta/vendas/mysales/">
+                                <button class=" btn btn-warning">Voltar</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <input type="hidden" name="store_url" id="store_url" value="">
+        <input type="hidden" name="order" id="order" value="6369">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <strong id="statusOrder">
+                        Status - Carrinho
+                    </strong>
+                </div>
+
+                <div class="col-lg-5 text-left">
+                    <i class="fas fa-address-card fa-2x" style="color:#ffc107;" data-toggle="modal"
+                        data-backdrop="static" data-keyboard="false" data-target="#modalClient"></i>
+                    <span class="ml-2"> Contratante:
+                        <a href="/conta/vendas/buyers/m5vqp3yJm7GZdbY8/">
+                            Clementino Rodrigues Leal
+                        </a>
+                    </span>
+                    <span class="ml-2"> Saldo em créditos: 0,00</span>
+                </div>
+                <div class="col-lg-7 text-right">
+
+                    <a onclick="changeStatusOrder('6369')" class="btn btn-warning btn-sm">Link pagamento</a>
+
+                    <a onclick="sendemailconfirm('6369')">
+                        <button class=" btn btn-warning btn-sm">Email de confirmação</button>
+                    </a>
+                    <a data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#modalPagManual"
+                        class="btn btn-warning btn-sm">Pagamento manual</a>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group mt-3" style="display:none;" id="divUrlPgt">
+                        <label for="name">Link pagamento:</label>
+                        <div class="input-group row">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="urlPgt" value="" readonly="">
+                            </div>
+                            <div class="col-sm-6">
+                                <a onclick="sendEmailLink('6369')" class="btn btn-warning">Enviar por email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title"><strong>Detalhes do pedido
+                                    2
+                                    - Troca: <a href="/conta/vendas/saledetail/Y1lPaAZ6WYAD4RZM/"
+                                        style="text-decoration: none; background-color: transparent;">
+                                        6363</a>
+                                </strong>
+                            </h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse"
+                                    data-expand-icon="fa-arrow-down" data-collapse-icon="fa-arrow-up">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="container-fluid">
+                                <div class="row mt-2">
+                                    <div class="col-12 col-md-12 col-lg-12 order-2 order-md-1">
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Serviço</th>
+                                                        <th scope="col">Data</th>
+                                                        <th scope="col">Qtd</th>
+                                                        <th scope="col">Usuário</th>
+                                                        <th scope="col">Categoria</th>
+                                                        <th scope="col">Preço unit.</th>
+                                                        <th scope="col">Descontos</th>
+                                                        <th scope="col">Taxas</th>
+                                                        <th scope="col">Comple.</th>
+                                                        <th scope="col">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-sm">
+                                                    <tr id="master-row_43c6f171-ed65-4989-bb0b-de511b55442b"
+                                                        class="master-toggle toggle-collapse" data-toggle="collapse"
+                                                        data-target=".row_43c6f171-ed65-4989-bb0b-de511b55442b"
+                                                        aria-expanded="false">
+                                                        <td>
+                                                            <i
+                                                                class="expandable-table-caret fas fa-caret-right fa-fw"></i>
+                                                            2025 - Janeiro - Semana de 20 a 24 - Semana Tarde
+                                                        </td>
+                                                        <td>
+                                                         20/01/2025 à 24/01/2025
+                                                        </td>
+                                                        <td>1</td>
+                                                        <td>
+                                                            <a
+                                                                href="/conta/vendas/buyers/m5vqp3yJm7GZdbY8/dependents/?next=/conta/vendas/saledetail/6R0boA4XDZAak1Zd/&amp;depe_hashid=mkOxZyDM9ZNqL0n4">
+                                                                SeFabricio
+                                                            </a>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>R$605,25</td>
+                                                        <td>(-) R$0,00</td>
+                                                        <td>R$60,00</td>
+                                                        <td>R$36,48</td>
+                                                        <td>R$701,73</td>
+                                                    </tr>
+                                                    <tr
+                                                        class="collapse row_43c6f171-ed65-4989-bb0b-de511b55442b sub-row">
+                                                        <td class="toggle-collapse" data-toggle="collapse"
+                                                            data-target=".fee_43c6f171-ed65-4989-bb0b-de511b55442b_43c6f171-ed65-4989-bb0b-de511b55442b"
+                                                            aria-expanded="false">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                                                class="expandable-table-caret fas fa-caret-right fa-fw"></i>
+                                                            Taxas
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>(-) R$0,00</td>
+                                                    </tr>
+                                                    <tr
+                                                        class="collapse fee_43c6f171-ed65-4989-bb0b-de511b55442b_43c6f171-ed65-4989-bb0b-de511b55442b sub-sub-row">
+                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taxa
+                                                            de inscrição</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td></td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>R$60,00</td>
+                                                    </tr>
+                                                    <tr class="collapse row_43c6f171-ed65-4989-bb0b-de511b55442b">
+                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Almoço</td>
+                                                        <td>
+
+                                                            20/01/2025
+
+                                                        </td>
+                                                        <td>1</td>
+                                                        <td>SeFabricio</td>
+                                                        <td></td>
+                                                        <td>R$36,48</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>R$36,48</td>
+                                                    </tr>
+                                                    <script>
+                                                        $(document).ready(function () {
+                                                            $('.master-toggle').on('click', function () {
+                                                                let target = $(this).data('target');
+                                                                let isExpanded = $(this).attr('aria-expanded') === 'true';
+
+                                                                // Extrai o sufixo do item principal para identificar as linhas subordinadas
+                                                                let parentIdSuffix = $(this).data('target').split('_')[1]; // forloop.parentloop.counter
+                                                                let childIdSuffix = $(this).attr('id').split('_').pop();   // forloop.counter
+
+                                                                console.log(target); // Log para verificação
+
+                                                                // Alterna o estado de expansão do item principal
+                                                                $(target).collapse('toggle');
+
+                                                                if (isExpanded) {
+                                                                    // Prefixos de todas as linhas subordinadas
+                                                                    let prefixes = ['desc', 'sch', 'fee', 'extra'];
+
+                                                                    // Fecha todas as linhas subordinadas relacionadas ao item principal
+                                                                    prefixes.forEach(function (prefix) {
+                                                                        $(`.${prefix}_${parentIdSuffix}_${childIdSuffix}`).each(function () {
+                                                                            $(this).collapse('hide');
+                                                                        });
+                                                                    });
+                                                                }
+                                                            });
+                                                        });
+                                                    </script>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12 order-2 order-md-1">
+                                        <hr style="border-width: 1px;">
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12 order-2 order-md-1 mt-2">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="card border-0">
+                                                    <div class="card-header">
+                                                        <h5 class="card-title">Resumo</h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-sm-12">
+                                                                <span>Novos serviços: R$ 605,25</span><br>
+                                                                <span>Complementos: R$ 36,48</span><br>
+                                                                <span>Taxas: R$ 60,00</span><br>
+                                                                <span><b>Total: R$ 701,73</b></span><br><br>
+                                                            </div>
+                                                            <div class="col-lg-4 col-sm-12">
+                                                                <span>Descontos:<span> (-) R$ 0,00</span></span><br>
+                                                                <span>Crédito da troca:<span> (-) R$
+                                                                        72,63</span></span><br>
+                                                                <span>Outros créditos:<span> (-) R$
+                                                                        0,00</span></span><br><br>
+                                                            </div>
+                                                            <div class="col-lg-4 col-sm-12">
+                                                                <span>Diferença a pagar: R$ 629,10</span><br>
+                                                                <span>Saldo de créditos após o pagamento: R$
+                                                                    0,00</span><br>
+                                                                <span><b>Valor desse pedido: R$ 701,73</b></span><br>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="card">
+                                                    <div class="card-header ">
+                                                        <h5 class="card-title">Pagamento</h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <span>Status:
+
+                                                                    Em Aberto
+
+                                                                </span>
+                                                                <br>
+                                                                <span>Valor pago: R$ 0</span>
+                                                            </div>
+                                                            <div class="col-lg-5 mt-2">
+                                                                <span>Informações de pagamento: </span> <br>
+
+                                                            </div>
+                                                            <div class="col-lg-7 mt-2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="modal" role="dialog" id="modalClient">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Informações do contratante</h3>
+                                <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">×</span></a>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <span> Contratante:
+                                                <a href="/conta/vendas/buyers/m5vqp3yJm7GZdbY8/">
+                                                    Clementino Rodrigues Leal
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span> Email: crl.leal@gmail.com</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <span> Data de nascimento: 23/02/1971</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span> CPF: 00459530747</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <span> Telefone: undefined</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span> Celular: <a
+                                                    href="https://api.whatsapp.com/send?phone=+21986547523&amp;text=Olá">21986547523</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <span> CEP: 26020810</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span> Endereço: Estrada Luis de lemos</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <span> Número: 156</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span> Complemento: ASFASF</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <span> Bairro: Posse</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span> Cidade: Nova Iguaçu</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <span> Estado: RJ</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <span> Saldo em créditos: 0,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" role="dialog" id="modalPagManual">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Pagamento manual</h3>
+                                <a onclick="clearFieldsPagM()" type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close"><span aria-hidden="true">×</span></a>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12 text-center">
+                                            <h5 class="text-center"><strong>Resumo:</strong></h5>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span>Novos serviços: R$ 605,25</span><br>
+                                            <span>Complementos: R$ 36,48</span><br>
+                                            <span>Taxas: R$ 60,00</span><br>
+                                            <span><b>Total: R$ 701,73</b></span><br><br>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <span>Descontos:<span>(-) R$ 0,00</span></span><br>
+                                            <span>Crédito da troca:<span>(-) R$ 72,63</span></span><br>
+                                            <span>Outros créditos:<span>(-) R$ 0,00</span></span><br><br>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span>Diferença a pagar: R$ 629,10</span><br>
+                                            <span>Saldo de créditos após o pagamento: R$ 0,00</span><br>
+                                            <span><b>Valor desse pedido: R$ 701,73</b></span><br>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <hr>
+                                        </div>
+                                        <div class="col-sm-12 text-center">
+                                            <h5 class="text-center"><strong>Documento de Comprovação de
+                                                    Pagamento:</strong></h5>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="fileDocumentPgtM">
+                                                    <label class="custom-file-label" for="validatedCustomFile"
+                                                        id="labelNameDocPgtMan">Enviar Documento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="card-body cardOverlay text-center">
+                                                <div class="col-sm-12">
+                                                    <img src="" class="w-100 img-fluid d-block text-center"
+                                                        id="imgDocument">
+                                                    <div class="embed-responsive embed-responsive-16by9"
+                                                        style="display:none;" id="divembeddoc">
+                                                        <embed src="" type="application/pdf" height="300px"
+                                                            width="900px" id="imgDocumentpdf">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span id="errorFilePgt" style="color:red;"></span>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group-inline">
+                                                <label id="label_obs_cares" for="inicioServico"
+                                                    style="">Descrição</label>
+                                                <textarea class="form-control" name="descriptionPgt" id="descriptionPgt"
+                                                    rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        document.getElementById("fileDocumentPgtM").onchange = function () {
+                                            var name = this.value.replace(/.*[\/\\]/, ''); // limpar nome para chrome
+                                            document.title = name.split(".")[0];
+                                            var fileExtension = name.split('.').pop();
+
+                                            $("#imgDocument").attr('src', '');
+                                            $("#imgDocumentpdf").attr('src', '');
+                                            $("#labelNameDocPgtMan").html(document.title)
+                                            $("#divembeddoc").hide()
+
+                                            if (this.value != '') {
+                                                if (fileExtension == 'pdf') {
+                                                    $("#divembeddoc").show()
+                                                    $("#imgDocumentpdf").attr('src', URL.createObjectURL($("#fileDocumentPgtM")[0].files[0]));
+                                                } else {
+                                                    $("#imgDocument").attr('src', URL.createObjectURL($("#fileDocumentPgtM")[0].files[0]));
+                                                }
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <br><br><br><br>
+                                <button onclick="clearFieldsPagM()" type="button" class="btn btn-warning"
+                                    data-dismiss="modal">Voltar</button>
+                                <button onclick="pagManual('6369')" type="button" class="btn btn-warning"
+                                    value="sim">Confirmar Pagamento</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+
+                    function clearFieldsPagM() {
+                        $('#descriptionPgt').val('')
+                        $("#imgDocument").attr('src', '');
+                        $('#labelNameDocPgtMan').html('Enviar Documento')
+                        $('#fileDocumentPgtM').val('')
+                    }
+
+                    function pagManual(idOrder) {
+                        field_val = $('#fileDocumentPgtM')[0].files[0]
+                        if (field_val == undefined || field_val == '') {
+                            $('#errorFilePgt').html('Você precisa enviar um comprovante')
+                            return
+                        }
+                        var formData = new FormData();
+                        if ($('#descriptionPgt').val() != '') {
+                            descriptionPgt = $('#descriptionPgt').val()
+                        } else {
+                            descriptionPgt = ''
+                        }
+                        formData.append('idOrder', idOrder)
+                        formData.append('field_val', field_val);
+                        formData.append('descriptionPgt', descriptionPgt)
+                        axios.post('/conta/vendas/detailsale/pagmanual/', formData)
+                            .then((res) => {
+                                console.log(res)
+                                window.location.href = res.data.sale_detail
+                            });
+                    };
+                </script>
+
+                <div class="modal" role="dialog" id="modalCarrinho">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Pagamento manual</h3>
+                                <a onclick="clearFieldsPagM()" type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close"><span aria-hidden="true">×</span></a>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12 text-center">
+                                            <h5 class="text-center"><strong>Resumo:</strong></h5>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span>Novos serviços: R$ 605,25</span><br>
+                                            <span>Complementos: R$ 36,48</span><br>
+                                            <span>Taxas: R$ 60,00</span><br>
+                                            <span><b>Total: R$ 701,73</b></span><br><br>
+                                        </div>
+                                        <div class="col-sm-4 ">
+                                            <span>Descontos:<span>(-) R$ 0,00</span></span><br>
+                                            <span>Crédito da troca:<span>(-) R$ 72,63</span></span><br>
+                                            <span>Outros créditos:<span>(-) R$ 0,00</span></span><br><br>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span>Diferença a pagar: R$ 629,10</span><br>
+                                            <span>Saldo de créditos após o pagamento: R$ 0,00</span><br>
+                                            <span><b>Valor desse pedido: R$ 701,73</b></span><br>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <hr>
+                                        </div>
+                                        <div class="col-sm-12 text-center">
+                                            <h5 class="text-center"><strong>Documento de Comprovação de
+                                                    Pagamento:</strong></h5>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="fileDocumentPgtM">
+                                                    <label class="custom-file-label" for="validatedCustomFile"
+                                                        id="labelNameDocPgtMan">Enviar Documento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="card-body cardOverlay text-center">
+                                                <div class="col-sm-12">
+                                                    <img src="" class="w-100 img-fluid d-block text-center"
+                                                        id="imgDocument">
+                                                    <div class="embed-responsive embed-responsive-16by9"
+                                                        style="display:none;" id="divembeddoc">
+                                                        <embed src="" type="application/pdf" height="300px"
+                                                            width="900px" id="imgDocumentpdf">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span id="errorFilePgt" style="color:red;"></span>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group-inline">
+                                                <label id="label_obs_cares" for="inicioServico"
+                                                    style="">Descrição</label>
+                                                <textarea class="form-control" name="descriptionPgt" id="descriptionPgt"
+                                                    rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script type="text/javascript">
+                                        document.getElementById("fileDocumentPgtM").onchange = function () {
+                                            var name = this.value.replace(/.*[\/\\]/, ''); // limpar nome para chrome
+                                            document.title = name.split(".")[0];
+                                            var fileExtension = name.split('.').pop();
+
+                                            $("#imgDocument").attr('src', '');
+                                            $("#imgDocumentpdf").attr('src', '');
+                                            $("#labelNameDocPgtMan").html(document.title)
+                                            $("#divembeddoc").hide()
+
+                                            if (this.value != '') {
+                                                if (fileExtension == 'pdf') {
+                                                    $("#divembeddoc").show()
+                                                    $("#imgDocumentpdf").attr('src', URL.createObjectURL($("#fileDocumentPgtM")[0].files[0]));
+                                                } else {
+                                                    $("#imgDocument").attr('src', URL.createObjectURL($("#fileDocumentPgtM")[0].files[0]));
+                                                }
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <br><br><br><br>
+                                <button onclick="clearFieldsPagM()" type="button" class="btn btn-warning"
+                                    data-dismiss="modal">Voltar</button>
+                                <button onclick="pagManual('6369')" type="button" class="btn btn-warning"
+                                    value="sim">Confirmar Pagamento</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+
+                    function copyPix() {
+                        /* Get the text field */
+                        var copyText = document.getElementById("myInput");
+
+                        /* Select the text field */
+                        copyText.select();
+                        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+                        /* Copy the text inside the text field */
+                        navigator.clipboard.writeText(copyText.value);
+
+                    }
+
+                    function changeStatusOrder(id) {
+                        var formData = new FormData();
+                        formData.append('order_id', id)
+                        axios.post('/conta/maintainorder/change_status_order/', formData)
+                            .then((res) => {
+                                $('#urlPgt').val(res.data.linkpgt)
+                                $('#divUrlPgt').show()
+                            });
+                    };
+
+                    function sendemailconfirm(idOrder) {
+                        var formData = new FormData();
+                        formData.append('order_id', idOrder)
+                        axios.post('/conta/vendas/detailsale/sendemailconfirm/', formData)
+                            .then((res) => {
+                                $(document).Toasts('create', {
+                                    class: 'bg-success',
+                                    title: '',
+                                    subtitle: '',
+                                    autohide: true,
+                                    delay: 2000,
+                                    body: 'O email foi enviado com sucesso.',
+                                    icon: 'fas fa-envelope fa-lg'
+                                })
+                            })
+                            .catch((error) => {
+                                $(document).Toasts('create', {
+                                    class: 'bg-danger',
+                                    title: '',
+                                    subtitle: '',
+                                    autohide: true,
+                                    delay: 2000,
+                                    body: 'O email não foi enviado. Tente novamente.',
+                                    icon: 'fas fa-envelope fa-lg'
+                                })
+                            })
+                    };
+
+                    function upadateQtd(id, value) {
+                        total_fees_orig = parseFloat("60,00".replace(",", "."));
+                        total_price_orig = parseFloat("629,10".replace(",", "."));
+                        total_price = parseFloat("629,10".replace(",", "."));
+                        total_fees = parseFloat("60,00".replace(",", "."));
+
+                        //const $this = $(this);
+
+                        taxa_total = parseInt(value) * 55.00;
+                        valorlquido = total_price_orig - total_fees_orig + taxa_total;
+                        $("#taxa_span").html(taxa_total);
+                        $("#liquido_span").html(valorlquido);
+
+                    };
+
+                    function sendEmailLink(id) {
+                        var formData = new FormData();
+                        formData.append('order_id', id)
+                        formData.append('link', $('#urlPgt').val())
+                        axios.post('/conta/maintainorder/send_email_link/', formData)
+                            .then((res) => {
+                                $('#divMessages').show()
+                                $('#msgTemp').html('Email enviado!.')
+                            });
+                    };
+
+                    $(document).ready(function ($) {
+                        loadModalCloseZap();
+                    });
+
+                </script>
+
+            </div>
+        </div>
+    </section>
+</div>

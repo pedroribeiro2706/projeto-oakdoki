@@ -1,0 +1,98 @@
+<!-- partials/cardContratantes.html -->
+<div class="card-body">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs mb-3" id="orderDetailsTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="detalhes-tab" data-bs-toggle="tab" data-bs-target="#detalhes" type="button" role="tab" aria-controls="detalhes" aria-selected="true">
+          Detalhes
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="aprovacoes-tab" data-bs-toggle="tab" data-bs-target="#usuarios" type="button" role="tab" aria-controls="usuarios" aria-selected="false">
+          Usuários
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="incluir-tab" data-bs-toggle="tab" data-bs-target="#trocar" type="button" role="tab" aria-controls="trocar" aria-selected="false">
+          Trocar
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="cancelar-tab" data-bs-toggle="tab" data-bs-target="#cancelar" type="button" role="tab" aria-controls="cancelar" aria-selected="false">
+          Cancelar
+        </button>
+      </li>
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content" id="orderDetailsTabContent">
+      <div class="tab-pane fade show active mb-5" id="detalhes" role="tabpanel" aria-labelledby="detalhes-tab">
+        <!-- Conteúdo do tab Detalhes -->
+        <!-- Este será o conteúdo inicial visível quando o card for acessado através do clique em um número de pedido -->
+        <div class="accordion" id="detalhesAccordion">
+          
+          <!-- Detalhes do Contratante -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingDetalhes">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetalhes" aria-expanded="true" aria-controls="collapseDetalhes">
+                Detalhes
+              </button>
+            </h2>
+            <div id="collapseDetalhes" class="accordion-collapse collapse show" aria-labelledby="headingDetalhes" data-bs-parent="#detalhesAccordion">
+              <div class="accordion-body" id="detalhesContent">
+                
+                <div class="d-flex align-items-center">
+                  <h5 class="mb-0">Contratante: Clementino Rodrigues Leal</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Status -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingResumo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResumo" aria-expanded="false" aria-controls="collapseResumo">
+                Status
+              </button>
+            </h2>
+            <div id="collapseResumo" class="accordion-collapse collapse" aria-labelledby="headingResumo" data-bs-parent="#detalhesAccordion">
+              <div class="accordion-body">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-12">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Usuários -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPagamento">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagamento" aria-expanded="false" aria-controls="collapsePagamento">
+                Usuários
+              </button>
+            </h2>
+            <div id="collapsePagamento" class="accordion-collapse collapse" aria-labelledby="headingPagamento" data-bs-parent="#detalhesAccordion">
+              <div class="accordion-body">
+                <div class="row mb-5">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="usuarios" role="tabpanel" aria-labelledby="atualizacoes-tab">
+        Conteúdo do tab usuarios
+      </div>
+      <div class="tab-pane fade" id="trocar" role="tabpanel" aria-labelledby="editar-tab">
+        Conteúdo do tab trocar
+      </div>
+      <div class="tab-pane fade" id="cancelar" role="tabpanel" aria-labelledby="incluir-tab">
+        Conteúdo do tab cancelar
+      </div>
+    </div>
+  </div>
+</div>

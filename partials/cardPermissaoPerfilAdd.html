@@ -1,0 +1,131 @@
+<!-- partials/cardPermissaoPerfilAdd.html -->
+<div class="card card-small mt-2">
+    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Criar Perfil</h5>
+      <div>
+        <button type="button" class="btn btn-secondary btn-sm me-2" id="btnVoltarPermissaoPerfilAddHeader">
+          Voltar
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" id="btnSalvarPermissaoPerfilAddHeader">
+          Salvar
+        </button>
+      </div>
+    </div>
+  
+    <div class="card-body">
+      <h2 class="fs-5">Nome do perfil</h2>
+      <form class="quick-post-form">
+        <div class="form-group d-flex align-items-center gap-3">
+          <input type="text" class="form-control" placeholder="Digite o nome do perfil">
+        </div>
+      </form>
+      <br>
+      <h2 class="fs-5">Gerenciamento do grupo</h2>
+    <div class="accordion" id="accordionPerfil">
+    <!-- Item 1: Conta -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseContaPerfil" aria-expanded="false" aria-controls="collapseContaPerfil">
+            Conta
+        </button>
+        </h2>
+        <div id="collapseContaPerfil" class="accordion-collapse collapse" data-bs-parent="#accordionPerfil">
+        <div class="accordion-body">
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="criarContaSwitch1">
+            <label class="form-check-label" for="criarContaSwitch1">Criar conta</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="editarContaSwitch1">
+            <label class="form-check-label" for="editarContaSwitch1">Editar conta</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="deletarContaSwitch1">
+            <label class="form-check-label" for="deletarContaSwitch1">Deletar conta</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="verContaSwitch1">
+            <label class="form-check-label" for="verContaSwitch1">Ver conta</label>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Item 2: Unidade -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseUnidadePerfil" aria-expanded="false" aria-controls="collapseUnidadePerfil">
+            Unidade
+        </button>
+        </h2>
+        <div id="collapseUnidadePerfil" class="accordion-collapse collapse" data-bs-parent="#accordionPerfil">
+        <div class="accordion-body">
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="ativarUnidadeSwitch">
+            <label class="form-check-label" for="ativarUnidadeSwitch">Ativar unidade</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="criarUnidadeSwitch">
+            <label class="form-check-label" for="criarUnidadeSwitch">Criar unidade</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="editarUnidadeSwitch">
+            <label class="form-check-label" for="editarUnidadeSwitch">Editar unidade</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="deletarUnidadeSwitch">
+            <label class="form-check-label" for="deletarUnidadeSwitch">Deletar unidade</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="verUnidadeSwitch">
+            <label class="form-check-label" for="verUnidadeSwitch">Ver unidade</label>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Item 3: Grupos de permissões -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseGruposPerfil" aria-expanded="false" aria-controls="collapseGruposPerfil">
+            Grupos de permissões
+        </button>
+        </h2>
+        <div id="collapseGruposPerfil" class="accordion-collapse collapse" data-bs-parent="#accordionPerfil">
+        <div class="accordion-body">
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="criarGruposSwitch">
+            <label class="form-check-label" for="criarGruposSwitch">Criar grupos de permissões</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="editarGruposSwitch">
+            <label class="form-check-label" for="editarGruposSwitch">Editar grupos de permissões</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="deletarGruposSwitch">
+            <label class="form-check-label" for="deletarGruposSwitch">Deletar grupos de permissões</label>
+            </div>
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="verGruposSwitch">
+            <label class="form-check-label" for="verGruposSwitch">Ver grupos de permissões</label>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+  
+    <div class="card-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary me-2" id="btnVoltarPermissaoPerfilAddFooter">
+        Voltar
+      </button>
+      <button type="button" class="btn btn-primary" id="btnSalvarPermissaoPerfilAddFooter">
+        Salvar
+      </button>
+    </div>
+  </div>
+  

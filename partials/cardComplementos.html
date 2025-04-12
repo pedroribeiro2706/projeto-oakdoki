@@ -1,0 +1,124 @@
+<!-- partials/cardComplementos.html -->
+<div class="card card-small">
+    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Relação de Complementos</h5>
+    </div>
+  
+    <div class="card-body">
+        <form class="row g-3">
+            <div class="col-md-5">
+                <label for="accountstore" class="form-label">Unidade:</label>
+                <select class="form-select" id="accountstore" name="accountstore">
+                    <option value="">Escolha uma Unidade</option>
+                    <option value="colonia-de-ferias-lagoa">Colônia de férias Lagoa</option>
+                    <!-- Outras opções conforme necessário -->
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="date_service_start" class="form-label">Período inicial:</label>
+                <input type="date" class="form-control" id="date_service_start">
+            </div>
+            <div class="col-md-3">
+                <label for="date_service_end" class="form-label">Período final:</label>
+                <input type="date" class="form-control" id="date_service_end">
+            </div>
+            <div class="col-md-1 d-flex align-items-end">
+                <button class="btn btn-warning" type="submit" id="btnFilter">Filtrar</button>
+            </div>
+        </form>
+  
+        <!-- Cards para Totais -->
+        <div class="row text-center mt-5 mb-3">
+            <div class="col">
+                <div class="card border-info shadow-none">
+                    <div class="card-header bg-transparent">Almoço</div>
+                    <div class="card-body text-info">
+                        <h5 class="card-title">708</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-info shadow-none">
+                    <div class="card-header bg-transparent">Jantar</div>
+                    <div class="card-body text-info">
+                        <h5 class="card-title">116</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-info shadow-none">
+                    <div class="card-header bg-transparent">Lanche da manhã</div>
+                    <div class="card-body text-info">
+                        <h5 class="card-title">370</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-info shadow-none">
+                    <div class="card-header bg-transparent">Lanche da tarde</div>
+                    <div class="card-body text-info">
+                        <h5 class="card-title">780</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Botão Exportar Excel -->
+        <div class="d-flex justify-content-start">
+            <button class="btn btn-secondary" onclick="excelExport()">Exportar Excel</button>
+        </div>
+  
+        <!-- Tabela de Complementos por Data -->
+        <div class="table-responsive mt-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Complemento</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemplo de dados dinâmicos -->
+                    <tr>
+                        <td>11/12/2023</td>
+                        <td>Lanche da tarde</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>12/12/2023</td>
+                        <td>Lanche da tarde</td>
+                        <td>16</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <!-- Paginação -->
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-1">
+        <nav aria-label="Page navigation">
+          <ul class="pagination mb-0">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">«</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">
+                1 <span class="visually-hidden">(página atual)</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">»</a></li>
+          </ul>
+        </nav>
+        <small class="text-muted">
+          Mostrando <strong>1 a 10</strong> de <strong>45</strong> pedidos
+        </small>
+      </div>
+    </div>
+    
+    <!-- Rodapé (opcional, se precisar de ações adicionais) -->
+    <div class="card-footer d-flex justify-content-center">
+      <!-- Pode ser adicionado algum botão ou deixar vazio -->
+    </div>
+  </div>
+  

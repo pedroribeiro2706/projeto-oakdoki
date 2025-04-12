@@ -1,0 +1,312 @@
+<!-- partials/cardRecebedores.html -->
+<div class="card card-small">
+    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Recebedores</h5>
+      <!-- Botão "Adicionar Recebedor" no header -->
+      <button class="btn btn-accent" id="botaoAdicionarRecebedor">Adicionar Recebedor</button>
+    </div>
+  
+    <div class="card-body">
+      <!-- Exemplo de formulário de busca/filtro -->
+      <form class="quick-post-form">
+        <div class="form-group d-flex align-items-center gap-3">
+          <input type="text" class="form-control" placeholder="Digite o nome do recebedor">
+          <select class="form-select form-select-sm" style="max-width: 130px;">
+            <option selected>Ativos</option>
+            <option value="1">Inativos</option>
+          </select>
+          <select class="form-select form-select-sm" style="max-width: 130px;">
+            <option selected>10 por página</option>
+            <option value="1">25 por página</option>
+            <option value="1">50 por página</option>
+            <option value="1">100 por página</option>
+          </select>
+        </div>
+      </form>
+  
+      <hr class="my-3" style="border-color: #6c757d;">
+  
+        <!-- Tabela de Recebedores (atualizada) -->
+        <div class="table-responsive mt-3">
+            <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                <!-- 1) Recebedor -->
+                <th scope="col" style="width: 25%;">
+                    Recebedor
+                    <button class="btn btn-sm btn-link sort-btn" data-column="0">
+                    <i class="bi bi-caret-up-fill"></i>
+                    <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </th>
+                <!-- 2) Saques / Antecipações -->
+                <th scope="col" class="text-center" style="width: 15%;">Saques / Antecipações</th>
+                <!-- 3) Resumo dados -->
+                <th scope="col" class="text-center" style="width: 15%;">Resumo dados</th>
+                <!-- 4) Liquidações -->
+                <th scope="col" class="text-center" style="width: 15%;">Liquidações</th>
+                <!-- 5) Status -->
+                <th scope="col" class="text-center" style="width: 10%;">Status</th>
+                <!-- 6) Ações -->
+                <th scope="col" class="text-center" style="width: 20%;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linha 1 -->
+                <tr>
+                <td>NomeRecebedor1</td>
+                <!-- Saques -->
+                <td class="text-center align-middle">
+                    <button 
+                    class="btn btn-sm btn-secondary saques-link" 
+                    data-recebedor="NomeRecebedor1"
+                    >
+                    <i class="bi bi-currency-dollar"></i> Saques
+                    </button>
+                </td>
+                <!-- Resumo -->
+                <td class="text-center align-middle">
+                    <button 
+                    class="btn btn-sm btn-secondary resumo-link" 
+                    data-recebedor="NomeRecebedor1"
+                    >
+                    <i class="bi bi-file-earmark-text"></i> Resumo
+                    </button>
+                </td>
+                <!-- Liquidações -->
+                <td class="text-center align-middle">
+                    <button 
+                    class="btn btn-sm btn-secondary liquidacoes-link" 
+                    data-recebedor="NomeRecebedor1"
+                    >
+                    <i class="bi bi-wallet2"></i> Liquidações
+                    </button>
+                </td>
+                <!-- Status -->
+                <td class="text-center align-middle">
+                    <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="switchStatusReceb1"
+                        checked
+                    >
+                    </div>
+                </td>
+                <!-- Ações -->
+                <td class="text-center align-middle">
+                    <div class="btn-group d-inline-block mx-auto">
+                    <button 
+                        class="btn btn-outline-info dropdown-toggle btn-sm" 
+                        type="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"
+                    >
+                        Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                        <a 
+                            class="dropdown-item edit-recebedor-link" 
+                            href="#" 
+                            title="Editar"
+                            data-recebedor="NomeRecebedor1"
+                        >
+                            <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item text-danger" href="#" title="Excluir">
+                            <i class="bi bi-trash-fill"></i> Excluir
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                </td>
+                </tr>
+        
+                <!-- Linha 2 (dummy) -->
+                <tr>
+                <td>NomeRecebedor2</td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary saques-link" data-recebedor="NomeRecebedor2">
+                    <i class="bi bi-currency-dollar"></i> Saques
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary resumo-link" data-recebedor="NomeRecebedor2">
+                    <i class="bi bi-file-earmark-text"></i> Resumo
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary liquidacoes-link" data-recebedor="NomeRecebedor2">
+                    <i class="bi bi-wallet2"></i> Liquidações
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="switchStatusReceb2"
+                    >
+                    </div>
+                </td>
+                <td class="text-center align-middle">
+                    <div class="btn-group d-inline-block mx-auto">
+                    <button class="btn btn-outline-info dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                        <a class="dropdown-item edit-recebedor-link" href="#" title="Editar" data-recebedor="NomeRecebedor2">
+                            <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item text-danger" href="#" title="Excluir">
+                            <i class="bi bi-trash-fill"></i> Excluir
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                </td>
+                </tr>
+        
+                <!-- Linha 3 (dummy) -->
+                <tr>
+                <td>NomeRecebedor3</td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary saques-link" data-recebedor="NomeRecebedor3">
+                    <i class="bi bi-currency-dollar"></i> Saques
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary resumo-link" data-recebedor="NomeRecebedor3">
+                    <i class="bi bi-file-earmark-text"></i> Resumo
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary liquidacoes-link" data-recebedor="NomeRecebedor3">
+                    <i class="bi bi-wallet2"></i> Liquidações
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="switchStatusReceb3"
+                    >
+                    </div>
+                </td>
+                <td class="text-center align-middle">
+                    <div class="btn-group d-inline-block mx-auto">
+                    <button class="btn btn-outline-info dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                        <a class="dropdown-item edit-recebedor-link" href="#" title="Editar" data-recebedor="NomeRecebedor3">
+                            <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item text-danger" href="#" title="Excluir">
+                            <i class="bi bi-trash-fill"></i> Excluir
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                </td>
+                </tr>
+        
+                <!-- Linha 4 (dummy) -->
+                <tr>
+                <td>NomeRecebedor4</td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary saques-link" data-recebedor="NomeRecebedor4">
+                    <i class="bi bi-currency-dollar"></i> Saques
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary resumo-link" data-recebedor="NomeRecebedor4">
+                    <i class="bi bi-file-earmark-text"></i> Resumo
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <button class="btn btn-sm btn-secondary liquidacoes-link" data-recebedor="NomeRecebedor4">
+                    <i class="bi bi-wallet2"></i> Liquidações
+                    </button>
+                </td>
+                <td class="text-center align-middle">
+                    <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="switchStatusReceb4"
+                    >
+                    </div>
+                </td>
+                <td class="text-center align-middle">
+                    <div class="btn-group d-inline-block mx-auto">
+                    <button class="btn btn-outline-info dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                        <a class="dropdown-item edit-recebedor-link" href="#" title="Editar" data-recebedor="NomeRecebedor4">
+                            <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item text-danger" href="#" title="Excluir">
+                            <i class="bi bi-trash-fill"></i> Excluir
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+  
+  
+      <!-- Exemplo de Paginação -->
+      <div class="d-flex justify-content-between align-items-center mt-4 mb-1">
+        <nav aria-label="Page navigation">
+          <ul class="pagination pagination mb-0">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">
+                1 <span class="visually-hidden">(página atual)</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">&raquo;</a>
+            </li>
+          </ul>
+        </nav>
+        <small class="text-muted">
+          Mostrando <strong>1 a 10</strong> de <strong>45</strong> recebedores
+        </small>
+      </div>
+    </div>
+  
+    <!-- Rodapé do Card -->
+    <div class="card-footer text-center">
+      <button type="button" class="btn btn-accent" id="botaoAdicionarRecebedorFooter">
+        Adicionar Recebedor
+      </button>
+    </div>
+  </div>
+  

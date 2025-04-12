@@ -1,0 +1,80 @@
+<!-- partials/overlayAddUsuario.html -->
+<div class="card overlay-card" id="addUserCard" style="display: block;">
+    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Adicionar Usuário</h5>
+      <button type="button" class="btn-close" id="closeAddUserCard"></button>
+    </div>
+  
+    <div class="card-body">
+      <h2 class="fs-5">E-mail do usuário ativo</h2>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Digite o email do usuário" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Confirme o email do usuário" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <br>
+  
+      <h2 class="fs-5">Data de expiração</h2>
+      <input type="date" name="expiration_date" class="form-control" id="id_expiration_date">
+      <br>
+  
+      <h2 class="fs-5">Grupos do usuário</h2>
+      <ul class="nav nav-tabs" id="userGroupsTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tab1" data-bs-toggle="tab"
+                  data-bs-target="#groupCheckButtons" type="button" role="tab"
+                  aria-controls="groupCheckButtons" aria-selected="true">
+            Permissão padrão
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab2" data-bs-toggle="tab"
+                  data-bs-target="#groupAccordion" type="button" role="tab"
+                  aria-controls="groupAccordion" aria-selected="false">
+            Permissão exclusiva
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="userGroupsTabContent">
+        <div class="tab-pane fade show active p-3" id="groupCheckButtons" role="tabpanel" aria-labelledby="tab1">
+          <!-- Checkboxes para Permissão Padrão -->
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="consultaPedido">
+            <label class="form-check-label" for="consultaPedido">Consulta pedido</label>
+          </div>
+          <!-- etc... -->
+        </div>
+  
+        <div class="tab-pane fade p-3" id="groupAccordion" role="tabpanel" aria-labelledby="tab2">
+          <!-- Accordions de “Colônia de férias Lagoa”, etc. -->
+          <div class="accordion" id="vacationColoniesAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="coloniaLagoaHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#coloniaLagoa" aria-expanded="false" aria-controls="coloniaLagoa">
+                  Colônia de férias Lagoa
+                </button>
+              </h2>
+              <div id="coloniaLagoa" class="accordion-collapse collapse"
+                   aria-labelledby="coloniaLagoaHeading"
+                   data-bs-parent="#vacationColoniesAccordion">
+                <div class="accordion-body">
+                  <!-- checkboxes... -->
+                </div>
+              </div>
+            </div>
+            <!-- etc... -->
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card-footer">
+      <button type="button" class="btn btn-secondary" id="closeAddUserCardFooter">Fechar</button>
+      <button type="button" class="btn btn-primary">Salvar</button>
+    </div>
+  </div>
+  

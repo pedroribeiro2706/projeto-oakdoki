@@ -1,0 +1,82 @@
+<!-- partials/cardSaquesRecebedores.html -->
+<div class="card mt-2">
+    <div class="card-header">
+      <h3 class="card-title">Saques e antecipações</h3>  
+      <!-- Removido o botão de collapse -->
+    </div>
+  
+    <div class="card-body">
+      <!-- Informações do Recebedor (fora do acordeão) -->
+      <div class="row mb-4">
+        <div class="col-lg-4"><strong>Recebedor</strong></div>
+        <div class="col-lg-2"><strong>Conta</strong></div>
+        <div class="col-lg-2"><strong>Agência</strong></div> 
+        <div class="col-lg-2"><strong>Banco</strong></div> 
+        <div class="col-lg-2"><strong>Tipo</strong></div>
+        <div class="col-lg-12">
+          <hr class="mb-3">
+        </div>
+        <div class="col-lg-4">Adalberto da Rocha Santos</div>
+        <div class="col-lg-2">84011228 - 9</div>
+        <div class="col-lg-2">1 - None</div>
+        <div class="col-lg-2">260</div>
+        <div class="col-lg-2">Conta corrente</div>
+      </div>
+  
+      <!-- Accordion com dois itens: Saldo atual e A receber -->
+      <div class="accordion" id="accordionSaques">
+        <!-- Accordion Item: Saldo Atual -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingSaldo">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSaldo" aria-expanded="true" aria-controls="collapseSaldo">
+              Saldo Atual
+            </button>
+          </h2>
+          <div id="collapseSaldo" class="accordion-collapse collapse show" aria-labelledby="headingSaldo" data-bs-parent="#accordionSaques">
+            <div class="accordion-body">
+              <div class="row">
+                <div class="col-lg-12"><h3>R$0</h3></div>
+                <div class="col-lg-12">Disponível para saque: R$0</div>
+                <div class="col-lg-12 mt-2">
+                  <button class="btn btn-warning">Sacar</button>
+                </div>  
+              </div>                        
+            </div>
+          </div>
+        </div>
+  
+        <!-- Accordion Item: A Receber -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingAReceber">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAReceber" aria-expanded="false" aria-controls="collapseAReceber">
+              A Receber
+            </button>
+          </h2>
+          <div id="collapseAReceber" class="accordion-collapse collapse" aria-labelledby="headingAReceber" data-bs-parent="#accordionSaques">
+            <div class="accordion-body">
+              <form class="form-horizontal" action="" method="post" id="formAntecipar">  
+                <!-- Caso precise de CSRF token -->
+                <div class="row">
+                  <div class="col-lg-12"><h3>R$31.175,47</h3></div>
+                  <div class="col-lg-12">
+                    Antecipe e receba antes! Veja sua disponibilidade:
+                  </div>
+                  <div class="col-lg-12 mt-2">
+                    <button class="btn btn-warning">Antecipar</button>
+                  </div>  
+                </div>
+              </form>           
+            </div>
+          </div>
+        </div>
+      </div> <!-- Fim do accordion -->
+    </div>
+  
+    <!-- Footer com botão Voltar -->
+    <div class="card-footer text-center">
+        <button type="button" class="btn btn-secondary" id="btnVoltarSaquesRecebedor">
+            Voltar
+        </button>
+    </div>
+  </div>
+  

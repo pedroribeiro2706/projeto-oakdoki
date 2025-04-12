@@ -1,0 +1,77 @@
+<!-- partials/cardLiquidacoesRecebedores.html -->
+<div class="card mt-2">
+    <div class="card-header">
+      <h3 class="card-title">Liquidações</h3>
+      <!-- Botão de collapse removido -->
+    </div>
+    <div class="card-body">
+      <div class="container-fluid">
+        <!-- Filtros -->
+        <div class="row">
+          <div class="col-lg-3"> 
+            <div class="form-group">  
+              <label for="date_order_start">Período inicial:</label>
+              <input type="date" maxlength="10" class="form-control" name="date_order_start" id="date_order_start" value="">
+            </div>
+          </div>
+          <div class="col-lg-3"> 
+            <div class="form-group">  
+              <label for="date_order_end">Período final:</label>
+              <input type="date" maxlength="10" class="form-control" name="date_order_end" id="date_order_end" value="">
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">  
+              <label for="num_order">N° do pedido:</label>
+              <input type="text" maxlength="20" class="form-control" name="num_order" id="num_order" value="">
+            </div>
+          </div>
+          <div class="col-lg-3 mt-4">
+            <div class="form-group">
+              <a href="#" class="btn btn-warning">Filtrar</a>
+            </div>
+          </div> 
+          <div class="col-lg-12">
+            <hr class="mb-3">
+          </div>
+        </div>
+  
+        <script>
+          // Aplicar máscara para datas (necessita da biblioteca de máscara)
+          $(document).ready(function(){
+            $("#date_order_start").mask("99/99/9999", {clearIfNotMatch: true});
+            $("#date_order_end").mask("99/99/9999", {clearIfNotMatch: true});
+          });     
+        </script>
+  
+        <!-- Tabela de Liquidações diretamente no card -->
+        <div class="table-responsive mt-3">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 40%;"><strong>Data</strong></th>
+                <th scope="col" style="width: 15%;"><strong>Valor</strong></th>
+                <th scope="col" style="width: 20%;"><strong>N° do pedido</strong></th>
+                <th scope="col" style="width: 15%;"><strong>Parcela</strong></th>
+                <th scope="col" style="width: 10%;"><strong>Status</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Exemplo de linha vazia; preencha dinamicamente conforme necessário -->
+              <tr>
+                <td colspan="5" class="text-center">Nenhuma liquidação encontrada.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+      </div> <!-- /container-fluid -->
+    </div> <!-- /card-body -->
+  
+    <div class="card-footer text-center">
+      <button type="button" class="btn btn-secondary" id="btnVoltarLiquidacoesRecebedores">
+        Voltar
+      </button>
+    </div>
+  </div>
+  

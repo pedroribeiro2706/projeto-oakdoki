@@ -1,0 +1,106 @@
+<!-- partials/cardContratantes.html -->
+<div class="card card-small">
+    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Contratantes</h5>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/conta/maintainorder/create/'">Gerar Pedido</button>
+    </div>
+  
+    <div class="card-body">
+        <form id="formReport" class="row g-3">
+            <div class="col-md-3">
+                <label for="accountstore">Unidade:</label>
+                <select class="form-select" id="accountstore" name="accountstore">
+                    <option value="">Todas as Unidades</option>
+                    <option value="colonia-de-ferias-lagoa">Colônia de férias Lagoa</option>
+                    <option value="colonia-de-ferias-lagoa-crf">Colônia de férias Lagoa - Flamengo</option>
+                    <option value="Colonia-de-ferias-Laranjeiras">Colônia de férias Laranjeiras</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="name_client">Nome:</label>
+                <input type="text" class="form-control" id="name_client">
+            </div>
+            <div class="col-md-2">
+                <label for="phone_client">Telefones:</label>
+                <input type="text" class="form-control" id="phone_client">
+            </div>
+            <div class="col-md-2">
+                <label for="email_client">Email:</label>
+                <input type="text" class="form-control" id="email_client">
+            </div>
+            <div class="col-md-2">
+                <label for="depe_client">Usuários:</label>
+                <input type="text" class="form-control" id="depe_client">
+            </div>
+            <div class="col-md-1 d-flex align-items-end">
+                <button type="button" class="btn btn-warning" onclick="filterBuyers(1)">Filtrar</button>
+            </div>
+        </form>
+  
+        <div class="row g-3 mt-3 align-items-center">
+            <div class="col-md-9">
+                <button type="button" class="btn btn-primary" id="reportBtn">Relatório Detalhado</button>
+            </div>
+            <div class="col-md-3">
+                <label for="qtdBuyers">Qtd contratantes:</label>
+                <select class="form-select" id="qtdBuyers" name="qtdBuyers">
+                    <option value="20">20 Pedidos (padrão)</option>
+                    <option value="30">30 Pedidos</option>
+                    <option value="50">50 Pedidos</option>
+                    <option value="100">100 Pedidos</option>
+                </select>
+            </div>
+        </div>
+  
+        <hr>
+  
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefones</th>
+                        <th>Email</th>
+                        <th>Usuários</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Entradas de dados -->
+                    <tr>
+                        <td>Pedro Ribeiro</td>
+                        <td>21988382498</td>
+                        <td>pedro.clock@gmail.com</td>
+                        <td><!-- Usuários se aplicável --></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paginação -->
+      <div class="d-flex justify-content-between align-items-center mt-4 mb-1">
+        <nav aria-label="Page navigation">
+          <ul class="pagination pagination mb-0">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">
+                1 <span class="visually-hidden">(página atual)</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+          </ul>
+        </nav>
+        <small class="text-muted">
+          Mostrando <strong>1 a 10</strong> de <strong>45</strong> contas
+        </small>
+      </div>
+    </div>
+  
+    <div class="card-footer text-center">
+        <button type="button" class="btn btn-primary">Gerar Pedido</button>
+    </div>
+  </div>
+  

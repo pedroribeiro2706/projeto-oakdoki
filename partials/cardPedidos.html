@@ -1,0 +1,167 @@
+<!-- partials/cardPedidos.html -->
+<div class="card card-small mt-2">
+  <!-- Cabeçalho -->
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Pedidos</h5>
+  </div>
+  
+  <!-- Corpo -->
+  <div class="card-body">
+    <!-- Formulário de filtros -->
+    <form id="formPedidos" class="quick-post-form mb-3">
+      <div class="row g-3">
+        <div class="col-md-3">
+          <label for="accountstore" class="form-label">Unidade:</label>
+          <select class="form-select" name="accountstore" id="accountstore">
+            <option value="">Todas as Unidades</option>
+            <option value="colonia-de-ferias-lagoa">Colônia de férias Lagoa</option>
+            <!-- Outras opções conforme necessário -->
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="statusSelect" class="form-label">Status do pedido:</label>
+          <select class="form-select" name="statusSelect" id="statusSelect">
+            <option value="">Escolha um Status</option>
+            <option value="9">Carrinho</option>
+            <option value="3">Pago - Confirmado</option>
+            <option value="4">Aguardando pagamento</option>
+            <option value="6">Pago - Aguardando aprovação</option>
+            <option value="8">Processando sob análise</option>
+            <option value="5">Cancelado</option>
+            <option value="99">Pagos (Confirmado + Cancelado)</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="num_order" class="form-label">N° do pedido:</label>
+          <input type="text" class="form-control" name="num_order" id="num_order" maxlength="20">
+        </div>
+        <div class="col-md-3">
+          <label for="transationSelect" class="form-label">Natureza da transação:</label>
+          <select class="form-select" name="transationSelect" id="transationSelect">
+            <option value="">Escolha um tipo de transação</option>
+            <option value="0">Orçamento</option>
+            <option value="1">Pedido original</option>
+            <option value="2">Troca</option>
+            <option value="3">Cancelamento parcial</option>
+            <option value="4">Troca e cancelamento parcial</option>
+          </select>
+        </div>
+      </div>
+      <div class="row g-3 mt-3">
+        <div class="col-md-3">
+          <label for="periodoInicial" class="form-label">Período inicial:</label>
+          <input type="date" class="form-control" name="periodoInicial" id="periodoInicial" maxlength="10">
+        </div>
+        <div class="col-md-3">
+          <label for="periodoFinal" class="form-label">Período final:</label>
+          <input type="date" class="form-control" name="periodoFinal" id="periodoFinal" maxlength="10">
+        </div>
+        <div class="col-md-3">
+          <label for="name_client" class="form-label">Nome:</label>
+          <input type="text" class="form-control" name="name_client" id="name_client">
+        </div>
+        <div class="col-md-3">
+          <label for="phoneClient" class="form-label">Telefone celular:</label>
+          <input type="text" class="form-control" name="phoneClient" id="phoneClient">
+        </div>
+      </div>
+      <div class="row g-3 mt-3">
+        <div class="col-md-6 d-flex justify-content-start align-items-end">
+            <button type="button" class="btn btn-secondary me-2" onclick="excelExport()">Exportar Excel</button>
+            <button type="button" class="btn btn-primary" id="reportBtnPedidos">Relatório detalhado</button>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end align-items-end">
+            <div>
+                <label for="qtdOrders" class="form-label">Qtd pedidos:</label>
+                <select class="form-select" name="qtdOrders" id="qtdOrders">
+                    <option value="20" selected>20 Pedidos (padrão)</option>
+                    <option value="30">30 Pedidos</option>
+                    <option value="50">50 Pedidos</option>
+                    <option value="100">100 Pedidos</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-warning ms-2" id="btnFilterPedidos">Filtrar</button>
+        </div>
+      </div>
+    </form>
+    
+    <hr class="my-3" style="border-color: #6c757d;">
+    
+    <div class="table-responsive">
+      <table class="table table-striped table-hover" id="tablePedidos">
+          <thead>
+            <tr class="text-center">
+              <th>Data de transação</th>
+              <th>Unidade</th>
+              <th>Nº do pedido</th>
+              <th>Contratante</th>
+              <th>Mais detalhes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <td>13/01/25 16:16</td>
+              <td>Colônia de férias Lagoa - Flamengo</td>
+              <td><button class="btn btn-secondary btn-sm pedido-link">6369</button></td>
+              <td>Clementino Rodrigues Leal<button class="btn btn-secondary btn-sm ms-2 contratante-link"><i class="bi bi-eye-fill"></i></button></td>
+              <td>
+                <button class="btn btn-outline-info dropdown-toggle btn-sm" data-bs-toggle="collapse" data-bs-target="#detailsRowID">
+                  Detalhes
+                </button>
+              </td>
+            </tr>
+            <tr id="detailsRowID" class="collapse">
+              <td colspan="5">
+                <div class="expandable-details">
+                  <strong>Status:</strong> Orçamento<br>
+                  <hr>
+                  <strong>Forma de pagamento:</strong> Cartão de crédito: R$ 486,19<br>
+                  <hr>
+                  <strong>Serviços:</strong> R$ 605,25<br>
+                  <strong>Complementos:</strong> R$ 36,48<br>
+                  <strong>Taxas:</strong> R$ 60,00<br>
+                  <strong>Total:</strong> R$ 701,73<br>
+                  <hr>
+                  <strong>Descontos:</strong> R$ 0,00<br>
+                  <hr>
+                  <strong>Cancelamentos:</strong> R$ 0,00<br>
+                  <hr>
+                  <strong>Valor pedido:</strong> R$ 629,10<br>
+                </div>
+              </td>
+            </tr>
+            <!-- Repetir para outras linhas -->
+          </tbody>
+      </table>
+    </div>
+  
+  
+    
+    <!-- Paginação -->
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-1">
+      <nav aria-label="Page navigation">
+        <ul class="pagination mb-0">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">«</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#">
+              1 <span class="visually-hidden">(página atual)</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">»</a></li>
+        </ul>
+      </nav>
+      <small class="text-muted">
+        Mostrando <strong>1 a 10</strong> de <strong>45</strong> pedidos
+      </small>
+    </div>
+  </div>
+  
+  <!-- Rodapé (opcional, se precisar de ações adicionais) -->
+  <div class="card-footer d-flex justify-content-center">
+    <!-- Pode ser adicionado algum botão ou deixar vazio -->
+  </div>
+</div>

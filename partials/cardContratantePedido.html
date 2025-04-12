@@ -1,0 +1,541 @@
+<!-- partials/cardContratantePedido.html -->
+
+<div class="card card-small mt-2">
+
+  <!-- Card Header -->
+  <div class="card-header border-bottom">
+    <h5 class="mb-0">Pedidos</h5>
+  </div>
+
+
+  <!-- ################################################################################################### -->
+
+
+  <div class="card-body">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs mb-3" id="orderTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="Detalhes" data-bs-toggle="tab" data-bs-target="#abaDetalhes" type="button"
+          role="tab" aria-controls="detalhes" aria-selected="true">
+          Detalhes
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="Usuarios" data-bs-toggle="tab" data-bs-target="#abaUsuarios" type="button"
+          role="tab" aria-controls="usuarios" aria-selected="false">
+          Usuários
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="Trocar" data-bs-toggle="tab" data-bs-target="#abaTrocar" type="button" role="tab"
+          aria-controls="trocar" aria-selected="false">
+          Trocar
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="Cancelar" data-bs-toggle="tab" data-bs-target="#abaCancelar" type="button"
+          role="tab" aria-controls="cancelar" aria-selected="false">
+          Cancelar
+        </button>
+      </li>
+    </ul>
+
+
+    <!-- ################################################################################################### -->
+
+
+    <!-- Tab panes -->
+    <div class="tab-content" id="orderTabContent">
+
+
+      <!-- ################################################################################################### -->
+
+      <div class="tab-pane fade show active mb-5" id="abaDetalhes" role="tabpanel" aria-labelledby="Detalhes">
+        <!-- Conteúdo do tab Detalhes -->
+        <!-- Este será o conteúdo inicial visível quando o card for acessado através do clique em um número de pedido -->
+        <div class="accordion" id="detalhesAccordion">
+
+          <!-- Detalhes do Contratante -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingDetalhes">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseDetalhes" aria-expanded="true" aria-controls="collapseDetalhes">
+                Informações
+              </button>
+            </h2>
+            <div id="collapseDetalhes" class="accordion-collapse collapse" aria-labelledby="headingDetalhes"
+              data-bs-parent="#detalhesAccordion">
+              <div class="accordion-body" id="detalhesContent">
+
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                      <div class="card-header" style="background-color: #00b8d8; color: white;">Dados pessoais</div>
+                      <div class="card-body text-info">
+                        <p>Contratante: Clementino Rodrigues Leal</p>
+                        <p>Telefone: (21) 3565-7597</p>
+                        <p>Celular: (21) 9865-47523</p>
+                        <p>CPF: 00459530747</p>
+                        <p>Data de nascimento: 23/02/1971</p>
+                        <p>Email: crl.leal@gmail.com</p>
+                      </div>
+                      <!--div class="card-footer bg-primary text-white">
+                            <b>Total parcial: R$ 701,73</b>
+                          </div-->
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                      <div class="card-header" style="background-color: #00b8d8; color: white;">Endereço</div>
+                      <div class="card-body text-info">
+                        <p>Endereço: Estrada Luis de lemos</p>
+                        <p>Número: 156</p>
+                        <p>Complemento: ASFASF</p>
+                        <p>Bairro: Posse</p>
+                        <p>Cidade: Nova Iguaçu</p>
+                        <p>Estado: RJ</p>
+                      </div>
+                      <!--div class="card-footer bg-primary text-white">
+                            <b>Total de descontos: R$ 0,00</b>
+                          </div-->
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center" id="opcoesPagamento">
+                    <div class="col-auto">
+                      <button class="btn btn-primary collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#linkPagamento" aria-expanded="false">
+                        Editar
+                      </button>
+                    </div>
+                    <div class="col-auto">
+                      <button class="btn btn-secondary collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#pagamentoManual" aria-expanded="false">
+                        Trocar senha
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pedidos -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingResumo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseResumo" aria-expanded="false" aria-controls="collapseResumo">
+                Pedidos
+              </button>
+            </h2>
+            <div id="collapseResumo" class="accordion-collapse collapse" aria-labelledby="headingResumo"
+              data-bs-parent="#detalhesAccordion">
+              <div class="accordion-body">
+                <div class="row">
+                  <div class="card-body">
+                    <!-- Colônia de férias Lagoa - Flamengo -->
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="col-sm-10">
+                        <h5>Colônia de férias Lagoa - Flamengo</h5>
+                      </div>
+                      <div class="col-sm-2 text-end">
+                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#flamengoDetails">Detalhes</button>
+                      </div>
+                    </div>
+
+                    <div class="collapse row mt-2 card-body" id="flamengoDetails">
+                      <div class="col-sm-4">
+                        <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                          <div class="card-body text-info">
+                            <div class="mb-3"
+                              style="display: flex; justify-content: space-between; align-items: center;">
+                              <span>Pedido: 25</span>
+                              <a class="btn btn-link p-0" href="#" title="Editar"
+                                style="text-decoration: none; display: block; font-size: .95rem; color: #00b8d8;"
+                                data-account="Gecrear">
+                                <i class="bi bi-pencil-fill" style="color: #00b8d8;"></i> Editar
+                              </a>
+                            </div>
+                            <p>Valor: R$ 1327,84</p>
+                          </div>
+                          <div class="card-footer" style="background-color: #00b8d8; color: white;">
+                            Status: Cancelado
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                          <!--div class="card-header bg-primary text-white">Colônia de férias Lagoa - Flamengo</div-->
+                          <div class="card-body text-info">
+                            <div class="mb-3"
+                              style="display: flex; justify-content: space-between; align-items: center;">
+                              <span>Pedido: 658</span>
+                              <a class="btn btn-link p-0" href="#" title="Editar"
+                                style="text-decoration: none; display: block; font-size: .95rem; color: #00b8d8;"
+                                data-account="Gecrear">
+                                <i class="bi bi-pencil-fill"></i> Editar
+                              </a>
+                            </div>
+                            <p>Valor: R$ 1298,97</p>
+                          </div>
+                          <div class="card-footer" style="background-color: #00b8d8; color: white;">
+                            Status: Aguardando pagamento
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                          <!--div class="card-header bg-primary text-white">Colônia de férias Laranjeiras</div-->
+                          <div class="card-body text-info">
+                            <div class="mb-3"
+                              style="display: flex; justify-content: space-between; align-items: center;">
+                              <span>Pedido: 972</span>
+                              <a class="btn btn-link p-0" href="#" title="Editar"
+                                style="text-decoration: none; display: block; font-size: .95rem; color: #00b8d8;"
+                                data-account="Gecrear">
+                                <i class="bi bi-pencil-fill"></i> Editar
+                              </a>
+                            </div>
+                            <p>Valor: R$ 350,35</p>
+                          </div>
+                          <div class="card-footer" style="background-color: #00b8d8; color: white;">
+                            Status: Processando Sob análise
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Colônia de férias Lagoa -->
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                      <div class="col-sm-10">
+                        <h5>Colônia de férias Lagoa</h5>
+                      </div>
+                      <div class="col-sm-2 text-end">
+                        <button class="btn btn-info btn-sm" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#lagoaDetails">Detalhes</button>
+                      </div>
+                    </div>
+
+                    <div class="collapse row mt-2 card-body" id="lagoaDetails">
+                      <div class="col-sm-4">
+                        <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                          <!--div class="card-header bg-primary text-white">Colônia de férias Laranjeiras</div-->
+                          <div class="card-body text-info">
+                            <div class="mb-3"
+                              style="display: flex; justify-content: space-between; align-items: center;">
+                              <span>Pedido: 197</span>
+                              <a class="btn btn-link p-0" href="#" title="Editar"
+                                style="text-decoration: none; display: block; font-size: .95rem; color: #00b8d8;"
+                                data-account="Gecrear">
+                                <i class="bi bi-pencil-fill"></i> Editar
+                              </a>
+                            </div>
+                            <p>Valor: R$ 350,35</p>
+                          </div>
+                          <div class="card-footer" style="background-color: #00b8d8; color: white;">
+                            Status: Processando Sob análise
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Usuários -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPagamento">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsePagamento" aria-expanded="false" aria-controls="collapsePagamento">
+                Usuários
+              </button>
+            </h2>
+            <div id="collapsePagamento" class="accordion-collapse collapse" aria-labelledby="headingPagamento"
+              data-bs-parent="#detalhesAccordion">
+              <div class="accordion-body">
+                <div class="table-responsive mt-3" style="min-height: 200px;">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="width: 50%;">Nome</th>
+                        <th scope="col" style="width: 25%;" class="text-center">Data de nascimento</th>
+                        <th scope="col" style="width: 25%;" class="text-center">Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Filipi</td>
+                        <td class="text-center align-middle">23/02/2020</td>
+                        <td class="text-center align-middle">
+                          <div class="btn-group d-inline-block mx-auto">
+                            <button class="btn btn-outline-info dropdown-toggle btn-sm" type="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">
+                              Selecione
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a class="dropdown-item edit-account-link" href="#" title="Editar"
+                                  data-account="Filipi">
+                                  <i class="bi bi-pencil-fill"></i> Editar
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item text-danger" href="#" title="Excluir">
+                                  <i class="bi bi-trash-fill"></i> Excluir
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Fabricio</td>
+                        <td class="text-center align-middle">31/12/2020</td>
+                        <td class="text-center align-middle">
+                          <div class="btn-group d-inline-block mx-auto">
+                            <button class="btn btn-outline-info dropdown-toggle btn-sm" type="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">
+                              Selecione
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a class="dropdown-item edit-account-link" href="#" title="Editar"
+                                  data-account="Fabricio">
+                                  <i class="bi bi-pencil-fill"></i> Editar
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item text-danger" href="#" title="Excluir">
+                                  <i class="bi bi-trash-fill"></i> Excluir
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-4 mb-1">
+                  <nav aria-label="Page navigation">
+                    <ul class="pagination mb-0">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">«</a>
+                      </li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">»</a></li>
+                    </ul>
+                  </nav>
+                  <small class="text-muted">
+                    Mostrando <strong>1 a 10</strong> de <strong>45</strong> usuários
+                  </small>
+                </div>
+
+                <div class="card-footer text-center">
+                  <button type="button" class="btn btn-primary" id="botaoAdicionarUsuarioFooter">
+                    Adicionar usuário
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ################################################################################################### -->
+
+
+      <div class="tab-pane fade show mb-5" id="abaUsuarios" role="tabpanel" aria-labelledby="Usuarios">
+          <!-- Conteúdo do tab Usuários -->
+          <!-- Este será o conteúdo inicial visível quando o card for acessado através do clique em um número de pedido -->
+          <div class="accordion" id="usuarios">
+
+            <!-- Informações do Contratante -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingInfoUsuarios">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseInfoUsuarios" aria-expanded="true" aria-controls="collapseInfoUsuarios">
+                  Informações
+                </button>
+              </h2>
+              <div id="collapseInfoUsuarios" class="accordion-collapse collapse" aria-labelledby="headingInfoUsuarios"
+                data-bs-parent="#InfoUsuariosAccordion">
+                <div class="accordion-body" id="InfoUsuariosContent">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                      <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                        <div class="card-header" style="background-color: #00b8d8; color: white;">Dados pessoais</div>
+                        <div class="card-body text-info">
+                          <div class="d-flex">
+                            <span class="flex-fill">Contratante: Clementino Rodrigues Leal</span>
+                            <span class="flex-fill">Telefone: (21) 3565-7597</span>
+                          </div>
+                          <div class="d-flex mt-2">
+                            <span class="flex-fill">Email: crl.leal@gmail.com</span>
+                            <span class="flex-fill">Saldo: R$0,00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center" id="opcoesPagamento">
+                    <div class="col-auto">
+                      <button class="btn btn-secondary collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#pagamentoManual" aria-expanded="false">
+                        Trocar senha
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Edição de usuários -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEditarUsuario">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseEditarUsuario" aria-expanded="false" aria-controls="collapseResumo">
+                  Editar usuários
+                </button>
+              </h2>
+              <div id="collapseEditarUsuario" class="accordion-collapse collapse" aria-labelledby="headingEditarUsuario"
+                data-bs-parent="#detalhesAccordion">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="card-body">
+                      <div class="card mt-2">
+                        <form id="formUsuario" method="POST">
+                          <div class="card-body">
+                            <!-- Dropdown para selecionar o nome -->
+                            <div class="mb-3">
+                              <label for="selectNome" class="form-label">Selecione o nome:</label>
+                              <select id="selectNome" class="form-select">
+                                <option value="">Selecione uma opção</option>
+                                <option value="Fabrício">Fabrício</option>
+                                <option value="Fabrício">José</option>
+                                <option value="Fabrício">Oswaldo</option>
+                                <!-- Outras opções podem ser adicionadas aqui -->
+                              </select>
+                            </div>
+
+                            <!-- Container dos campos adicionais (inicialmente oculto) -->
+                            <div id="dadosForm" class="d-none">
+                              <!-- Linha 1: Nome e Data de nascimento -->
+                              <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                  <label for="inputNome" class="form-label">Nome</label>
+                                  <input type="text" class="form-control" id="inputNome" value="Fabrício">
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                  <label for="inputNascimento" class="form-label">Data de nascimento</label>
+                                  <input type="text" class="form-control" id="inputNascimento" value="06/01/2020">
+                                </div>
+                              </div>
+                              <!-- Linha 2: Email e Escola -->
+                              <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                  <label for="inputEmail" class="form-label">Email</label>
+                                  <input type="email" class="form-control" id="inputEmail" value="crl.leal@gmail.com">
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                  <label for="inputEscola" class="form-label">Escola</label>
+                                  <input type="text" class="form-control" id="inputEscola" value="Santo Inácio">
+                                </div>
+                              </div>
+                              <!-- Linha 3: Cuidados Especiais (textarea com largura total) -->
+                              <div class="row">
+                                <div class="col-12 mb-3">
+                                  <label for="inputCuidados" class="form-label">Cuidados Especiais</label>
+                                  <textarea class="form-control" id="inputCuidados" rows="3">nenhum</textarea>
+                                </div>
+                              </div>
+
+                              <hr>
+
+                              <!-- Seção Responsáveis -->
+                              <h5>Responsáveis</h5>
+                              <!-- Linha 1: Nome e Parentesco ou relação -->
+                              <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                  <label for="inputResponsavelNome" class="form-label">Nome</label>
+                                  <input type="text" class="form-control" id="inputResponsavelNome"
+                                    value="Clementino Rodrigues Leal">
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                  <label for="inputParentesco" class="form-label">Parentesco ou relação</label>
+                                  <input type="text" class="form-control" id="inputParentesco" value="Pai">
+                                </div>
+                              </div>
+                              <!-- Linha 2: Código do país, Telefone celular e Documento -->
+                              <div class="row">
+                                <div class="col-lg-4 mb-3">
+                                  <label for="inputCodPais" class="form-label">Código do país</label>
+                                  <input type="text" class="form-control" id="inputCodPais" value="49" maxlength="2">
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                  <label for="inputTelefone" class="form-label">Telefone celular</label>
+                                  <input type="text" class="form-control" id="inputTelefone" value="21 98654752">
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                  <label for="inputDocumento" class="form-label">Documento</label>
+                                  <input type="text" class="form-control" id="inputDocumento" value="00459530747">
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Fim do container dos campos adicionais -->
+                          </div>
+
+                          <!-- Botões no rodapé do card -->
+                          <div class="card-footer d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary btn-sm me-2" id="btnAdicionarResponsavel">
+                              Adicionar responsável
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" id="btnExcluirResponsavel">
+                              Excluir responsável
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          
+      </div>
+
+      <!-- ################################################################################################### -->
+
+
+      <div class="tab-pane fade show mb-5" id="abaTrocar" role="tabpanel" aria-labelledby="Trocar">
+        <h7 style="color: grey;">Esta tela já está definida na outra aba.</h7>
+      </div>
+
+
+    <!-- ################################################################################################### -->
+
+
+      <div class="tab-pane fade show mb-5" id="abaCancelar" role="tabpanel" aria-labelledby="Cancelar">
+        <h7 style="color: grey;">Esta tela já está definida na outra aba.</h7>
+      </div>
+
+    </div>
+  </div>
+</div>
