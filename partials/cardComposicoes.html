@@ -1,0 +1,219 @@
+<!-- partials/cardComposicoes.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Composições</h5>
+    <button class="btn btn-accent" id="botaoAdicionarComposicao">Adicionar Composição</button>
+  </div>
+  
+  <div class="card-body">
+    <!-- Abas para as diferentes seções -->
+    <ul class="nav nav-tabs" id="composicoesTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="horarios-tab" data-bs-toggle="tab" data-bs-target="#horarios" type="button" role="tab" aria-controls="horarios" aria-selected="true">Horários</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="prazos-tab" data-bs-toggle="tab" data-bs-target="#prazos" type="button" role="tab" aria-controls="prazos" aria-selected="false">Prazos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="servicos-tab" data-bs-toggle="tab" data-bs-target="#servicos" type="button" role="tab" aria-controls="servicos" aria-selected="false">Serviços</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="composicoes-tab" data-bs-toggle="tab" data-bs-target="#composicoes" type="button" role="tab" aria-controls="composicoes" aria-selected="false">Composições</button>
+      </li>
+    </ul>
+    
+    <!-- Conteúdo das abas -->
+    <div class="tab-content mt-3" id="composicoesTabContent">
+      <!-- Aba de Horários -->
+      <div class="tab-pane fade show active" id="horarios" role="tabpanel" aria-labelledby="horarios-tab">
+        <div class="d-flex justify-content-between mb-3">
+          <h6>Gerenciamento de Horários</h6>
+          <button class="btn btn-sm btn-primary" id="btnAdicionarHorario">Adicionar Horário</button>
+        </div>
+        
+        <!-- Formulário de busca/filtro -->
+        <form class="quick-post-form mb-3">
+          <div class="form-group d-flex align-items-center gap-3">
+            <input type="text" class="form-control" placeholder="Procurar horário">
+            <select class="form-select form-select-sm" style="max-width: 130px;">
+              <option selected>Todos</option>
+              <option value="1">Manhã</option>
+              <option value="2">Tarde</option>
+              <option value="3">Integral</option>
+            </select>
+          </div>
+        </form>
+        
+        <!-- Espaço reservado para a tabela de horários -->
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th>Horário</th>
+                <th>Tipo</th>
+                <th class="text-center">Ativo</th>
+                <th class="text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Conteúdo será adicionado posteriormente -->
+              <tr>
+                <td colspan="5" class="text-center text-muted">Conteúdo da aba Horários será adicionado posteriormente</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Aba de Prazos -->
+      <div class="tab-pane fade" id="prazos" role="tabpanel" aria-labelledby="prazos-tab">
+        <div class="d-flex justify-content-between mb-3">
+          <h6>Gerenciamento de Prazos</h6>
+          <button class="btn btn-sm btn-primary" id="btnAdicionarPrazo">Adicionar Prazo</button>
+        </div>
+        
+        <!-- Formulário de busca/filtro -->
+        <form class="quick-post-form mb-3">
+          <div class="form-group d-flex align-items-center gap-3">
+            <input type="text" class="form-control" placeholder="Procurar prazo">
+            <select class="form-select form-select-sm" style="max-width: 130px;">
+              <option selected>Todos</option>
+              <option value="1">Diário</option>
+              <option value="2">Semanal</option>
+              <option value="3">Mensal</option>
+            </select>
+          </div>
+        </form>
+        
+        <!-- Espaço reservado para a tabela de prazos -->
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th>Período</th>
+                <th>Duração</th>
+                <th class="text-center">Ativo</th>
+                <th class="text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Conteúdo será adicionado posteriormente -->
+              <tr>
+                <td colspan="5" class="text-center text-muted">Conteúdo da aba Prazos será adicionado posteriormente</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Aba de Serviços -->
+      <div class="tab-pane fade" id="servicos" role="tabpanel" aria-labelledby="servicos-tab">
+        <div class="d-flex justify-content-between mb-3">
+          <h6>Gerenciamento de Serviços</h6>
+          <button class="btn btn-sm btn-primary" id="btnAdicionarServico">Adicionar Serviço</button>
+        </div>
+        
+        <!-- Formulário de busca/filtro -->
+        <form class="quick-post-form mb-3">
+          <div class="form-group d-flex align-items-center gap-3">
+            <input type="text" class="form-control" placeholder="Procurar serviço">
+            <select class="form-select form-select-sm" style="max-width: 130px;">
+              <option selected>Todos</option>
+              <option value="1">Colônia</option>
+              <option value="2">Festa</option>
+              <option value="3">Passeio</option>
+            </select>
+          </div>
+        </form>
+        
+        <!-- Espaço reservado para a tabela de serviços -->
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Unidade</th>
+                <th class="text-center">Ativo</th>
+                <th class="text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Conteúdo será adicionado posteriormente -->
+              <tr>
+                <td colspan="5" class="text-center text-muted">Conteúdo da aba Serviços será adicionado posteriormente</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Aba de Composições -->
+      <div class="tab-pane fade" id="composicoes" role="tabpanel" aria-labelledby="composicoes-tab">
+        <div class="d-flex justify-content-between mb-3">
+          <h6>Gerenciamento de Composições</h6>
+          <button class="btn btn-sm btn-primary" id="btnAdicionarComposicaoTab">Adicionar Composição</button>
+        </div>
+        
+        <!-- Formulário de busca/filtro -->
+        <form class="quick-post-form mb-3">
+          <div class="form-group d-flex align-items-center gap-3">
+            <input type="text" class="form-control" placeholder="Procurar composição">
+            <select class="form-select form-select-sm" style="max-width: 130px;">
+              <option selected>Todas</option>
+              <option value="1">Verão</option>
+              <option value="2">Inverno</option>
+              <option value="3">Especial</option>
+            </select>
+          </div>
+        </form>
+        
+        <!-- Espaço reservado para a tabela de composições -->
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Serviço</th>
+                <th>Horário</th>
+                <th>Prazo</th>
+                <th class="text-center">Ativo</th>
+                <th class="text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Conteúdo será adicionado posteriormente -->
+              <tr>
+                <td colspan="6" class="text-center text-muted">Conteúdo da aba Composições será adicionado posteriormente</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer com paginação -->
+  <div class="card-footer d-flex justify-content-between align-items-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination pagination-sm mb-0">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="#">
+            1 <span class="visually-hidden">(página atual)</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+      </ul>
+    </nav>
+    <small class="text-muted" id="composicoesCounter">
+      Mostrando <strong>1 a 10</strong> de <strong>25</strong> itens
+    </small>
+  </div>
+</div>

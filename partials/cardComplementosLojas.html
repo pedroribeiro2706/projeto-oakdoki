@@ -1,0 +1,417 @@
+<!-- partials/cardComplementosLojas.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Complementos Lojas</h5>
+    <div>
+      <button class="btn btn-primary" id="btnAdicionarComplemento">Adicionar Complemento</button>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <!-- Abas para as diferentes seções -->
+    <ul class="nav nav-tabs" id="complementosTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="cadastrados-tab" data-bs-toggle="tab" data-bs-target="#cadastrados" type="button" role="tab" aria-controls="cadastrados" aria-selected="true">Complementos cadastrados</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="ordenar-tab" data-bs-toggle="tab" data-bs-target="#ordenar" type="button" role="tab" aria-controls="ordenar" aria-selected="false">Ordenar complementos</button>
+      </li>
+    </ul>
+    
+    <!-- Conteúdo das abas -->
+    <div class="tab-content mt-3" id="complementosTabContent">
+      <!-- Aba de Complementos Cadastrados -->
+      <div class="tab-pane fade show active" id="cadastrados" role="tabpanel" aria-labelledby="cadastrados-tab">
+        <!-- Formulário de busca/filtro -->
+        <form class="quick-post-form mb-3">
+          <div class="form-group d-flex align-items-center gap-3">
+            <input type="text" class="form-control" placeholder="Procurar complemento">
+            <select class="form-select form-select-sm" style="max-width: 130px;">
+              <option selected>Ativos</option>
+              <option value="1">Inativos</option>
+            </select>
+            <select class="form-select form-select-sm" style="max-width: 130px;">
+              <option selected>10 por página</option>
+              <option value="1">25 por página</option>
+              <option value="1">50 por página</option>
+              <option value="1">100 por página</option>
+            </select>
+          </div>
+        </form>
+        
+        <!-- Tabela de complementos cadastrados -->
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 45%;">
+                  Nome complemento
+                  <button class="btn btn-sm btn-link sort-btn" data-column="0">
+                    <i class="bi bi-caret-up-fill"></i>
+                    <i class="bi bi-caret-down-fill"></i>
+                  </button>
+                </th>
+                <th scope="col" style="width: 25%;">
+                  Preço
+                  <button class="btn btn-sm btn-link sort-btn" data-column="1">
+                    <i class="bi bi-caret-up-fill"></i>
+                    <i class="bi bi-caret-down-fill"></i>
+                  </button>
+                </th>
+                <th scope="col" class="text-center" style="width: 15%;">Ativo</th>
+                <th scope="col" class="text-center" style="width: 15%;">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Exemplo de linha: Lanche da manhã -->
+              <tr>
+                <td>Lanche da manhã</td>
+                <td>R$ 17,72</td>
+                <td class="text-center align-middle">
+                  <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                      class="form-check-input" 
+                      type="checkbox" 
+                      role="switch" 
+                      id="switchStatusLanche" 
+                      checked
+                    >
+                  </div>
+                </td>
+                <td class="text-center align-middle">
+                  <div class="btn-group d-inline-block mx-auto">
+                    <button 
+                      class="btn btn-outline-info dropdown-toggle btn-sm" 
+                      type="button" 
+                      data-bs-toggle="dropdown" 
+                      aria-expanded="false"
+                    >
+                      Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a 
+                          class="dropdown-item edit-complemento-link" 
+                          href="#" 
+                          title="Editar" 
+                          data-complemento="Lanche da manhã"
+                        >
+                          <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item delete-complemento-link" href="#" title="Excluir">
+                          <i class="bi bi-trash"></i> Excluir
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Exemplo de linha: Almoço -->
+              <tr>
+                <td>Almoço</td>
+                <td>R$ 36,48</td>
+                <td class="text-center align-middle">
+                  <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                      class="form-check-input" 
+                      type="checkbox" 
+                      role="switch" 
+                      id="switchStatusAlmoco" 
+                      checked
+                    >
+                  </div>
+                </td>
+                <td class="text-center align-middle">
+                  <div class="btn-group d-inline-block mx-auto">
+                    <button 
+                      class="btn btn-outline-info dropdown-toggle btn-sm" 
+                      type="button" 
+                      data-bs-toggle="dropdown" 
+                      aria-expanded="false"
+                    >
+                      Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a 
+                          class="dropdown-item edit-complemento-link" 
+                          href="#" 
+                          title="Editar"
+                          data-complemento="Almoço"
+                        >
+                          <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item delete-complemento-link" href="#" title="Excluir">
+                          <i class="bi bi-trash"></i> Excluir
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Exemplo de linha: Lanche da tarde -->
+              <tr>
+                <td>Lanche da tarde</td>
+                <td>R$ 17,72</td>
+                <td class="text-center align-middle">
+                  <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                      class="form-check-input" 
+                      type="checkbox" 
+                      role="switch" 
+                      id="switchStatusLancheTarde" 
+                      checked
+                    >
+                  </div>
+                </td>
+                <td class="text-center align-middle">
+                  <div class="btn-group d-inline-block mx-auto">
+                    <button 
+                      class="btn btn-outline-info dropdown-toggle btn-sm" 
+                      type="button" 
+                      data-bs-toggle="dropdown" 
+                      aria-expanded="false"
+                    >
+                      Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a 
+                          class="dropdown-item edit-complemento-link" 
+                          href="#" 
+                          title="Editar"
+                          data-complemento="Lanche da tarde"
+                        >
+                          <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item delete-complemento-link" href="#" title="Excluir">
+                          <i class="bi bi-trash"></i> Excluir
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Exemplo de linha: Jantar -->
+              <tr>
+                <td>Jantar</td>
+                <td>R$ 36,48</td>
+                <td class="text-center align-middle">
+                  <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                      class="form-check-input" 
+                      type="checkbox" 
+                      role="switch" 
+                      id="switchStatusJantar" 
+                      checked
+                    >
+                  </div>
+                </td>
+                <td class="text-center align-middle">
+                  <div class="btn-group d-inline-block mx-auto">
+                    <button 
+                      class="btn btn-outline-info dropdown-toggle btn-sm" 
+                      type="button" 
+                      data-bs-toggle="dropdown" 
+                      aria-expanded="false"
+                    >
+                      Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a 
+                          class="dropdown-item edit-complemento-link" 
+                          href="#" 
+                          title="Editar"
+                          data-complemento="Jantar"
+                        >
+                          <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item delete-complemento-link" href="#" title="Excluir">
+                          <i class="bi bi-trash"></i> Excluir
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Exemplo de linha: Som e operador de som -->
+              <tr>
+                <td>Som e operador de som</td>
+                <td>R$ 366,67</td>
+                <td class="text-center align-middle">
+                  <div class="form-check form-switch d-inline-block mx-auto">
+                    <input 
+                      class="form-check-input" 
+                      type="checkbox" 
+                      role="switch" 
+                      id="switchStatusSom" 
+                      checked
+                    >
+                  </div>
+                </td>
+                <td class="text-center align-middle">
+                  <div class="btn-group d-inline-block mx-auto">
+                    <button 
+                      class="btn btn-outline-info dropdown-toggle btn-sm" 
+                      type="button" 
+                      data-bs-toggle="dropdown" 
+                      aria-expanded="false"
+                    >
+                      Selecione
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a 
+                          class="dropdown-item edit-complemento-link" 
+                          href="#" 
+                          title="Editar"
+                          data-complemento="Som e operador de som"
+                        >
+                          <i class="bi bi-pencil-fill"></i> Editar
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item delete-complemento-link" href="#" title="Excluir">
+                          <i class="bi bi-trash"></i> Excluir
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Paginação -->
+        <div class="d-flex justify-content-between align-items-center mt-4 mb-1">
+          <nav aria-label="Page navigation">
+            <ul class="pagination pagination mb-0">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">
+                  1 <span class="visually-hidden">(página atual)</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+            </ul>
+          </nav>
+          <small class="text-muted">
+            Mostrando <strong>1 a 10</strong> de <strong>25</strong> complementos
+          </small>
+        </div>
+      </div>
+      
+      <!-- Aba de Ordenar Complementos -->
+      <div class="tab-pane fade" id="ordenar" role="tabpanel" aria-labelledby="ordenar-tab">
+        <div class="container-fluid">
+          <p class="text-muted mb-3">Arraste os itens para reordenar os complementos conforme desejado.</p>
+          
+          <!-- Cabeçalho da lista -->
+          <div class="list-group">
+            <div class="list-group-item">
+              <div class="row">
+                <div class="col-lg-10">
+                  Nome
+                </div>
+                <div class="col-lg-2">
+                  Ativo
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Lista ordenável -->
+          <div class="list-group mt-2 ui-sortable" id="sortable">
+            <!-- Item: Lanche da manhã -->
+            <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+              <div class="row">
+                <input type="hidden" name="order-rD6eWwNaXyqBXbYP">
+                <div class="col-lg-10">
+                  Lanche da manhã
+                </div>
+                <div class="col-lg-2">
+                  Sim
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item: Almoço -->
+            <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+              <div class="row">
+                <input type="hidden" name="order-v2n1lBNLdNbwJz68">
+                <div class="col-lg-10">
+                  Almoço
+                </div>
+                <div class="col-lg-2">
+                  Sim
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item: Lanche da tarde -->
+            <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+              <div class="row">
+                <input type="hidden" name="order-zEL02ky5qy1pqr3d">
+                <div class="col-lg-10">
+                  Lanche da tarde
+                </div>
+                <div class="col-lg-2">
+                  Sim
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item: Jantar -->
+            <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+              <div class="row">
+                <input type="hidden" name="order-XWoe6J7mRyDYBb2n">
+                <div class="col-lg-10">
+                  Jantar
+                </div>
+                <div class="col-lg-2">
+                  Sim
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item: Som e operador de som -->
+            <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+              <div class="row">
+                <input type="hidden" name="order-0epO1n72gJyG8rMB">
+                <div class="col-lg-10">
+                  Som e operador de som
+                </div>
+                <div class="col-lg-2">
+                  Sim
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-footer text-center">
+    <button type="button" class="btn btn-warning me-2" id="btnSalvar">Salvar</button>
+    <button type="button" class="btn btn-primary" id="btnAdicionarComplementoFooter">Adicionar Complemento</button>
+  </div>
+</div>

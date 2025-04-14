@@ -1,0 +1,137 @@
+<!-- partials/cardComplementoEdit.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Editar Complemento</h5>
+    <div>
+      <button class="btn btn-outline-secondary me-2" id="btnVoltarComplementoEditHeader">Voltar</button>
+      <button class="btn btn-success" id="btnSalvarComplementoEditHeader">Salvar</button>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="nomeComplemento" class="form-label">Nome do Complemento*</label>
+          <input type="text" class="form-control" id="nomeComplemento" value="Lanche da manhã" required>
+        </div>
+        <div class="col-md-6">
+          <label for="precoComplemento" class="form-label">Preço*</label>
+          <div class="input-group">
+            <span class="input-group-text">R$</span>
+            <input type="text" class="form-control" id="precoComplemento" value="15,00" required>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="categoriaComplemento" class="form-label">Categoria</label>
+          <select class="form-select" id="categoriaComplemento">
+            <option value="">Selecione uma categoria</option>
+            <option value="alimentacao" selected>Alimentação</option>
+            <option value="servicos">Serviços</option>
+            <option value="estrutura">Estrutura</option>
+            <option value="entretenimento">Entretenimento</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="unidadeComplemento" class="form-label">Unidade</label>
+          <select class="form-select" id="unidadeComplemento">
+            <option value="">Selecione uma unidade</option>
+            <option value="1" selected>Colônia de férias Lagoa - Flamengo</option>
+            <option value="2">Colônia de férias Laranjeiras</option>
+            <option value="3">Colônia de férias Tijuca</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <label for="descricaoComplemento" class="form-label">Descrição</label>
+          <textarea class="form-control" id="descricaoComplemento" rows="3">Lanche da manhã com frutas, suco e sanduíche natural.</textarea>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="switchLimitarQuantidade" checked>
+            <label class="form-check-label" for="switchLimitarQuantidade">Limitar quantidade</label>
+          </div>
+          <div class="mt-2" id="limitarQuantidadeContainer">
+            <label for="quantidadeMaxima" class="form-label">Quantidade máxima</label>
+            <input type="number" class="form-control" id="quantidadeMaxima" min="1" value="1">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="switchComplementoAtivo" checked>
+            <label class="form-check-label" for="switchComplementoAtivo">Complemento ativo</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              Disponibilidade
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxSegunda" checked>
+                    <label class="form-check-label" for="checkboxSegunda">Segunda-feira</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxTerca" checked>
+                    <label class="form-check-label" for="checkboxTerca">Terça-feira</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxQuarta" checked>
+                    <label class="form-check-label" for="checkboxQuarta">Quarta-feira</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxQuinta" checked>
+                    <label class="form-check-label" for="checkboxQuinta">Quinta-feira</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxSexta" checked>
+                    <label class="form-check-label" for="checkboxSexta">Sexta-feira</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxSabado">
+                    <label class="form-check-label" for="checkboxSabado">Sábado</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxDomingo">
+                    <label class="form-check-label" for="checkboxDomingo">Domingo</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkboxFeriados">
+                    <label class="form-check-label" for="checkboxFeriados">Feriados</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <button type="button" class="btn btn-sm btn-outline-primary" id="btnSelecionarTodos">Selecionar todos</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="btnDesmarcarTodos">Desmarcar todos</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <div class="card-footer d-flex justify-content-between">
+    <button type="button" class="btn btn-outline-secondary" id="btnVoltarComplementoEditFooter">Voltar</button>
+    <button type="button" class="btn btn-success" id="btnSalvarComplementoEditFooter">Salvar</button>
+  </div>
+</div>

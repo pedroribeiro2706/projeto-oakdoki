@@ -52,10 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardContratantesAtendimentoPlaceholder = document.getElementById('cardContratantesAtendimentoPlaceholder');
     const cardUsuariosAtendimentoPlaceholder  = document.getElementById('cardUsuariosAtendimentoPlaceholder');
     const cardUnidadesPlaceholder             = document.getElementById('cardUnidadesPlaceholder');
-    const cardHorariosPlaceholder             = document.getElementById('cardHorariosPlaceholder');
     const cardComposicoesPlaceholder          = document.getElementById('cardComposicoesPlaceholder');
-    const cardPrazosPlaceholder               = document.getElementById('cardPrazosPlaceholder');
-    const cardServicosPlaceholder             = document.getElementById('cardServicosPlaceholder');
     const cardComplementosLojasPlaceholder    = document.getElementById('cardComplementosLojasPlaceholder');
     const cardFormulariosPlaceholder          = document.getElementById('cardFormulariosPlaceholder');
     const cardTermosDeUsoPlaceholder          = document.getElementById('cardTermosDeUsoPlaceholder');
@@ -89,10 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (cardContratantesAtendimentoPlaceholder) cardContratantesAtendimentoPlaceholder.innerHTML = '';
       if (cardUsuariosAtendimentoPlaceholder) cardUsuariosAtendimentoPlaceholder.innerHTML = '';
       if (cardUnidadesPlaceholder) cardUnidadesPlaceholder.innerHTML = '';
-      if (cardHorariosPlaceholder) cardHorariosPlaceholder.innerHTML = '';
       if (cardComposicoesPlaceholder) cardComposicoesPlaceholder.innerHTML = '';
-      if (cardPrazosPlaceholder) cardPrazosPlaceholder.innerHTML = '';
-      if (cardServicosPlaceholder) cardServicosPlaceholder.innerHTML = '';
       if (cardComplementosLojasPlaceholder) cardComplementosLojasPlaceholder.innerHTML = '';
       if (cardFormulariosPlaceholder) cardFormulariosPlaceholder.innerHTML = '';
       if (cardTermosDeUsoPlaceholder) cardTermosDeUsoPlaceholder.innerHTML = '';
@@ -576,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (btnSalvarHeader) {
         btnSalvarHeader.addEventListener('click', (evt) => {
           evt.preventDefault();
-          alert("Conta " + accountName + " editada (protótipo).");
+          alert("Conta " + accountName + " editada com sucesso (protótipo).");
           fetch('partials/cardContas.html')
             .then(r => r.text())
             .then(html => {
@@ -607,7 +601,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (btnSalvarFooter) {
         btnSalvarFooter.addEventListener('click', (evt) => {
           evt.preventDefault();
-          alert("Conta " + accountName + " editada (protótipo).");
+          alert("Conta " + accountName + " editada com sucesso (protótipo).");
           fetch('partials/cardContas.html')
             .then(r => r.text())
             .then(html => {
@@ -1241,7 +1235,6 @@ function toggleDetail(button) {
 }
 
 
-
 // Abas do Detalhes pedidos
 const detalhesButton = document.querySelector('#headingDetalhes .accordion-button');
 detalhesButton.addEventListener('click', function() {
@@ -1356,10 +1349,7 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
     // Menu nível 02 ConfigLojas
     function setupMenuConfigLojas() {
       const menuUnidades = document.getElementById('menuUnidades');
-      const menuHorarios = document.getElementById('menuHorarios');
       const menuComposicoes = document.getElementById('menuComposicoes');
-      const menuPrazos = document.getElementById('menuPrazos');
-      const menuServicos = document.getElementById('menuServicos');
       const menuComplementosLojas = document.getElementById('menuComplementosLojas');
       const menuFormularios = document.getElementById('menuFormularios');
       const menuTermosDeUso = document.getElementById('menuTermosDeUso');
@@ -1388,22 +1378,9 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
             .then(r => r.text())
             .then(html => {
               document.getElementById('cardUnidadesPlaceholder').innerHTML = html;
+              setupCardUnidadesEvents();
             })
             .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
-        });
-      }
-
-      if (menuHorarios) {
-        menuHorarios.addEventListener('click', (e) => {
-          e.preventDefault();
-          atualizarAtivo(menuHorarios);
-          clearAllCards();
-          fetch('partials/cardHorarios.html')
-            .then(r => r.text())
-            .then(html => {
-              document.getElementById('cardHorariosPlaceholder').innerHTML = html;
-            })
-            .catch(err => console.error('Erro ao carregar cardHorarios.html:', err));
         });
       }
 
@@ -1416,36 +1393,9 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
             .then(r => r.text())
             .then(html => {
               document.getElementById('cardComposicoesPlaceholder').innerHTML = html;
+              setupCardComposicoesEvents();
             })
             .catch(err => console.error('Erro ao carregar cardComposicoes.html:', err));
-        });
-      }
-
-      if (menuPrazos) {
-        menuPrazos.addEventListener('click', (e) => {
-          e.preventDefault();
-          atualizarAtivo(menuPrazos);
-          clearAllCards();
-          fetch('partials/cardPrazos.html')
-            .then(r => r.text())
-            .then(html => {
-              document.getElementById('cardPrazosPlaceholder').innerHTML = html;
-            })
-            .catch(err => console.error('Erro ao carregar cardPrazos.html:', err));
-        });
-      }
-
-      if (menuServicos) {
-        menuServicos.addEventListener('click', (e) => {
-          e.preventDefault();
-          atualizarAtivo(menuServicos);
-          clearAllCards();
-          fetch('partials/cardServicos.html')
-            .then(r => r.text())
-            .then(html => {
-              document.getElementById('cardServicosPlaceholder').innerHTML = html;
-            })
-            .catch(err => console.error('Erro ao carregar cardServicos.html:', err));
         });
       }
 
@@ -1458,6 +1408,7 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
             .then(r => r.text())
             .then(html => {
               document.getElementById('cardComplementosLojasPlaceholder').innerHTML = html;
+              setupCardComplementosLojasEvents();
             })
             .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
         });
@@ -1583,7 +1534,7 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
 }); // Fim do DOMContentLoaded
 
 // =========================================================
-// 9) Lógica do Card "Cupons" e "Desconto"
+// 9) Lógica do Card “Cupons” e “Desconto”
 // =========================================================
 
 // Função para configurar eventos do card Cupons
@@ -1612,7 +1563,7 @@ function setupCardDescontoEvents() {
   const btnAvancar = document.getElementById('btnAvancar');
   
   if (btnAvancar) {
-    btnAvancar.addEventListener('click', function() {
+    btnAvancar.addEventListener('click', () => {
       // Fecha o primeiro item do accordion
       $('#collapseOne').collapse('hide');
       
@@ -1692,6 +1643,1066 @@ function setupCardDescontoEvents() {
           setupCardCuponsEvents(); // Configura eventos do card de cupons
         })
         .catch(error => console.error('Erro ao carregar cardCupons.html:', error));
+    });
+  }
+}
+
+// =========================================================
+// Funções para o Card "Unidades"
+// =========================================================
+
+// Configurar eventos do card Unidades
+function setupCardUnidadesEvents() {
+  // Botão "Adicionar Unidade" (header)
+  const btnAddUnidade = document.getElementById('botaoAdicionarUnidade');
+  if (btnAddUnidade) {
+    btnAddUnidade.addEventListener('click', () => {
+      // Injetar cardUnidadeAdd.html:
+      fetch('partials/cardUnidadeAdd.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadeAddEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidadeAdd.html:', err));
+    });
+  }
+  
+  // Botão "Adicionar Unidade" (footer)
+  const btnAddUnidadeFooter = document.getElementById('botaoAdicionarUnidadeFooter');
+  if (btnAddUnidadeFooter) {
+    btnAddUnidadeFooter.addEventListener('click', () => {
+      // Injetar cardUnidadeAdd.html:
+      fetch('partials/cardUnidadeAdd.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadeAddEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidadeAdd.html:', err));
+    });
+  }
+  
+  // Clique em "Editar" no dropdown
+  const editLinks = document.querySelectorAll('.edit-unit-link');
+  editLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const unitName = link.getAttribute('data-unit') || 'Unidade';
+  
+      // Carregar cardUnidadeEdit.html
+      fetch('partials/cardUnidadeEdit.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadeEditEvents(unitName);
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidadeEdit.html:', err));
+    });
+  });
+  
+  // Botões "Copiar URL"
+  const copyUrlButtons = document.querySelectorAll('.btn-warning');
+  copyUrlButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Simular cópia da URL (em um cenário real, aqui seria implementada a funcionalidade de cópia)
+      alert('URL copiada para a área de transferência!');
+    });
+  });
+}
+
+function setupCardUnidadeAddEvents() {
+  // Botão "Voltar" no Header
+  const btnVoltarHeader = document.getElementById('btnVoltarUnidadeAddHeader');
+  if (btnVoltarHeader) {
+    btnVoltarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Header
+  const btnSalvarHeader = document.getElementById('btnSalvarUnidadeAddHeader');
+  if (btnSalvarHeader) {
+    btnSalvarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Unidade adicionada com sucesso (protótipo).");
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Voltar" no Footer
+  const btnVoltarFooter = document.getElementById('btnVoltarUnidadeAddFooter');
+  if (btnVoltarFooter) {
+    btnVoltarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Footer
+  const btnSalvarFooter = document.getElementById('btnSalvarUnidadeAddFooter');
+  if (btnSalvarFooter) {
+    btnSalvarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Unidade adicionada com sucesso (protótipo).");
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+}
+
+function setupCardUnidadeEditEvents(unitName) {
+  // Botão "Voltar" no Header
+  const btnVoltarHeader = document.getElementById('btnVoltarUnidadeEditHeader');
+  if (btnVoltarHeader) {
+    btnVoltarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Header
+  const btnSalvarHeader = document.getElementById('btnSalvarUnidadeEditHeader');
+  if (btnSalvarHeader) {
+    btnSalvarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Unidade " + unitName + " editada com sucesso (protótipo).");
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Voltar" no Footer
+  const btnVoltarFooter = document.getElementById('btnVoltarUnidadeEditFooter');
+  if (btnVoltarFooter) {
+    btnVoltarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Footer
+  const btnSalvarFooter = document.getElementById('btnSalvarUnidadeEditFooter');
+  if (btnSalvarFooter) {
+    btnSalvarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Unidade " + unitName + " editada com sucesso (protótipo).");
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+}
+
+// =========================================================
+// Funções para o Card "Composições"
+// =========================================================
+
+// Configurar eventos do card Composições
+function setupCardComposicoesEvents() {
+  // Botão "Adicionar Composição" no header
+  const btnAddComposicao = document.getElementById('botaoAdicionarComposicao');
+  if (btnAddComposicao) {
+    btnAddComposicao.addEventListener('click', () => {
+      // Injetar cardComposicaoAdd.html:
+      fetch('partials/cardComposicaoAdd.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardComposicaoAddEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComposicaoAdd.html:', err));
+    });
+  }
+  
+  // Botão "Adicionar Horário" na aba Horários
+  const btnAddHorario = document.getElementById('btnAdicionarHorario');
+  if (btnAddHorario) {
+    btnAddHorario.addEventListener('click', () => {
+      // Injetar cardHorarioAdd.html:
+      fetch('partials/cardHorarioAdd.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardHorarioAddEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardHorarioAdd.html:', err));
+    });
+  }
+  
+  // Botão "Adicionar Prazo" na aba Prazos
+  const btnAddPrazo = document.getElementById('btnAdicionarPrazo');
+  if (btnAddPrazo) {
+    btnAddPrazo.addEventListener('click', () => {
+      // Injetar cardPrazoAdd.html:
+      fetch('partials/cardPrazoAdd.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardPrazoAddEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardPrazoAdd.html:', err));
+    });
+  }
+  
+  // Botão "Adicionar Serviço" na aba Serviços
+  const btnAddServico = document.getElementById('btnAdicionarServico');
+  if (btnAddServico) {
+    btnAddServico.addEventListener('click', () => {
+      // Injetar cardServicoAdd.html:
+      fetch('partials/cardServicoAdd.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardServicoAddEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardServicoAdd.html:', err));
+    });
+  }
+  
+  // Botão "Adicionar Composição" na aba Composições
+  const btnAddComposicaoTab = document.getElementById('btnAdicionarComposicaoTab');
+  if (btnAddComposicaoTab) {
+    btnAddComposicaoTab.addEventListener('click', () => {
+      // Injetar cardComposicaoAdd.html:
+      fetch('partials/cardComposicaoAdd.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardComposicaoAddEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComposicaoAdd.html:', err));
+    });
+  }
+  
+  // Controle das abas para atualizar o contador
+  const tabButtons = document.querySelectorAll('#composicoesTab button[data-bs-toggle="tab"]');
+  const composicoesCounter = document.getElementById('composicoesCounter');
+  
+  if (tabButtons.length && composicoesCounter) {
+    tabButtons.forEach(button => {
+      button.addEventListener('shown.bs.tab', function (event) {
+        // Atualizar o contador com base na aba ativa
+        const activeTab = event.target.getAttribute('id');
+        
+        switch (activeTab) {
+          case 'horarios-tab':
+            composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>25</strong> horários';
+            break;
+          case 'prazos-tab':
+            composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>18</strong> prazos';
+            break;
+          case 'servicos-tab':
+            composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>32</strong> serviços';
+            break;
+          case 'composicoes-tab':
+            composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>25</strong> composições';
+            break;
+        }
+      });
+    });
+  }
+}
+
+// Funções para os cards de adição (stubs para implementação futura)
+function setupCardComposicaoAddEvents() {
+  // Implementação futura
+}
+
+function setupCardHorarioAddEvents() {
+  // Implementação futura
+}
+
+function setupCardPrazoAddEvents() {
+  // Implementação futura
+}
+
+function setupCardServicoAddEvents() {
+  // Implementação futura
+}
+
+// =========================================================
+// Funções para o Card "Complementos Lojas"
+// =========================================================
+
+// Configurar eventos do card Complementos Lojas
+function setupCardComplementosLojasEvents() {
+  try {
+    // Inicializar abas
+    const cadastradosTab = document.getElementById('cadastrados');
+    const ordenarTab = document.getElementById('ordenar');
+    const btnCadastradosTab = document.getElementById('cadastrados-tab');
+    const btnOrdenarTab = document.getElementById('ordenar-tab');
+    
+    if (btnCadastradosTab && btnOrdenarTab) {
+      btnCadastradosTab.addEventListener('click', () => {
+        cadastradosTab.classList.add('active', 'show');
+        ordenarTab.classList.remove('active', 'show');
+        btnCadastradosTab.classList.add('active');
+        btnOrdenarTab.classList.remove('active');
+      });
+      
+      btnOrdenarTab.addEventListener('click', () => {
+        cadastradosTab.classList.remove('active', 'show');
+        ordenarTab.classList.add('active', 'show');
+        btnCadastradosTab.classList.remove('active');
+        btnOrdenarTab.classList.add('active');
+      });
+    }
+    
+    // Inicializar sortable para ordenação de complementos
+    const sortableElement = document.getElementById('sortable');
+    if (sortableElement) {
+      try {
+        $(sortableElement).sortable({
+          placeholder: 'ui-state-highlight',
+          handle: '.col-lg-10',
+          cursor: 'move',
+          update: function(event, ui) {
+            console.log('Ordem atualizada');
+          }
+        });
+        $(sortableElement).disableSelection();
+      } catch (error) {
+        console.error('Erro ao inicializar sortable:', error);
+      }
+    }
+    
+    // Botão para adicionar novo complemento no header
+    const btnAdicionarComplemento = document.getElementById('btnAdicionarComplemento');
+    if (btnAdicionarComplemento) {
+      btnAdicionarComplemento.addEventListener('click', () => {
+        const cardComplementosLojasPlaceholder = document.getElementById('cardComplementosLojasPlaceholder');
+        if (cardComplementosLojasPlaceholder) {
+          fetch('partials/cardComplementoAdd.html')
+            .then(r => r.text())
+            .then(html => {
+              cardComplementosLojasPlaceholder.innerHTML = html;
+              setupCardComplementoAddEvents();
+            })
+            .catch(err => console.error('Erro ao carregar cardComplementoAdd.html:', err));
+        }
+      });
+    }
+    
+    // Botão para adicionar novo complemento no footer
+    const btnAdicionarComplementoFooter = document.getElementById('btnAdicionarComplementoFooter');
+    if (btnAdicionarComplementoFooter) {
+      btnAdicionarComplementoFooter.addEventListener('click', () => {
+        const cardComplementosLojasPlaceholder = document.getElementById('cardComplementosLojasPlaceholder');
+        if (cardComplementosLojasPlaceholder) {
+          fetch('partials/cardComplementoAdd.html')
+            .then(r => r.text())
+            .then(html => {
+              cardComplementosLojasPlaceholder.innerHTML = html;
+              setupCardComplementoAddEvents();
+            })
+            .catch(err => console.error('Erro ao carregar cardComplementoAdd.html:', err));
+        }
+      });
+    }
+    
+    // Botão para salvar
+    const btnSalvar = document.getElementById('btnSalvar');
+    if (btnSalvar) {
+      btnSalvar.addEventListener('click', () => {
+        // Verificar qual aba está ativa
+        if (ordenarTab && ordenarTab.classList.contains('active')) {
+          // Obter a ordem atual dos itens
+          const itens = document.querySelectorAll('#sortable .list-group-item');
+          const ordem = Array.from(itens).map(item => {
+            const input = item.querySelector('input[type="hidden"]');
+            return input ? input.name : null;
+          }).filter(Boolean);
+          
+          // Aqui seria feita a chamada para a API para salvar a ordem
+          console.log('Ordem a ser salva:', ordem);
+        }
+        
+        // Simulação de sucesso
+        alert('Dados salvos com sucesso!');
+      });
+    }
+    
+    // Botões para editar complementos
+    const botoesEditar = document.querySelectorAll('.edit-complemento-link');
+    botoesEditar.forEach(botao => {
+      botao.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        const complementoName = botao.getAttribute('data-complemento') || 'Complemento';
+        alert(`Editar complemento ${complementoName} (protótipo).`);
+      });
+    });
+    
+    // Botões para excluir complementos
+    const botoesExcluir = document.querySelectorAll('.delete-complemento-link');
+    botoesExcluir.forEach(botao => {
+      botao.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        if (confirm(`Deseja realmente excluir este complemento?`)) {
+          alert(`Complemento excluído (protótipo).`);
+        }
+      });
+    });
+    
+  } catch (error) {
+    console.error('Erro ao configurar eventos do card de complementos de lojas:', error);
+  }
+}
+
+// Funções para os cards de adição/edição (stubs para implementação futura)
+function setupCardComplementoAddEvents() {
+  // Botão "Voltar" no Header
+  const btnVoltarHeader = document.getElementById('btnVoltarComplementoAddHeader');
+  if (btnVoltarHeader) {
+    btnVoltarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Header
+  const btnSalvarHeader = document.getElementById('btnSalvarComplementoAddHeader');
+  if (btnSalvarHeader) {
+    btnSalvarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Complemento adicionado com sucesso (protótipo).");
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Voltar" no Footer
+  const btnVoltarFooter = document.getElementById('btnVoltarComplementoAddFooter');
+  if (btnVoltarFooter) {
+    btnVoltarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Footer
+  const btnSalvarFooter = document.getElementById('btnSalvarComplementoAddFooter');
+  if (btnSalvarFooter) {
+    btnSalvarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Complemento adicionado com sucesso (protótipo).");
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Avançar" no primeiro accordion
+  const btnAvancarComplemento = document.getElementById('btnAvancarComplemento');
+  if (btnAvancarComplemento) {
+    btnAvancarComplemento.addEventListener('click', () => {
+      // Abrir o segundo accordion
+      const collapseTwo = document.getElementById('collapseTwo');
+      const collapseOne = document.getElementById('collapseOne');
+      
+      if (collapseTwo && collapseOne) {
+        // Fechar o primeiro accordion
+        const bsCollapseOne = new bootstrap.Collapse(collapseOne, {
+          toggle: false
+        });
+        bsCollapseOne.hide();
+        
+        // Abrir o segundo accordion
+        const bsCollapseTwo = new bootstrap.Collapse(collapseTwo, {
+          toggle: false
+        });
+        bsCollapseTwo.show();
+        
+        // Atualizar o estado dos botões do accordion
+        document.querySelector('button[data-bs-target="#collapseOne"]').classList.add('collapsed');
+        document.querySelector('button[data-bs-target="#collapseOne"]').setAttribute('aria-expanded', 'false');
+        
+        document.querySelector('button[data-bs-target="#collapseTwo"]').classList.remove('collapsed');
+        document.querySelector('button[data-bs-target="#collapseTwo"]').setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+  
+  // Configurar o comportamento do select de unidade
+  const selectUnidade = document.getElementById('selectUnidade');
+  const conteudoUnidade = document.getElementById('conteudoUnidade');
+  const selectServico = document.getElementById('selectServico');
+  const conteudoPeriodos = document.getElementById('conteudoPeriodos');
+  
+  if (selectUnidade && conteudoUnidade && selectServico) {
+    selectUnidade.addEventListener('change', function() {
+      if (selectUnidade.value) {
+        conteudoUnidade.classList.remove('d-none');
+        
+        // Resetar o select de serviço para o estado default
+        selectServico.selectedIndex = 0;
+        
+        // Esconder os períodos quando a unidade muda
+        if (conteudoPeriodos) {
+          conteudoPeriodos.classList.add('d-none');
+        }
+      } else {
+        conteudoUnidade.classList.add('d-none');
+        
+        // Esconder os períodos
+        if (conteudoPeriodos) {
+          conteudoPeriodos.classList.add('d-none');
+        }
+      }
+    });
+  }
+  
+  // Configurar o comportamento do select de serviço
+  if (selectServico && conteudoPeriodos) {
+    selectServico.addEventListener('change', function() {
+      if (selectServico.value) {
+        conteudoPeriodos.classList.remove('d-none');
+      } else {
+        conteudoPeriodos.classList.add('d-none');
+      }
+    });
+  }
+  
+  // Configurar os radio buttons de cobrança
+  const radioCobrarCadaDias = document.getElementById('cobrarCadaDias');
+  const inputDiasCobranca = document.getElementById('diasCobranca');
+  
+  if (radioCobrarCadaDias && inputDiasCobranca) {
+    // Atualizar o estado inicial
+    inputDiasCobranca.disabled = !radioCobrarCadaDias.checked;
+    
+    // Adicionar event listeners para todos os radio buttons
+    document.querySelectorAll('input[name="opcaoCobranca"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        // Habilitar ou desabilitar o campo de dias
+        inputDiasCobranca.disabled = this.id !== 'cobrarCadaDias';
+      });
+    });
+  }
+  
+  // Formatação do campo de preço
+  const precoComplemento = document.getElementById('precoComplemento');
+  if (precoComplemento) {
+    precoComplemento.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      value = (parseInt(value) / 100).toFixed(2);
+      e.target.value = value.replace('.', ',');
+    });
+    
+    precoComplemento.addEventListener('focus', function(e) {
+      if (e.target.value === '') {
+        e.target.value = '0,00';
+      }
+    });
+  }
+}
+
+function setupCardComplementoEditEvents(complementoName) {
+  // Botão "Voltar" no Header
+  const btnVoltarHeader = document.getElementById('btnVoltarComplementoEditHeader');
+  if (btnVoltarHeader) {
+    btnVoltarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Header
+  const btnSalvarHeader = document.getElementById('btnSalvarComplementoEditHeader');
+  if (btnSalvarHeader) {
+    btnSalvarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Complemento " + complementoName + " editado com sucesso (protótipo).");
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Voltar" no Footer
+  const btnVoltarFooter = document.getElementById('btnVoltarComplementoEditFooter');
+  if (btnVoltarFooter) {
+    btnVoltarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Footer
+  const btnSalvarFooter = document.getElementById('btnSalvarComplementoEditFooter');
+  if (btnSalvarFooter) {
+    btnSalvarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Complemento " + complementoName + " editado com sucesso (protótipo).");
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Switch para limitar quantidade
+  const switchLimitarQuantidade = document.getElementById('switchLimitarQuantidade');
+  const limitarQuantidadeContainer = document.getElementById('limitarQuantidadeContainer');
+  
+  if (switchLimitarQuantidade && limitarQuantidadeContainer) {
+    switchLimitarQuantidade.addEventListener('change', function() {
+      if (this.checked) {
+        limitarQuantidadeContainer.classList.remove('d-none');
+      } else {
+        limitarQuantidadeContainer.classList.add('d-none');
+      }
+    });
+  }
+  
+  // Botões para selecionar/desmarcar todos os dias
+  const btnSelecionarTodos = document.getElementById('btnSelecionarTodos');
+  const btnDesmarcarTodos = document.getElementById('btnDesmarcarTodos');
+  const checkboxesDias = document.querySelectorAll('.card-body .form-check-input[id^="checkbox"]');
+  
+  if (btnSelecionarTodos) {
+    btnSelecionarTodos.addEventListener('click', () => {
+      checkboxesDias.forEach(checkbox => {
+        checkbox.checked = true;
+      });
+    });
+  }
+  
+  if (btnDesmarcarTodos) {
+    btnDesmarcarTodos.addEventListener('click', () => {
+      checkboxesDias.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+    });
+  }
+  
+  // Formatação do campo de preço
+  const precoComplemento = document.getElementById('precoComplemento');
+  if (precoComplemento) {
+    precoComplemento.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      value = (parseInt(value) / 100).toFixed(2);
+      e.target.value = value.replace('.', ',');
+    });
+  }
+}
+
+function setupCardComplementoAddEvents() {
+  // Inicializar o Bootstrap para garantir que o accordion funcione
+  const accordionElement = document.getElementById('accordionComplemento');
+  if (accordionElement) {
+    // Garantir que o primeiro accordion esteja aberto por padrão
+    const collapseOne = document.getElementById('collapseOne');
+    if (collapseOne && !collapseOne.classList.contains('show')) {
+      collapseOne.classList.add('show');
+    }
+    
+    // Garantir que os botões do accordion tenham o estado correto
+    const btnCollapseOne = document.querySelector('button[data-bs-target="#collapseOne"]');
+    if (btnCollapseOne) {
+      btnCollapseOne.classList.remove('collapsed');
+      btnCollapseOne.setAttribute('aria-expanded', 'true');
+    }
+  }
+  
+  // Botão "Voltar" no Header
+  const btnVoltarHeader = document.getElementById('btnVoltarComplementoAddHeader');
+  if (btnVoltarHeader) {
+    btnVoltarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Header
+  const btnSalvarHeader = document.getElementById('btnSalvarComplementoAddHeader');
+  if (btnSalvarHeader) {
+    btnSalvarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Complemento adicionado com sucesso (protótipo).");
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Voltar" no Footer
+  const btnVoltarFooter = document.getElementById('btnVoltarComplementoAddFooter');
+  if (btnVoltarFooter) {
+    btnVoltarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Footer
+  const btnSalvarFooter = document.getElementById('btnSalvarComplementoAddFooter');
+  if (btnSalvarFooter) {
+    btnSalvarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Complemento adicionado com sucesso (protótipo).");
+      fetch('partials/cardComplementosLojas.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComplementosLojasPlaceholder.innerHTML = html;
+          setupCardComplementosLojasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
+    });
+  }
+  
+  // Botão "Avançar" no primeiro accordion
+  const btnAvancarComplemento = document.getElementById('btnAvancarComplemento');
+  if (btnAvancarComplemento) {
+    btnAvancarComplemento.addEventListener('click', () => {
+      // Abrir o segundo accordion
+      const collapseTwo = document.getElementById('collapseTwo');
+      const collapseOne = document.getElementById('collapseOne');
+      
+      if (collapseTwo && collapseOne) {
+        // Fechar o primeiro accordion
+        const bsCollapseOne = new bootstrap.Collapse(collapseOne, {
+          toggle: false
+        });
+        bsCollapseOne.hide();
+        
+        // Abrir o segundo accordion
+        const bsCollapseTwo = new bootstrap.Collapse(collapseTwo, {
+          toggle: false
+        });
+        bsCollapseTwo.show();
+        
+        // Atualizar o estado dos botões do accordion
+        document.querySelector('button[data-bs-target="#collapseOne"]').classList.add('collapsed');
+        document.querySelector('button[data-bs-target="#collapseOne"]').setAttribute('aria-expanded', 'false');
+        
+        document.querySelector('button[data-bs-target="#collapseTwo"]').classList.remove('collapsed');
+        document.querySelector('button[data-bs-target="#collapseTwo"]').setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+  
+  // Configurar o comportamento do select de unidade
+  const selectUnidade = document.getElementById('selectUnidade');
+  const conteudoUnidade = document.getElementById('conteudoUnidade');
+  const selectServico = document.getElementById('selectServico');
+  const conteudoPeriodos = document.getElementById('conteudoPeriodos');
+  
+  if (selectUnidade && conteudoUnidade && selectServico) {
+    selectUnidade.addEventListener('change', function() {
+      if (selectUnidade.value) {
+        conteudoUnidade.classList.remove('d-none');
+        
+        // Resetar o select de serviço para o estado default
+        selectServico.selectedIndex = 0;
+        
+        // Esconder os períodos quando a unidade muda
+        if (conteudoPeriodos) {
+          conteudoPeriodos.classList.add('d-none');
+        }
+      } else {
+        conteudoUnidade.classList.add('d-none');
+        
+        // Esconder os períodos
+        if (conteudoPeriodos) {
+          conteudoPeriodos.classList.add('d-none');
+        }
+      }
+    });
+  }
+  
+  // Configurar o comportamento do select de serviço
+  if (selectServico && conteudoPeriodos) {
+    selectServico.addEventListener('change', function() {
+      if (selectServico.value) {
+        conteudoPeriodos.classList.remove('d-none');
+      } else {
+        conteudoPeriodos.classList.add('d-none');
+      }
+    });
+  }
+  
+  // Configurar os radio buttons de cobrança
+  const radioCobrarCadaDias = document.getElementById('cobrarCadaDias');
+  const inputDiasCobranca = document.getElementById('diasCobranca');
+  
+  if (radioCobrarCadaDias && inputDiasCobranca) {
+    // Atualizar o estado inicial
+    inputDiasCobranca.disabled = !radioCobrarCadaDias.checked;
+    
+    // Adicionar event listeners para todos os radio buttons
+    document.querySelectorAll('input[name="opcaoCobranca"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        // Habilitar ou desabilitar o campo de dias
+        inputDiasCobranca.disabled = this.id !== 'cobrarCadaDias';
+      });
+    });
+  }
+  
+  // Formatação do campo de preço
+  const precoComplemento = document.getElementById('precoComplemento');
+  if (precoComplemento) {
+    precoComplemento.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      value = (parseInt(value) / 100).toFixed(2);
+      e.target.value = value.replace('.', ',');
+    });
+    
+    precoComplemento.addEventListener('focus', function(e) {
+      if (e.target.value === '') {
+        e.target.value = '0,00';
+      }
+    });
+  }
+}
+
+// Inicializar eventos específicos para cada card
+document.addEventListener('DOMContentLoaded', function() {
+  // Verificar se os placeholders existem e inicializar seus eventos
+  const cardComplementosLojasPlaceholder = document.getElementById('cardComplementosLojasPlaceholder');
+  if (cardComplementosLojasPlaceholder) {
+    setupCardComplementosLojasEvents();
+  }
+  
+  const cardUnidadesPlaceholder = document.getElementById('cardUnidadesPlaceholder');
+  if (cardUnidadesPlaceholder) {
+    setupCardUnidadesEvents();
+  }
+});
+
+// Função para configurar eventos do card Unidades
+function setupCardUnidadesEvents() {
+  try {
+    // Botão para adicionar nova unidade no header
+    const btnAdicionarUnidade = document.getElementById('botaoAdicionarUnidade');
+    if (btnAdicionarUnidade) {
+      btnAdicionarUnidade.addEventListener('click', () => {
+        const cardUnidadesPlaceholder = document.getElementById('cardUnidadesPlaceholder');
+        if (cardUnidadesPlaceholder) {
+          fetch('partials/cardUsuarioAdd.html')
+            .then(r => r.text())
+            .then(html => {
+              cardUnidadesPlaceholder.innerHTML = html;
+              setupCardUsuarioAddEvents();
+            })
+            .catch(err => console.error('Erro ao carregar cardUsuarioAdd.html:', err));
+        }
+      });
+    }
+    
+    // Botão para adicionar nova unidade no footer
+    const btnAdicionarUnidadeFooter = document.getElementById('botaoAdicionarUnidadeFooter');
+    if (btnAdicionarUnidadeFooter) {
+      btnAdicionarUnidadeFooter.addEventListener('click', () => {
+        const cardUnidadesPlaceholder = document.getElementById('cardUnidadesPlaceholder');
+        if (cardUnidadesPlaceholder) {
+          fetch('partials/cardUsuarioAdd.html')
+            .then(r => r.text())
+            .then(html => {
+              cardUnidadesPlaceholder.innerHTML = html;
+              setupCardUsuarioAddEvents();
+            })
+            .catch(err => console.error('Erro ao carregar cardUsuarioAdd.html:', err));
+        }
+      });
+    }
+    
+    // Botões para editar unidades
+    const botoesEditar = document.querySelectorAll('.edit-unit-link');
+    botoesEditar.forEach(botao => {
+      botao.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        const unitName = botao.getAttribute('data-unit') || 'Unidade';
+        alert(`Editar unidade ${unitName} (protótipo)`);
+      });
+    });
+    
+  } catch (error) {
+    console.error('Erro ao configurar eventos do card de unidades:', error);
+  }
+}
+
+// Função para configurar eventos do card de adição de unidade
+function setupCardUsuarioAddEvents() {
+  // Botão "Voltar" no Header
+  const btnVoltarHeader = document.getElementById('btnVoltarUnidadeAddHeader');
+  if (btnVoltarHeader) {
+    btnVoltarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Header
+  const btnSalvarHeader = document.getElementById('btnSalvarUnidadeAddHeader');
+  if (btnSalvarHeader) {
+    btnSalvarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      const nomeUnidade = document.getElementById('nomeUnidade').value;
+      const obrigaCategoria = document.getElementById('obrigaCategoria').checked;
+      
+      if (!nomeUnidade) {
+        alert('Por favor, informe o nome da unidade.');
+        return;
+      }
+      
+      alert(`Unidade "${nomeUnidade}" adicionada com sucesso (protótipo).`);
+      
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Voltar" no Footer
+  const btnVoltarFooter = document.getElementById('btnVoltarUnidadeAddFooter');
+  if (btnVoltarFooter) {
+    btnVoltarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Footer
+  const btnSalvarFooter = document.getElementById('btnSalvarUnidadeAddFooter');
+  if (btnSalvarFooter) {
+    btnSalvarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      const nomeUnidade = document.getElementById('nomeUnidade').value;
+      const obrigaCategoria = document.getElementById('obrigaCategoria').checked;
+      
+      if (!nomeUnidade) {
+        alert('Por favor, informe o nome da unidade.');
+        return;
+      }
+      
+      alert(`Unidade "${nomeUnidade}" adicionada com sucesso (protótipo).`);
+      
+      fetch('partials/cardUnidades.html')
+        .then(r => r.text())
+        .then(html => {
+          cardUnidadesPlaceholder.innerHTML = html;
+          setupCardUnidadesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
     });
   }
 }

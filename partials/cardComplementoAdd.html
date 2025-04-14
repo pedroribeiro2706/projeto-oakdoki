@@ -1,0 +1,266 @@
+<!-- partials/cardComplementoAdd.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Adicionar Complemento</h5>
+    <div>
+      <button class="btn btn-outline-secondary me-2" id="btnVoltarComplementoAddHeader">Voltar</button>
+      <button class="btn btn-warning" id="btnSalvarComplementoAddHeader">Salvar</button>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <!-- Accordion -->
+    <div class="accordion" id="accordionComplemento">
+      
+      <!-- Item 1: Informações Básicas -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Informações Básicas
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionComplemento">
+          <div class="accordion-body">
+            <form id="formInfoBasicas">
+              <!-- Primeira linha: Nome, Preço, Quantidade disponível, Número máximo permitido -->
+              <div class="row mb-3">
+                <div class="col-md-7">
+                  <label for="nomeComplemento" class="form-label">Nome</label>
+                  <input type="text" class="form-control" id="nomeComplemento" placeholder="Nome do complemento" required>
+                </div>
+                <div class="col-md-2">
+                  <label for="precoComplemento" class="form-label">Preço</label>
+                  <div class="input-group">
+                    <span class="input-group-text">R$</span>
+                    <input type="number" class="form-control" id="precoComplemento" placeholder="0,00" min="0" step="0.01" required>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <label for="quantidadeDisponivel" class="form-label">Qtd.</label>
+                  <input type="number" class="form-control" id="quantidadeDisponivel" min="1" value="1">
+                </div>
+                <div class="col-md-2">
+                  <label for="numeroMaximoPermitido" class="form-label">Máx. por horário</label>
+                  <input type="number" class="form-control" id="numeroMaximoPermitido" min="1" value="1">
+                </div>
+              </div>
+              
+              <!-- Segunda linha: Descrição (Text Area) -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label for="descricaoComplemento" class="form-label">Descrição</label>
+                  <textarea class="form-control" id="descricaoComplemento" rows="3" placeholder="Descreva o complemento"></textarea>
+                </div>
+              </div>
+              
+              <!-- Terceira linha: Radio buttons -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <p class="mb-2">Selecionar a opção abaixo apenas quando esse complemento for associado ao um serviço com cobrança mensal e recorrente.</p>
+                  
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="opcaoCobranca" id="cobrarCadaSessao" value="cobrarCadaSessao" checked>
+                    <label class="form-check-label" for="cobrarCadaSessao">
+                      Cobrar a cada sessão
+                    </label>
+                  </div>
+                  
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="opcaoCobranca" id="cobrarUmaVez" value="cobrarUmaVez">
+                    <label class="form-check-label" for="cobrarUmaVez">
+                      Cobrar apenas uma vez
+                    </label>
+                  </div>
+                  
+                  <div class="form-check d-flex align-items-center">
+                    <input class="form-check-input" type="radio" name="opcaoCobranca" id="cobrarCadaDias" value="cobrarCadaDias">
+                    <label class="form-check-label me-2" for="cobrarCadaDias">
+                      Cobrar uma vez a cada
+                    </label>
+                    <input type="number" class="form-control form-control-sm" id="diasCobranca" style="width: 80px;" min="1" value="30" disabled>
+                    <span class="ms-2">Dias</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Botão Avançar -->
+              <div class="d-flex justify-content-start mt-4">
+                <button type="button" class="btn btn-primary" id="btnAvancarComplemento">Avançar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 2: Configurações Adicionais -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Configurações Adicionais
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionComplemento">
+          <div class="accordion-body">
+            <!-- Seleção de Unidade -->
+            <div class="row mb-4">
+              <div class="col-12">
+                <label for="selectUnidade" class="form-label">Selecione a Unidade</label>
+                <select class="form-select" id="selectUnidade">
+                  <option value="" selected disabled>Selecione uma unidade</option>
+                  <option value="unidade1">Unidade - Colônia de férias Lagoa - Flamengo</option>
+                  <option value="unidade2">Unidade - Colônia de férias Laranjeiras</option>
+                  <option value="unidade3">Unidade - Colônia de férias Tijuca</option>
+                  <option value="unidade4">Unidade - Colônia de férias Leblon - Paissandu</option>
+                  <option value="unidade5">Unidade - Festa Esportiva</option>
+                  <option value="unidade6">Unidade - Festa Pool Party</option>
+                  <option value="unidade7">Unidade - Festa Gecrear</option>
+                  <option value="unidade8">Unidade - Festa Anima-Ação</option>
+                  <option value="unidade9">Unidade - Festa Radical</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Conteúdo condicional (aparece apenas quando uma unidade é selecionada) -->
+            <div id="conteudoUnidade" class="d-none">
+              <!-- Seleção de Serviço -->
+              <div class="row mb-4">
+                <div class="col-12">
+                  <label for="selectServico" class="form-label">Selecione o Serviço</label>
+                  <select class="form-select" id="selectServico">
+                    <option value="" selected disabled>Selecione um serviço</option>
+                    <option value="servico1">Serviço - 2025 Julho - Semana de 14 a 18</option>
+                    <option value="servico2">Serviço - 2025 Julho - Semana de 07 a 11</option>
+                    <option value="servico3">Serviço - 2025 Julho - Diárias</option>
+                    <option value="servico4">Serviço - 2025 - Janeiro - Semana de 06 a 10</option>
+                    <option value="servico5">Serviço - 2025 - Janeiro - Semana de 13 a 17</option>
+                    <option value="servico6">Serviço - 2025 - Janeiro - Semana de 20 a 24</option>
+                    <option value="servico7">Serviço - 2025 - Janeiro - Semana de 27 a 31</option>
+                    <option value="servico8">Serviço - 2024 - 08 a 12 de julho</option>
+                    <option value="servico9">Serviço - 2024 - 15 a 19 de julho</option>
+                    <option value="servico10">Serviço - 2024 - 22 a 26 de julho</option>
+                    <option value="servico11">Serviço - 2024 - 29 de julho a 02 de agosto</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Conteúdo dos períodos (aparece apenas quando um serviço é selecionado) -->
+              <div id="conteudoPeriodos" class="d-none">
+                <div class="row mb-3">
+                  <div class="col-12">
+                    <label class="form-label">Selecione os Períodos</label>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo1" id="periodo1">
+                      <label class="form-check-label" for="periodo1">Semana Tarde</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo2" id="periodo2">
+                      <label class="form-check-label" for="periodo2">Semana Tarde Estendida</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo3" id="periodo3">
+                      <label class="form-check-label" for="periodo3">Semana Manhã</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo4" id="periodo4">
+                      <label class="form-check-label" for="periodo4">Semana Integral</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo5" id="periodo5">
+                      <label class="form-check-label" for="periodo5">Semana Integral Estendido</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo6" id="periodo6">
+                      <label class="form-check-label" for="periodo6">08:00 às 12:00</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo7" id="periodo7">
+                      <label class="form-check-label" for="periodo7">13:00 às 17:00</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo8" id="periodo8">
+                      <label class="form-check-label" for="periodo8">13:00 às 19:00</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo9" id="periodo9">
+                      <label class="form-check-label" for="periodo9">08:00 às 17:00</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo10" id="periodo10">
+                      <label class="form-check-label" for="periodo10">08:00 às 19:00</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo11" id="periodo11">
+                      <label class="form-check-label" for="periodo11">08:00 às 18:00</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo12" id="periodo12">
+                      <label class="form-check-label" for="periodo12">08:00 às 20:00</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo13" id="periodo13">
+                      <label class="form-check-label" for="periodo13">09:00 às 17:00</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo14" id="periodo14">
+                      <label class="form-check-label" for="periodo14">09:00 às 19:00</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="periodo15" id="periodo15">
+                      <label class="form-check-label" for="periodo15">09:00 às 20:00</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Accordion -->
+  </div>
+  
+  <div class="card-footer d-flex justify-content-center">
+    <button type="button" class="btn btn-secondary me-2" id="btnVoltarComplementoAddFooter">Voltar</button>
+    <button type="button" class="btn btn-warning" id="btnSalvarComplementoAddFooter">Salvar</button>
+  </div>
+</div>
