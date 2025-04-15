@@ -236,30 +236,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/Chart.min.js"></script>
+    <script src="assets/js/shards-dashboards.1.1.0.min.js"></script>
+    <script src="assets/js/jquery.sharrre.min.js"></script>
     <script src="assets/js/scripts.js"></script>
-
-    <!--script>
-      const detalhesButton = document.querySelector('#headingDetalhes .accordion-button');
-        detalhesButton.addEventListener('click', function() {
-          console.log("Botão de detalhes clicado.");
-          const detalhesContent = document.getElementById('detalhesContent');
-          if (!detalhesContent.hasAttribute('data-loaded')) {
-            fetch('partials/detalhesPedido.html')
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error('Falha ao buscar o arquivo: ' + response.statusText);
-                }
-                return response.text();
-              })
-              .then(html => {
-                detalhesContent.innerHTML = html;
-                detalhesContent.setAttribute('data-loaded', 'true');
-                console.log("Conteúdo carregado.");
-              })
-              .catch(error => console.error('Erro ao carregar o conteúdo:', error));
-          }
-        });
-    </script-->
-    
+    <script src="assets/js/beneficios.js"></script>
+    <script src="assets/js/taxas.js"></script>
   </body>
 </html>

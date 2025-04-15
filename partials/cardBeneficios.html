@@ -1,0 +1,62 @@
+<!-- partials/cardBeneficios.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Benefícios</h5>
+  </div>
+  
+  <div class="card-body">
+    <!-- Abas para as diferentes seções -->
+    <ul class="nav nav-tabs" id="beneficiosTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="lotes-tab" data-bs-toggle="tab" data-bs-target="#lotes" type="button" role="tab" aria-controls="lotes" aria-selected="true">Lotes</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="descontos-quantidade-tab" data-bs-toggle="tab" data-bs-target="#descontos-quantidade" type="button" role="tab" aria-controls="descontos-quantidade" aria-selected="false">Descontos por quantidade</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="descontos-forma-pagamento-tab" data-bs-toggle="tab" data-bs-target="#descontos-forma-pagamento" type="button" role="tab" aria-controls="descontos-forma-pagamento" aria-selected="false">Descontos por forma de pagamento</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="ativar-beneficios-tab" data-bs-toggle="tab" data-bs-target="#ativar-beneficios" type="button" role="tab" aria-controls="ativar-beneficios" aria-selected="false">Ativar benefícios</button>
+      </li>
+    </ul>
+    
+    <!-- Conteúdo das abas -->
+    <div class="tab-content mt-3" id="beneficiosTabContent">
+      <!-- Aba de Lotes -->
+      <div class="tab-pane fade show active" id="lotes" role="tabpanel" aria-labelledby="lotes-tab">
+        <div class="text-center mb-4">
+          <p class="text-muted">Este padrão já está definido. Clique no botão abaixo para visualizar a tela que é chamada a partir desta</p>
+          <button type="button" class="btn btn-primary" id="btnLotes">Lotes</button>
+        </div>
+      </div>
+      
+      <!-- Aba de Descontos por quantidade -->
+      <div class="tab-pane fade" id="descontos-quantidade" role="tabpanel" aria-labelledby="descontos-quantidade-tab">
+        <div class="text-center mb-4">
+          <p class="text-muted">Este padrão já está definido. Clique no botão abaixo para visualizar a tela que é chamada a partir desta</p>
+          <button type="button" class="btn btn-primary" id="btnDescontosQuantidade">Descontos por quantidade</button>
+        </div>
+      </div>
+      
+      <!-- Aba de Descontos por forma de pagamento -->
+      <div class="tab-pane fade" id="descontos-forma-pagamento" role="tabpanel" aria-labelledby="descontos-forma-pagamento-tab">
+        <div class="text-center mb-4">
+          <p class="text-muted">Este padrão já está definido. Clique no botão abaixo para visualizar a tela que é chamada a partir desta</p>
+          <button type="button" class="btn btn-primary" id="btnDescontosFormaPagamento">Descontos por forma de pagamento</button>
+        </div>
+      </div>
+      
+      <!-- Aba de Ativar benefícios -->
+      <div class="tab-pane fade" id="ativar-beneficios" role="tabpanel" aria-labelledby="ativar-beneficios-tab">
+        <div class="text-center mb-4">
+          <p class="text-muted">Este padrão já está definido. Clique no botão abaixo para visualizar a tela que é chamada a partir desta</p>
+          <button type="button" class="btn btn-primary" id="btnAtivarBeneficios">Ativar benefícios</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Placeholder para o conteúdo dos benefícios -->
+    <div id="beneficiosContentPlaceholder"></div>
+  </div>
+</div>

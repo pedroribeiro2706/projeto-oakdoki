@@ -1,0 +1,306 @@
+<!-- partials/cardOutrasTaxas.html -->
+<div class="card card-small mt-2">
+  <!-- Card Header -->
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Outras Taxas</h5>
+    <div>
+      <button class="btn btn-secondary me-2" id="btnVoltarTaxasHeader">Voltar</button>
+      <button class="btn btn-warning" id="btnSalvarTaxasHeader">Salvar</button>
+    </div>
+  </div>
+
+  <!-- Card Body -->
+  <div class="card-body">
+    <!-- Accordion -->
+    <div class="accordion" id="accordionTaxas">
+      
+      <!-- Item 1: Informações da Taxa -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Informações da Taxa
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionTaxas">
+          <div class="accordion-body">
+            <form id="formTaxas">
+              <!-- Nome da taxa (largura total) -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label for="nomeTaxa" class="form-label">Nome da taxa</label>
+                  <input type="text" class="form-control" id="nomeTaxa" placeholder="Digite o nome da taxa" required>
+                </div>
+              </div>
+              
+              <!-- Text Area para descrição -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label for="descricaoTaxa" class="form-label">Descrição</label>
+                  <textarea class="form-control" id="descricaoTaxa" rows="3" placeholder="Descreva a taxa"></textarea>
+                </div>
+              </div>
+              
+              <!-- Radio buttons para incidência -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label class="form-label">Tipo de incidência</label>
+                  <div class="d-flex align-items-center">
+                    <div class="form-check me-3">
+                      <input class="form-check-input" type="radio" name="tipoIncidencia" id="incidenciaPorcentagem" value="porcentagem" checked>
+                      <label class="form-check-label" for="incidenciaPorcentagem">
+                        Incidência em porcentagem
+                      </label>
+                    </div>
+                    <div class="input-group input-group-sm" style="width: 80px;">
+                      <input type="number" class="form-control" id="valorPorcentagem" min="0" max="100" step="0.01">
+                      <span class="input-group-text">%</span>
+                    </div>
+                  </div>
+                  
+                  <div class="d-flex align-items-center mt-2">
+                    <div class="form-check me-3">
+                      <input class="form-check-input" type="radio" name="tipoIncidencia" id="incidenciaValor" value="valor">
+                      <label class="form-check-label" for="incidenciaValor">
+                        Incidência em valor (R$)
+                      </label>
+                    </div>
+                    <div class="input-group input-group-sm" style="width: 120px;">
+                      <span class="input-group-text">R$</span>
+                      <input type="number" class="form-control" id="valorReais" min="0" step="0.01" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Radio buttons para frequência de cobrança -->
+              <div class="row mb-4">
+                <div class="col-12">
+                  <label class="form-label">Frequência de cobrança</label>
+                  
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="frequenciaCobranca" id="cobrarCadaPedido" value="cadaPedido" checked>
+                    <label class="form-check-label" for="cobrarCadaPedido">
+                      Cobrar a cada Pedido
+                    </label>
+                  </div>
+                  
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="frequenciaCobranca" id="porTemporada" value="porTemporada">
+                    <label class="form-check-label" for="porTemporada">
+                      Por temporada
+                    </label>
+                  </div>
+                  
+                  <div class="ms-4 mb-3">
+                    <div class="d-flex align-items-center">
+                      <label class="form-label me-2">Se não tiver sido cobrada nos últimos</label>
+                      <div class="input-group input-group-sm" style="width: 80px;">
+                        <input type="number" class="form-control" id="diasTemporada" min="1" value="30" disabled>
+                      </div>
+                      <label class="form-label ms-2">dias, cobrar somente na primeira compra</label>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="frequenciaCobranca" id="anuidades" value="anuidades">
+                    <label class="form-check-label" for="anuidades">
+                      Anuidades
+                    </label>
+                  </div>
+                  
+                  <div class="ms-4 mb-3">
+                    <div class="d-flex align-items-center">
+                      <label class="form-label me-2">Cobrar a cada</label>
+                      <div class="input-group input-group-sm" style="width: 80px;">
+                        <input type="number" class="form-control" id="mesesAnuidade" min="1" value="12" disabled>
+                      </div>
+                      <label class="form-label ms-2">meses a partir da data da compra dos seguintes serviços contínuos</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Radio buttons para cobrança por usuário -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label class="form-label">Método de cobrança</label>
+                  <div class="d-flex">
+                    <div class="form-check me-3">
+                      <input class="form-check-input" type="radio" name="metodoCobranca" id="cobrarCadaUsuario" value="cadaUsuario" checked>
+                      <label class="form-check-label" for="cobrarCadaUsuario">
+                        Cobrar de cada usuário dos serviços constante no pedido
+                      </label>
+                    </div>
+                    
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="metodoCobranca" id="cobrarUmaVez" value="umaVez">
+                      <label class="form-check-label" for="cobrarUmaVez">
+                        Cobrar apenas uma vez, mesmo que conste mais de um usuário do serviço no pedido
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Radio buttons para apresentação do preço -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label class="form-label">Apresentação do preço</label>
+                  <div class="d-flex">
+                    <div class="form-check me-3">
+                      <input class="form-check-input" type="radio" name="apresentacaoPreco" id="incorporarPreco" value="incorporar" checked>
+                      <label class="form-check-label" for="incorporarPreco">
+                        Incorporar ao preço do serviço
+                      </label>
+                    </div>
+                    
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="apresentacaoPreco" id="destacarPreco" value="destacar">
+                      <label class="form-check-label" for="destacarPreco">
+                        Apresentar destacada do preço do serviço
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Switch/Toggle para devolução -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <div class="form-check" style="padding-left: 0px;">
+                    <div class="d-flex align-items-center">
+                      <div class="form-check form-switch">
+                        <input class="form-check-input me-2" type="checkbox" role="switch" id="naoPassivelDevolucao">
+                      </div>
+                      <label class="form-check-label" for="naoPassivelDevolucao">
+                        Essa taxa NÃO é passível de devolução ou crédito em casos de cancelamentos de pedidos
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Botão Avançar -->
+              <div class="d-flex justify-content-start mt-4">
+                <button type="button" class="btn btn-primary" id="btnAvancarTaxas">Avançar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 2: Configurações Adicionais -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Configurações Adicionais
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionTaxas">
+          <div class="accordion-body">
+            <!-- Seleção de Unidade -->
+            <div class="row mb-4">
+              <div class="col-12">
+                <label for="selectUnidade" class="form-label">Selecione a Unidade</label>
+                <select class="form-select" id="selectUnidade">
+                  <option value="" selected disabled>Selecione uma unidade</option>
+                  <option value="unidade1">Colônia de férias Lagoa</option>
+                  <option value="unidade2">Colônia de férias Lagoa - Flamengo</option>
+                  <option value="unidade3">Colônia de férias Laranjeiras</option>
+                  <option value="unidade4">Colônia de férias Tijuca</option>
+                  <option value="unidade5">Colônia de férias Ilha do Governador</option>
+                  <option value="unidade6">Loja Gecrear</option>
+                  <option value="unidade7">Festa Gecrear</option>
+                  <option value="unidade8">Colônia de férias Leblon - Paissandu</option>
+                  <option value="unidade9">Colônia de férias Barra Bowling e Hotzone</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Conteúdo condicional (aparece apenas quando uma unidade é selecionada) -->
+            <div id="conteudoUnidade" class="d-none">
+              <!-- Abas para Horários e Complementos -->
+              <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="horarios-tab" data-bs-toggle="tab" data-bs-target="#horarios" type="button" role="tab" aria-controls="horarios" aria-selected="true">Horários</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="complementos-tab" data-bs-toggle="tab" data-bs-target="#complementos" type="button" role="tab" aria-controls="complementos" aria-selected="false">Complementos</button>
+                </li>
+              </ul>
+
+              <!-- Conteúdo das Abas -->
+              <div class="tab-content" id="myTabContent">
+                <!-- Aba de Horários -->
+                <div class="tab-pane fade show active" id="horarios" role="tabpanel" aria-labelledby="horarios-tab">
+                  <div class="row mb-3">
+                    <div class="col-12">
+                      <label class="form-label">Selecione os Horários</label>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="periodo1" id="periodo1">
+                        <label class="form-check-label" for="periodo1">08:00 às 09:00</label>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="periodo2" id="periodo2">
+                        <label class="form-check-label" for="periodo2">09:00 às 10:00</label>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="periodo3" id="periodo3">
+                        <label class="form-check-label" for="periodo3">10:00 às 11:00</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Aba de Complementos -->
+                <div class="tab-pane fade" id="complementos" role="tabpanel" aria-labelledby="complementos-tab">
+                  <div class="row mb-3">
+                    <div class="col-12">
+                      <label class="form-label">Selecione os Complementos</label>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="complemento1" id="complemento1">
+                        <label class="form-check-label" for="complemento1">Lanche da manhã</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="complemento2" id="complemento2">
+                        <label class="form-check-label" for="complemento2">Almoço</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="row mt-4">
+              <div class="col-12 text-end">
+                <button type="button" class="btn btn-primary" id="btnSalvarConfigTaxas">Salvar Configurações</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Accordion -->
+  </div>
+  
+  <!-- Card Footer -->
+  <div class="card-footer d-flex justify-content-center">
+    <button type="button" class="btn btn-secondary me-2" id="btnVoltarTaxasFooter">Voltar</button>
+    <button type="button" class="btn btn-warning" id="btnSalvarTaxasFooter">Salvar</button>
+  </div>
+</div>

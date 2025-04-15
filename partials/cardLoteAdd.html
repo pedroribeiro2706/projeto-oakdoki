@@ -1,0 +1,277 @@
+<!-- partials/cardLoteAdd.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Adicionar Lote</h5>
+    <div>
+      <button class="btn btn-outline-secondary me-2" id="btnVoltarLoteAddHeader">Voltar</button>
+      <button class="btn btn-warning" id="btnSalvarLoteAddHeader">Salvar</button>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <!-- Accordion -->
+    <div class="accordion" id="accordionLote">
+      
+      <!-- Item 1: Informações Básicas -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Informações Básicas
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionLote">
+          <div class="accordion-body">
+            <form id="formInfoBasicas">
+              <!-- Primeira linha: Nome, Início vendas, Final vendas, Quantidade disponível -->
+              <div class="row mb-3">
+                <div class="col-md-3">
+                  <label for="nomeLote" class="form-label">Nome</label>
+                  <input type="text" class="form-control" id="nomeLote" placeholder="Nome do lote" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="inicioVendas" class="form-label">Início vendas</label>
+                  <input type="date" class="form-control" id="inicioVendas" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="finalVendas" class="form-label">Final vendas</label>
+                  <input type="date" class="form-control" id="finalVendas" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="quantidadeDisponivel" class="form-label">Quantidade disponível</label>
+                  <input type="number" class="form-control" id="quantidadeDisponivel" min="1" value="100">
+                </div>
+              </div>
+              
+              <!-- Segunda linha: Descrição (Text Area) -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label for="descricaoLote" class="form-label">Descrição</label>
+                  <textarea class="form-control" id="descricaoLote" rows="3" placeholder="Descreva o lote"></textarea>
+                </div>
+              </div>
+              
+              <!-- Terceira linha: Checkboxes -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="continuarVendendo">
+                    <label class="form-check-label" for="continuarVendendo">
+                      Após o esgotamento, continuar vendendo sem o desconto do lote e para todos as categorias de clientes
+                    </label>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="priorizarVenda">
+                    <label class="form-check-label" for="priorizarVenda">
+                      Priorizar a venda desse lote por categorias de clientes
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Botão Avançar -->
+              <div class="d-flex justify-content-start mt-4">
+                <button type="button" class="btn btn-primary" id="btnAvancarLote1">Avançar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 2: Associar lote aos serviços -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Associar lote aos serviços
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionLote">
+          <div class="accordion-body">
+            <div class="row mb-4">
+              <div class="col-12">
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="radio" name="tipoDescontoServicos" id="descontoTodosServicos" checked>
+                  <label class="form-check-label d-flex align-items-center" for="descontoTodosServicos">
+                    Aplicar 
+                    <input type="number" class="form-control form-control-sm mx-2" id="percentualDescontoServicos" style="width: 80px;" min="1" max="100" value="10">
+                    % de desconto à todos os serviços
+                  </label>
+                </div>
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="tipoDescontoServicos" id="descontoDiferenciadoServicos">
+                  <label class="form-check-label" for="descontoDiferenciadoServicos">
+                    Diferenciar descontos por serviços
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Conteúdo condicional para descontos diferenciados por serviço -->
+            <div id="descontoDiferenciadoServicosContent" class="d-none">
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">2024 - 08 a 12 de julho</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">2024 - 15 a 19 de julho</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">2024 - 22 a 26 de julho</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">2024 - 29 de julho a 02 de agosto</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">2024 - Dezembro - Semana de 09 a 13</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botões de navegação -->
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-outline-secondary" id="btnVoltarLote2">Voltar</button>
+              <button type="button" class="btn btn-primary" id="btnAvancarLote2">Avançar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 3: Associar lote aos complementos -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Associar lote aos complementos
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionLote">
+          <div class="accordion-body">
+            <div class="row mb-4">
+              <div class="col-12">
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="radio" name="tipoDescontoComplementos" id="descontoTodosComplementos" checked>
+                  <label class="form-check-label d-flex align-items-center" for="descontoTodosComplementos">
+                    Aplicar 
+                    <input type="number" class="form-control form-control-sm mx-2" id="percentualDescontoComplementos" style="width: 80px;" min="1" max="100" value="10">
+                    % de desconto à todos os Complementos
+                  </label>
+                </div>
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="tipoDescontoComplementos" id="descontoDiferenciadoComplementos">
+                  <label class="form-check-label" for="descontoDiferenciadoComplementos">
+                    Diferenciar descontos por complementos
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Conteúdo condicional para descontos diferenciados por complemento -->
+            <div id="descontoDiferenciadoComplementosContent" class="d-none">
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">Lanche da manhã</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">Almoço</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">Lanche da tarde</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+                <div class="col-md-8">
+                  <label class="form-label">Jantar</label>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control" min="0" max="100" value="10">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botões de navegação -->
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-outline-secondary" id="btnVoltarLote3">Voltar</button>
+              <button type="button" class="btn btn-primary" id="btnConcluirLote">Concluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-footer d-flex justify-content-center">
+    <button class="btn btn-outline-secondary me-2" id="btnVoltarLoteAddFooter">Voltar</button>
+    <button class="btn btn-warning" id="btnSalvarLoteAddFooter">Salvar</button>
+  </div>
+</div>

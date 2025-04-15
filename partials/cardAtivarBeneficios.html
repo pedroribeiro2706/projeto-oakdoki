@@ -1,0 +1,192 @@
+<!-- partials/cardAtivarBeneficios.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom">
+    <h5 class="mb-0">Ativar Benefícios</h5>
+  </div>
+  
+  <div class="card-body">
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="alert alert-info rounded">
+          <p class="mb-1"><i class="bi bi-info-circle me-2"></i>Arraste os itens para reordenar os tipos de desconto conforme desejado.</p>
+          <p class="mb-0"><i class="bi bi-info-circle me-2"></i>Marque a opção Suspender o próximo para não conceder os descontos abaixo sempre que o contratante for contemplado com o item marcado.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Accordion -->
+    <div class="accordion" id="accordionAtivarBeneficios">
+      
+      <!-- Item 1: Tipos de Desconto -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Tipos de Desconto
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionAtivarBeneficios">
+          <div class="accordion-body">
+            
+            <!-- Cabeçalho da lista -->
+            <div class="list-group">
+              <div class="list-group-item">
+                <div class="row">
+                  <div class="col-lg-6">
+                    Tipos de desconto
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    Status
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    Suspender o próximo
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lista ordenável -->
+            <div class="list-group mt-2 ui-sortable" id="sortableTiposDesconto">
+              <!-- Item: Cupom -->
+              <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+                <div class="row align-items-center">
+                  <input type="hidden" name="order-cupom">
+                  <div class="col-lg-6">
+                    <i class="bi bi-grip-vertical me-2 text-muted"></i>
+                    Cupom
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchStatusCupom" checked>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchSuspenderCupom">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Item: Lotes -->
+              <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+                <div class="row align-items-center">
+                  <input type="hidden" name="order-lotes">
+                  <div class="col-lg-6">
+                    <i class="bi bi-grip-vertical me-2 text-muted"></i>
+                    Lotes
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchStatusLotes" checked>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchSuspenderLotes">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Item: Categoria de cliente -->
+              <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+                <div class="row align-items-center">
+                  <input type="hidden" name="order-categoria">
+                  <div class="col-lg-6">
+                    <i class="bi bi-grip-vertical me-2 text-muted"></i>
+                    Categoria de cliente
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchStatusCategoria" checked>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchSuspenderCategoria">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Item: Desconto por quantidade -->
+              <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+                <div class="row align-items-center">
+                  <input type="hidden" name="order-quantidade">
+                  <div class="col-lg-6">
+                    <i class="bi bi-grip-vertical me-2 text-muted"></i>
+                    Desconto por quantidade
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchStatusQuantidade" checked>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchSuspenderQuantidade">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 2: Outros descontos -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Outros descontos
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionAtivarBeneficios">
+          <div class="accordion-body">
+            
+            <!-- Cabeçalho da lista -->
+            <div class="list-group">
+              <div class="list-group-item">
+                <div class="row">
+                  <div class="col-lg-6">
+                    Meios de pagamento
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    Status
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    Sempre conceder o desconto
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Lista ordenável -->
+            <div class="list-group mt-2 ui-sortable" id="sortableMeiosPagamento">
+              <!-- Item: Meios de pagamento -->
+              <div class="list-group-item flex-column ui-state-default mt-1 ui-sortable-handle">
+                <div class="row align-items-center">
+                  <input type="hidden" name="order-meios">
+                  <div class="col-lg-6">
+                    <i class="bi bi-grip-vertical me-2 text-muted"></i>
+                    Meios de pagamento
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchStatusMeios" checked>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <div class="form-check form-switch d-inline-block">
+                      <input class="form-check-input" type="checkbox" role="switch" id="switchConcederMeios">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

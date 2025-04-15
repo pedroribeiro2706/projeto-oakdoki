@@ -1461,12 +1461,13 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
           e.preventDefault();
           atualizarAtivo(menuBeneficios);
           clearAllCards();
-          fetch('partials/cardBeneficios.html')
-            .then(r => r.text())
-            .then(html => {
-              document.getElementById('cardBeneficiosPlaceholder').innerHTML = html;
-            })
-            .catch(err => console.error('Erro ao carregar cardBeneficios.html:', err));
+          // O código para carregar o cardBeneficios.html foi movido para o arquivo beneficios.js
+          // para manter todo o código relacionado à seção de Benefícios em um único arquivo
+          if (typeof handleMenuBeneficiosClick === 'function') {
+            handleMenuBeneficiosClick(e);
+          } else {
+            console.error('Função handleMenuBeneficiosClick não encontrada no arquivo beneficios.js');
+          }
         });
       }
 
@@ -1479,6 +1480,7 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
             .then(r => r.text())
             .then(html => {
               document.getElementById('cardTaxasPlaceholder').innerHTML = html;
+              console.log('Placeholder de Taxas encontrado em scripts.js');
             })
             .catch(err => console.error('Erro ao carregar cardTaxas.html:', err));
         });
@@ -1543,9 +1545,7 @@ function setupCardCuponsEvents() {
   
   if (btnAdicionarCupom) {
     btnAdicionarCupom.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Carrega o cardDesconto.html e o injeta no mesmo placeholder do cardCupons
+      // Em vez de overlay, inject cardDesconto.html:
       fetch('partials/cardDesconto.html')
         .then(response => response.text())
         .then(html => {
@@ -2202,7 +2202,9 @@ function setupCardComplementoAddEvents() {
         conteudoUnidade.classList.remove('d-none');
         
         // Resetar o select de serviço para o estado default
-        selectServico.selectedIndex = 0;
+        if (selectServico) {
+          selectServico.selectedIndex = 0;
+        }
         
         // Esconder os períodos quando a unidade muda
         if (conteudoPeriodos) {
@@ -2496,7 +2498,9 @@ function setupCardComplementoAddEvents() {
         conteudoUnidade.classList.remove('d-none');
         
         // Resetar o select de serviço para o estado default
-        selectServico.selectedIndex = 0;
+        if (selectServico) {
+          selectServico.selectedIndex = 0;
+        }
         
         // Esconder os períodos quando a unidade muda
         if (conteudoPeriodos) {
@@ -2706,3 +2710,23 @@ function setupCardUsuarioAddEvents() {
     });
   }
 }
+
+// Verificar se o script de taxas já foi carregado
+if (typeof window.taxasScriptLoaded === 'undefined') {
+  console.log('Carregando script de taxas...');
+  // Criar um elemento script para carregar o arquivo taxas.js
+  const taxasScript = document.createElement('script');
+  taxasScript.src = 'assets/js/taxas.js';
+  taxasScript.onload = function() {
+    console.log('Script de taxas carregado com sucesso!');
+    window.taxasScriptLoaded = true;
+  };
+  taxasScript.onerror = function() {
+    console.error('Erro ao carregar o script de taxas!');
+  };
+  document.head.appendChild(taxasScript);
+} else {
+  console.log('Script de taxas já foi carregado anteriormente.');
+}
+
+
