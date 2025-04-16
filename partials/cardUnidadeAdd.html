@@ -1,0 +1,41 @@
+<!-- partials/cardUnidadeAdd.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Adicionar Unidade</h5>
+    <div>
+      <button class="btn btn-secondary me-2" id="btnVoltarUnidadeAddHeader">Voltar</button>
+      <button class="btn btn-warning" id="btnSalvarUnidadeAddHeader">Salvar</button>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <form id="formAdicionarUnidade">
+      <div class="row mb-4">
+        <div class="col-12">
+          <label for="nomeUnidade" class="form-label">Nome da unidade</label>
+          <input type="text" class="form-control" id="nomeUnidade" placeholder="Digite o nome da unidade" required>
+        </div>
+      </div>
+      
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="form-check" style="padding-left: 0px;">
+            <div class="d-flex align-items-center">
+              <div class="form-check form-switch">
+                <input class="form-check-input me-2" type="checkbox" role="switch" id="obrigaCategoria">
+              </div>
+              <label class="form-check-label" for="obrigaCategoria">
+                Nesta unidade é obrigatória a seleção de uma categoria pelo contratante no procedimento de contratação dos serviços.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="d-flex justify-content-center mt-4">
+        <button type="button" class="btn btn-secondary me-2" id="btnVoltarUnidadeAddFooter">Voltar</button>
+        <button type="button" class="btn btn-warning" id="btnSalvarUnidadeAddFooter">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
