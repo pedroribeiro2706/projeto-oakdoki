@@ -1368,7 +1368,22 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
         itemSelecionado.classList.add('active');
       }
 
-      // Configuração dos listeners para cada item do menu
+      if (menuTaxas) {
+        menuTaxas.addEventListener('click', (e) => {
+          e.preventDefault();
+          atualizarAtivo(menuTaxas);
+          clearAllCards();
+          // Carregar o cardTaxas.html
+          fetch('partials/cardTaxas.html')
+            .then(r => r.text())
+            .then(html => {
+              document.getElementById('cardTaxasPlaceholder').innerHTML = html;
+              setupCardTaxasEvents();
+            })
+            .catch(err => console.error('Erro ao carregar cardTaxas.html:', err));
+        });
+      }
+
       if (menuUnidades) {
         menuUnidades.addEventListener('click', (e) => {
           e.preventDefault();
@@ -1423,6 +1438,7 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
             .then(r => r.text())
             .then(html => {
               document.getElementById('cardFormulariosPlaceholder').innerHTML = html;
+              setupCardFormulariosEvents();
             })
             .catch(err => console.error('Erro ao carregar cardFormularios.html:', err));
         });
@@ -1451,6 +1467,7 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
             .then(r => r.text())
             .then(html => {
               document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+              setupCardMeiosPagamentoEvents();
             })
             .catch(err => console.error('Erro ao carregar cardMeiosPagamento.html:', err));
         });
@@ -1468,21 +1485,6 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
           } else {
             console.error('Função handleMenuBeneficiosClick não encontrada no arquivo beneficios.js');
           }
-        });
-      }
-
-      if (menuTaxas) {
-        menuTaxas.addEventListener('click', (e) => {
-          e.preventDefault();
-          atualizarAtivo(menuTaxas);
-          clearAllCards();
-          fetch('partials/cardTaxas.html')
-            .then(r => r.text())
-            .then(html => {
-              document.getElementById('cardTaxasPlaceholder').innerHTML = html;
-              console.log('Placeholder de Taxas encontrado em scripts.js');
-            })
-            .catch(err => console.error('Erro ao carregar cardTaxas.html:', err));
         });
       }
 
@@ -1608,12 +1610,17 @@ function setupCardDescontoEvents() {
           selectServico.selectedIndex = 0;
         }
         
-        // Ocultar a seção de períodos
+        // Esconder a seção de períodos
         if (periodos) {
           periodos.classList.add('d-none');
         }
       } else {
         conteudoUnidade.classList.add('d-none');
+        
+        // Esconder os períodos
+        if (periodos) {
+          periodos.classList.add('d-none');
+        }
       }
     });
   }
@@ -2194,7 +2201,7 @@ function setupCardComplementoAddEvents() {
   const selectUnidade = document.getElementById('selectUnidade');
   const conteudoUnidade = document.getElementById('conteudoUnidade');
   const selectServico = document.getElementById('selectServico');
-  const conteudoPeriodos = document.getElementById('conteudoPeriodos');
+  const periodos = document.getElementById('periodos');
   
   if (selectUnidade && conteudoUnidade && selectServico) {
     selectUnidade.addEventListener('change', function() {
@@ -2207,27 +2214,27 @@ function setupCardComplementoAddEvents() {
         }
         
         // Esconder os períodos quando a unidade muda
-        if (conteudoPeriodos) {
-          conteudoPeriodos.classList.add('d-none');
+        if (periodos) {
+          periodos.classList.add('d-none');
         }
       } else {
         conteudoUnidade.classList.add('d-none');
         
         // Esconder os períodos
-        if (conteudoPeriodos) {
-          conteudoPeriodos.classList.add('d-none');
+        if (periodos) {
+          periodos.classList.add('d-none');
         }
       }
     });
   }
   
   // Configurar o comportamento do select de serviço
-  if (selectServico && conteudoPeriodos) {
+  if (selectServico && periodos) {
     selectServico.addEventListener('change', function() {
       if (selectServico.value) {
-        conteudoPeriodos.classList.remove('d-none');
+        periodos.classList.remove('d-none');
       } else {
-        conteudoPeriodos.classList.add('d-none');
+        periodos.classList.add('d-none');
       }
     });
   }
@@ -2490,7 +2497,7 @@ function setupCardComplementoAddEvents() {
   const selectUnidade = document.getElementById('selectUnidade');
   const conteudoUnidade = document.getElementById('conteudoUnidade');
   const selectServico = document.getElementById('selectServico');
-  const conteudoPeriodos = document.getElementById('conteudoPeriodos');
+  const periodos = document.getElementById('periodos');
   
   if (selectUnidade && conteudoUnidade && selectServico) {
     selectUnidade.addEventListener('change', function() {
@@ -2503,27 +2510,27 @@ function setupCardComplementoAddEvents() {
         }
         
         // Esconder os períodos quando a unidade muda
-        if (conteudoPeriodos) {
-          conteudoPeriodos.classList.add('d-none');
+        if (periodos) {
+          periodos.classList.add('d-none');
         }
       } else {
         conteudoUnidade.classList.add('d-none');
         
         // Esconder os períodos
-        if (conteudoPeriodos) {
-          conteudoPeriodos.classList.add('d-none');
+        if (periodos) {
+          periodos.classList.add('d-none');
         }
       }
     });
   }
   
   // Configurar o comportamento do select de serviço
-  if (selectServico && conteudoPeriodos) {
+  if (selectServico && periodos) {
     selectServico.addEventListener('change', function() {
       if (selectServico.value) {
-        conteudoPeriodos.classList.remove('d-none');
+        periodos.classList.remove('d-none');
       } else {
-        conteudoPeriodos.classList.add('d-none');
+        periodos.classList.add('d-none');
       }
     });
   }
@@ -2562,171 +2569,459 @@ function setupCardComplementoAddEvents() {
   }
 }
 
-// Inicializar eventos específicos para cada card
-document.addEventListener('DOMContentLoaded', function() {
-  // Verificar se os placeholders existem e inicializar seus eventos
-  const cardComplementosLojasPlaceholder = document.getElementById('cardComplementosLojasPlaceholder');
-  if (cardComplementosLojasPlaceholder) {
-    setupCardComplementosLojasEvents();
+function setupCardFormulariosEvents() {
+  console.log('Configurando eventos do card de Formulários');
+  
+  // Botão para adicionar formulário de contratante
+  const btnAdicionarFormularioContratante = document.getElementById('btnAdicionarFormularioContratante');
+  if (btnAdicionarFormularioContratante) {
+    btnAdicionarFormularioContratante.addEventListener('click', function() {
+      fetch('partials/cardAdicionarFormulario.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardFormulariosPlaceholder').innerHTML = html;
+          
+          // Atualizar o título para Contratante
+          const cardTitle = document.querySelector('.card-header h5');
+          if (cardTitle) {
+            cardTitle.textContent = 'Adicionar Formulário de Contratante';
+          }
+          
+          setupCardAdicionarFormularioEvents('contratante');
+        })
+        .catch(err => console.error('Erro ao carregar cardAdicionarFormulario.html:', err));
+    });
   }
   
-  const cardUnidadesPlaceholder = document.getElementById('cardUnidadesPlaceholder');
-  if (cardUnidadesPlaceholder) {
-    setupCardUnidadesEvents();
-  }
-});
-
-// Função para configurar eventos do card Unidades
-function setupCardUnidadesEvents() {
-  try {
-    // Botão para adicionar nova unidade no header
-    const btnAdicionarUnidade = document.getElementById('botaoAdicionarUnidade');
-    if (btnAdicionarUnidade) {
-      btnAdicionarUnidade.addEventListener('click', () => {
-        const cardUnidadesPlaceholder = document.getElementById('cardUnidadesPlaceholder');
-        if (cardUnidadesPlaceholder) {
-          fetch('partials/cardUsuarioAdd.html')
-            .then(r => r.text())
-            .then(html => {
-              cardUnidadesPlaceholder.innerHTML = html;
-              setupCardUsuarioAddEvents();
-            })
-            .catch(err => console.error('Erro ao carregar cardUsuarioAdd.html:', err));
-        }
-      });
-    }
-    
-    // Botão para adicionar nova unidade no footer
-    const btnAdicionarUnidadeFooter = document.getElementById('botaoAdicionarUnidadeFooter');
-    if (btnAdicionarUnidadeFooter) {
-      btnAdicionarUnidadeFooter.addEventListener('click', () => {
-        const cardUnidadesPlaceholder = document.getElementById('cardUnidadesPlaceholder');
-        if (cardUnidadesPlaceholder) {
-          fetch('partials/cardUsuarioAdd.html')
-            .then(r => r.text())
-            .then(html => {
-              cardUnidadesPlaceholder.innerHTML = html;
-              setupCardUsuarioAddEvents();
-            })
-            .catch(err => console.error('Erro ao carregar cardUsuarioAdd.html:', err));
-        }
-      });
-    }
-    
-    // Botões para editar unidades
-    const botoesEditar = document.querySelectorAll('.edit-unit-link');
-    botoesEditar.forEach(botao => {
-      botao.addEventListener('click', (evt) => {
-        evt.preventDefault();
-        const unitName = botao.getAttribute('data-unit') || 'Unidade';
-        alert(`Editar unidade ${unitName} (protótipo)`);
-      });
+  // Botão para adicionar formulário de usuário
+  const btnAdicionarFormularioUsuario = document.getElementById('btnAdicionarFormularioUsuario');
+  if (btnAdicionarFormularioUsuario) {
+    btnAdicionarFormularioUsuario.addEventListener('click', function() {
+      fetch('partials/cardAdicionarFormulario.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardFormulariosPlaceholder').innerHTML = html;
+          
+          // Atualizar o título para Usuário
+          const cardTitle = document.querySelector('.card-header h5');
+          if (cardTitle) {
+            cardTitle.textContent = 'Adicionar Formulário de Usuário';
+          }
+          
+          setupCardAdicionarFormularioEvents('usuario');
+        })
+        .catch(err => console.error('Erro ao carregar cardAdicionarFormulario.html:', err));
     });
-    
-  } catch (error) {
-    console.error('Erro ao configurar eventos do card de unidades:', error);
+  } else {
+    console.log('Botão Adicionar Formulário Usuário NÃO encontrado');
   }
 }
 
-// Função para configurar eventos do card de adição de unidade
-function setupCardUsuarioAddEvents() {
-  // Botão "Voltar" no Header
-  const btnVoltarHeader = document.getElementById('btnVoltarUnidadeAddHeader');
-  if (btnVoltarHeader) {
-    btnVoltarHeader.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      fetch('partials/cardUnidades.html')
-        .then(r => r.text())
-        .then(html => {
-          cardUnidadesPlaceholder.innerHTML = html;
-          setupCardUnidadesEvents();
-        })
-        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+/**
+ * Configura os eventos do card de Adicionar Formulário
+ * @param {string} tipo - Tipo de formulário ('contratante' ou 'usuario')
+ */
+function setupCardAdicionarFormularioEvents(tipo) {
+  console.log('Configurando eventos do card de Adicionar Formulário');
+  
+  // Botão "Avançar" para ir para o segundo item do accordion
+  const btnAvancarFormulario = document.getElementById('btnAvancarFormulario');
+  if (btnAvancarFormulario) {
+    btnAvancarFormulario.addEventListener('click', function() {
+      // Obter referências aos elementos do accordion
+      const collapseOne = document.getElementById('collapseOne');
+      const collapseTwo = document.getElementById('collapseTwo');
+      const headingOneButton = document.querySelector('#headingOne button');
+      const headingTwoButton = document.querySelector('#headingTwo button');
+      
+      // Fechar o primeiro item
+      collapseOne.classList.remove('show');
+      headingOneButton.classList.add('collapsed');
+      headingOneButton.setAttribute('aria-expanded', 'false');
+      
+      // Abrir o segundo item
+      collapseTwo.classList.add('show');
+      headingTwoButton.classList.remove('collapsed');
+      headingTwoButton.setAttribute('aria-expanded', 'true');
     });
   }
   
-  // Botão "Salvar" no Header
-  const btnSalvarHeader = document.getElementById('btnSalvarUnidadeAddHeader');
-  if (btnSalvarHeader) {
-    btnSalvarHeader.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      const nomeUnidade = document.getElementById('nomeUnidade').value;
-      const obrigaCategoria = document.getElementById('obrigaCategoria').checked;
-      
-      if (!nomeUnidade) {
-        alert('Por favor, informe o nome da unidade.');
-        return;
+  // Configurar os eventos para a seleção de unidade
+  const selectUnidade = document.getElementById('selectUnidade');
+  const conteudoUnidade = document.getElementById('conteudoUnidade');
+  const selectServico = document.getElementById('selectServico');
+  const periodos = document.getElementById('periodos');
+  
+  if (selectUnidade && conteudoUnidade && selectServico) {
+    selectUnidade.addEventListener('change', function() {
+      if (selectUnidade.value) {
+        conteudoUnidade.classList.remove('d-none');
+        
+        // Resetar o select de serviço para o estado default
+        if (selectServico) {
+          selectServico.selectedIndex = 0;
+        }
+        
+        // Esconder os períodos quando a unidade muda
+        if (periodos) {
+          periodos.classList.add('d-none');
+        }
+      } else {
+        conteudoUnidade.classList.add('d-none');
+        
+        // Esconder os períodos
+        if (periodos) {
+          periodos.classList.add('d-none');
+        }
       }
-      
-      alert(`Unidade "${nomeUnidade}" adicionada com sucesso (protótipo).`);
-      
-      fetch('partials/cardUnidades.html')
-        .then(r => r.text())
-        .then(html => {
-          cardUnidadesPlaceholder.innerHTML = html;
-          setupCardUnidadesEvents();
-        })
-        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+    });
+  }
+  
+  // Configurar os eventos para a seleção de serviço
+  if (selectServico && periodos) {
+    selectServico.addEventListener('change', function() {
+      if (selectServico.value) {
+        periodos.classList.remove('d-none');
+      } else {
+        periodos.classList.add('d-none');
+      }
     });
   }
   
   // Botão "Voltar" no Footer
-  const btnVoltarFooter = document.getElementById('btnVoltarUnidadeAddFooter');
-  if (btnVoltarFooter) {
-    btnVoltarFooter.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      fetch('partials/cardUnidades.html')
+  const btnVoltarFormulario = document.getElementById('btnVoltarFormulario');
+  if (btnVoltarFormulario) {
+    btnVoltarFormulario.addEventListener('click', function() {
+      // Voltar para o card de Formulários
+      fetch('partials/cardFormularios.html')
         .then(r => r.text())
         .then(html => {
-          cardUnidadesPlaceholder.innerHTML = html;
-          setupCardUnidadesEvents();
+          document.getElementById('cardFormulariosPlaceholder').innerHTML = html;
+          setupCardFormulariosEvents();
         })
-        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+        .catch(err => console.error('Erro ao carregar cardFormularios.html:', err));
     });
   }
   
   // Botão "Salvar" no Footer
-  const btnSalvarFooter = document.getElementById('btnSalvarUnidadeAddFooter');
-  if (btnSalvarFooter) {
-    btnSalvarFooter.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      const nomeUnidade = document.getElementById('nomeUnidade').value;
-      const obrigaCategoria = document.getElementById('obrigaCategoria').checked;
-      
-      if (!nomeUnidade) {
-        alert('Por favor, informe o nome da unidade.');
-        return;
-      }
-      
-      alert(`Unidade "${nomeUnidade}" adicionada com sucesso (protótipo).`);
-      
-      fetch('partials/cardUnidades.html')
+  const btnSalvarFormulario = document.getElementById('btnSalvarFormulario');
+  if (btnSalvarFormulario) {
+    btnSalvarFormulario.addEventListener('click', function() {
+      alert(`Formulário de ${tipo} salvo com sucesso! (protótipo)`);
+      // Voltar para o card de Formulários
+      fetch('partials/cardFormularios.html')
         .then(r => r.text())
         .then(html => {
-          cardUnidadesPlaceholder.innerHTML = html;
-          setupCardUnidadesEvents();
+          document.getElementById('cardFormulariosPlaceholder').innerHTML = html;
+          setupCardFormulariosEvents();
         })
-        .catch(err => console.error('Erro ao carregar cardUnidades.html:', err));
+        .catch(err => console.error('Erro ao carregar cardFormularios.html:', err));
     });
   }
 }
 
-// Verificar se o script de taxas já foi carregado
-if (typeof window.taxasScriptLoaded === 'undefined') {
-  console.log('Carregando script de taxas...');
-  // Criar um elemento script para carregar o arquivo taxas.js
-  const taxasScript = document.createElement('script');
-  taxasScript.src = 'assets/js/taxas.js';
-  taxasScript.onload = function() {
-    console.log('Script de taxas carregado com sucesso!');
-    window.taxasScriptLoaded = true;
-  };
-  taxasScript.onerror = function() {
-    console.error('Erro ao carregar o script de taxas!');
-  };
-  document.head.appendChild(taxasScript);
-} else {
-  console.log('Script de taxas já foi carregado anteriormente.');
+/**
+ * Configura os eventos do card de Meios de Pagamento
+ */
+function setupCardMeiosPagamentoEvents() {
+  console.log('Configurando eventos do card de Meios de Pagamento');
+  
+  // Botão PIX
+  const btnPagamento01 = document.getElementById('btnPagamento01');
+  if (btnPagamento01) {
+    console.log('Botão PIX encontrado');
+    
+    btnPagamento01.addEventListener('click', function() {
+      console.log('Botão PIX clicado');
+      
+      fetch('partials/cardEditarPagamento01.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardEditarPagamento01Events();
+        })
+        .catch(err => console.error('Erro ao carregar cardEditarPagamento01.html:', err));
+    });
+  } else {
+    console.log('Botão PIX NÃO encontrado');
+  }
+  
+  // Botão Boleto
+  const btnPagamento02 = document.getElementById('btnPagamento02');
+  if (btnPagamento02) {
+    console.log('Botão Boleto encontrado');
+    
+    btnPagamento02.addEventListener('click', function() {
+      console.log('Botão Boleto clicado');
+      
+      fetch('partials/cardEditarPagamento02.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardEditarPagamento02Events();
+        })
+        .catch(err => console.error('Erro ao carregar cardEditarPagamento02.html:', err));
+    });
+  } else {
+    console.log('Botão Boleto NÃO encontrado');
+  }
+  
+  // Botão Cartão de Crédito
+  const btnPagamento03 = document.getElementById('btnPagamento03');
+  if (btnPagamento03) {
+    console.log('Botão Cartão de Crédito encontrado');
+    
+    btnPagamento03.addEventListener('click', function() {
+      console.log('Botão Cartão de Crédito clicado');
+      
+      fetch('partials/cardEditarPagamento03.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardEditarPagamento03Events();
+        })
+        .catch(err => console.error('Erro ao carregar cardEditarPagamento03.html:', err));
+    });
+  } else {
+    console.log('Botão Cartão de Crédito NÃO encontrado');
+  }
 }
 
+/**
+ * Configura os eventos do card de Editar Pagamento 01 (PIX)
+ */
+function setupCardEditarPagamento01Events() {
+  console.log('Configurando eventos do card de Editar Pagamento 01 (PIX)');
+  
+  // Botão Voltar
+  const btnVoltar = document.getElementById('btnVoltarPagamento01');
+  if (btnVoltar) {
+    btnVoltar.addEventListener('click', function() {
+      // Voltar para o card de Meios de Pagamento
+      fetch('partials/cardMeiosPagamento.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardMeiosPagamentoEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardMeiosPagamento.html:', err));
+    });
+  }
+  
+  // Botão Salvar
+  const btnSalvar = document.getElementById('btnSalvarPagamento01');
+  if (btnSalvar) {
+    btnSalvar.addEventListener('click', function() {
+      alert('Configurações de PIX salvas com sucesso! (protótipo)');
+      // Voltar para o card de Meios de Pagamento
+      fetch('partials/cardMeiosPagamento.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardMeiosPagamentoEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardMeiosPagamento.html:', err));
+    });
+  }
+}
 
+/**
+ * Configura os eventos do card de Editar Pagamento 02 (Boleto)
+ */
+function setupCardEditarPagamento02Events() {
+  console.log('Configurando eventos do card de Editar Pagamento 02 (Boleto)');
+  
+  // Botão Voltar
+  const btnVoltar = document.getElementById('btnVoltarPagamento02');
+  if (btnVoltar) {
+    btnVoltar.addEventListener('click', function() {
+      // Voltar para o card de Meios de Pagamento
+      fetch('partials/cardMeiosPagamento.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardMeiosPagamentoEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardMeiosPagamento.html:', err));
+    });
+  }
+  
+  // Botão Salvar
+  const btnSalvar = document.getElementById('btnSalvarPagamento02');
+  if (btnSalvar) {
+    btnSalvar.addEventListener('click', function() {
+      alert('Configurações de Boleto salvas com sucesso! (protótipo)');
+      // Voltar para o card de Meios de Pagamento
+      fetch('partials/cardMeiosPagamento.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardMeiosPagamentoEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardMeiosPagamento.html:', err));
+    });
+  }
+}
+
+/**
+ * Configura os eventos do card de Editar Pagamento 03 (Cartão de Crédito)
+ */
+function setupCardEditarPagamento03Events() {
+  console.log('Configurando eventos do card de Editar Pagamento 03 (Cartão de Crédito)');
+  
+  // Botão Voltar
+  const btnVoltar = document.getElementById('btnVoltarPagamento03');
+  if (btnVoltar) {
+    btnVoltar.addEventListener('click', function() {
+      // Voltar para o card de Meios de Pagamento
+      fetch('partials/cardMeiosPagamento.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardMeiosPagamentoEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardMeiosPagamento.html:', err));
+    });
+  }
+  
+  // Botão Salvar
+  const btnSalvar = document.getElementById('btnSalvarPagamento03');
+  if (btnSalvar) {
+    btnSalvar.addEventListener('click', function() {
+      alert('Configurações de Cartão de Crédito salvas com sucesso! (protótipo)');
+      // Voltar para o card de Meios de Pagamento
+      fetch('partials/cardMeiosPagamento.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardMeiosPagamentoPlaceholder').innerHTML = html;
+          setupCardMeiosPagamentoEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardMeiosPagamento.html:', err));
+    });
+  }
+}
+
+/**
+ * Configura os eventos do card de Taxas
+ */
+function setupCardTaxasEvents() {
+  console.log('Configurando eventos do card de Taxas');
+  
+  // Botão Outras taxas
+  const btnOutrasTaxas = document.getElementById('btnOutrasTaxas');
+  if (btnOutrasTaxas) {
+    btnOutrasTaxas.addEventListener('click', () => {
+      fetch('partials/cardOutrasTaxas.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardTaxasPlaceholder').innerHTML = html;
+          setupCardOutrasTaxasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardOutrasTaxas.html:', err));
+    });
+  } else {
+    console.log('Botão Outras taxas NÃO encontrado');
+  }
+}
+
+/**
+ * Configura os eventos do card de Outras Taxas
+ */
+function setupCardOutrasTaxasEvents() {
+  console.log('Configurando eventos do card de Outras Taxas');
+  
+  // Botões de voltar
+  const btnVoltarTaxasHeader = document.getElementById('btnVoltarTaxasHeader');
+  const btnVoltarTaxasFooter = document.getElementById('btnVoltarTaxasFooter');
+  
+  // Botões de salvar
+  const btnSalvarTaxasHeader = document.getElementById('btnSalvarTaxasHeader');
+  const btnSalvarTaxasFooter = document.getElementById('btnSalvarTaxasFooter');
+  
+  // Botão avançar
+  const btnAvancarTaxas = document.getElementById('btnAvancarTaxas');
+  
+  // Botão salvar configurações
+  const btnSalvarConfigTaxas = document.getElementById('btnSalvarConfigTaxas');
+  
+  // Adicionar eventos aos botões de voltar
+  if (btnVoltarTaxasHeader) {
+    btnVoltarTaxasHeader.addEventListener('click', () => {
+      fetch('partials/cardTaxas.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardTaxasPlaceholder').innerHTML = html;
+          setupCardTaxasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardTaxas.html:', err));
+    });
+  }
+  
+  if (btnVoltarTaxasFooter) {
+    btnVoltarTaxasFooter.addEventListener('click', () => {
+      fetch('partials/cardTaxas.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardTaxasPlaceholder').innerHTML = html;
+          setupCardTaxasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardTaxas.html:', err));
+    });
+  }
+  
+  // Adicionar eventos aos botões de salvar
+  if (btnSalvarTaxasHeader) {
+    btnSalvarTaxasHeader.addEventListener('click', () => {
+      alert('Taxa salva com sucesso!');
+      fetch('partials/cardTaxas.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardTaxasPlaceholder').innerHTML = html;
+          setupCardTaxasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardTaxas.html:', err));
+    });
+  }
+  
+  if (btnSalvarTaxasFooter) {
+    btnSalvarTaxasFooter.addEventListener('click', () => {
+      alert('Taxa salva com sucesso!');
+      fetch('partials/cardTaxas.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('cardTaxasPlaceholder').innerHTML = html;
+          setupCardTaxasEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardTaxas.html:', err));
+    });
+  }
+  
+  // Adicionar evento ao botão avançar
+  if (btnAvancarTaxas) {
+    btnAvancarTaxas.addEventListener('click', () => {
+      // Abrir o segundo item do accordion
+      const collapseOne = document.getElementById('collapseOne');
+      const collapseTwo = document.getElementById('collapseTwo');
+      const headingOneButton = document.querySelector('#headingOne button');
+      const headingTwoButton = document.querySelector('#headingTwo button');
+      
+      // Fechar o primeiro item
+      collapseOne.classList.remove('show');
+      headingOneButton.classList.add('collapsed');
+      headingOneButton.setAttribute('aria-expanded', 'false');
+      
+      // Abrir o segundo item
+      collapseTwo.classList.add('show');
+      headingTwoButton.classList.remove('collapsed');
+      headingTwoButton.setAttribute('aria-expanded', 'true');
+    });
+  }
+  
+  // Adicionar evento ao botão salvar configurações
+  if (btnSalvarConfigTaxas) {
+    btnSalvarConfigTaxas.addEventListener('click', () => {
+      alert('Configurações adicionais salvas com sucesso!');
+      // Manter na mesma tela, apenas mostrar o alerta
+    });
+  }
+}
