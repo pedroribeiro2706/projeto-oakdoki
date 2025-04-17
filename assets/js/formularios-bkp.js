@@ -106,7 +106,6 @@ function loadCardAdicionarFormulario(tipo) {
     fetch('partials/cardAdicionarFormulario.html')
       .then(r => r.text())
       .then(html => {
-        console.log('cardAdicionarFormulario.html carregado');
         cardFormulariosPlaceholder.innerHTML = html;
         
         // Atualizar o título do card com base no tipo
