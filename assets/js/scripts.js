@@ -1543,7 +1543,7 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
 
 // Função para configurar eventos do card Cupons
 function setupCardCuponsEvents() {
-  const btnAdicionarCupom = document.getElementById('botaoAdicionarCupom');
+  const btnAdicionarCupom = document.getElementById('btnAdicionarCupom');
   
   if (btnAdicionarCupom) {
     btnAdicionarCupom.addEventListener('click', function(e) {
@@ -2042,6 +2042,93 @@ function setupCardHorarioAddEvents() {
       collapseTwo.classList.add('show');
       headingTwoButton.classList.remove('collapsed');
       headingTwoButton.setAttribute('aria-expanded', 'true');
+    });
+  }
+  
+  // Botão Adicionar Horário
+  const btnAdicionarHorario = document.getElementById('btnAdicionarHorario');
+  if (btnAdicionarHorario) {
+    btnAdicionarHorario.addEventListener('click', () => {
+      const tbody = document.querySelector('#tabelaHorarios tbody');
+      
+      // Criar nova linha
+      const tr = document.createElement('tr');
+      
+      // Coluna "Horário Inicial"
+      const tdInicial = document.createElement('td');
+      const inputInicial = document.createElement('input');
+      inputInicial.type = 'time';
+      inputInicial.className = 'form-control';
+      tdInicial.appendChild(inputInicial);
+      
+      // Coluna "Horário Final"
+      const tdFinal = document.createElement('td');
+      const inputFinal = document.createElement('input');
+      inputFinal.type = 'time';
+      inputFinal.className = 'form-control';
+      tdFinal.appendChild(inputFinal);
+      
+      // Coluna "Preço"
+      const tdPreco = document.createElement('td');
+      const inputGroupPreco = document.createElement('div');
+      inputGroupPreco.className = 'input-group';
+      
+      const inputGroupText = document.createElement('span');
+      inputGroupText.className = 'input-group-text';
+      inputGroupText.textContent = 'R$';
+      
+      const inputPreco = document.createElement('input');
+      inputPreco.type = 'number';
+      inputPreco.className = 'form-control';
+      inputPreco.min = '0';
+      inputPreco.step = '0.01';
+      
+      inputGroupPreco.appendChild(inputGroupText);
+      inputGroupPreco.appendChild(inputPreco);
+      tdPreco.appendChild(inputGroupPreco);
+      
+      // Coluna "Ações"
+      const tdAcoes = document.createElement('td');
+      tdAcoes.className = 'text-center';
+      
+      // Dropdown de ações
+      const dropdownDiv = document.createElement('div');
+      dropdownDiv.className = 'dropdown';
+      
+      const btnDropdown = document.createElement('button');
+      btnDropdown.className = 'btn btn-outline-info dropdown-toggle btn-sm';
+      btnDropdown.type = 'button';
+      btnDropdown.setAttribute('data-bs-toggle', 'dropdown');
+      btnDropdown.setAttribute('aria-expanded', 'false');
+      btnDropdown.innerHTML = 'Selecione';
+      
+      const dropdownMenu = document.createElement('ul');
+      dropdownMenu.className = 'dropdown-menu';
+      
+      const dropdownItem = document.createElement('li');
+      const dropdownLink = document.createElement('a');
+      dropdownLink.className = 'dropdown-item text-danger excluir-horario';
+      dropdownLink.href = '#';
+      dropdownLink.innerHTML = '<i class="bi bi-trash-fill"></i> Excluir';
+      dropdownLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        tr.remove();
+      });
+      
+      dropdownItem.appendChild(dropdownLink);
+      dropdownMenu.appendChild(dropdownItem);
+      dropdownDiv.appendChild(btnDropdown);
+      dropdownDiv.appendChild(dropdownMenu);
+      tdAcoes.appendChild(dropdownDiv);
+      
+      // Adicionar colunas à linha
+      tr.appendChild(tdInicial);
+      tr.appendChild(tdFinal);
+      tr.appendChild(tdPreco);
+      tr.appendChild(tdAcoes);
+      
+      // Adicionar linha à tabela
+      tbody.appendChild(tr);
     });
   }
 }
@@ -2717,7 +2804,7 @@ function setupCardAdicionarFormularioEvents(tipo) {
   // Botão "Avançar" para ir para o segundo item do accordion
   const btnAvancarFormulario = document.getElementById('btnAvancarFormulario');
   if (btnAvancarFormulario) {
-    btnAvancarFormulario.addEventListener('click', function() {
+    btnAvancarFormulario.addEventListener('click', () => {
       // Obter referências aos elementos do accordion
       const collapseOne = document.getElementById('collapseOne');
       const collapseTwo = document.getElementById('collapseTwo');
@@ -3059,7 +3146,7 @@ function setupCardOutrasTaxasEvents() {
   // Adicionar eventos aos botões de salvar
   if (btnSalvarTaxasHeader) {
     btnSalvarTaxasHeader.addEventListener('click', () => {
-      alert('Taxa salva com sucesso!');
+      alert("Taxa salva com sucesso!");
       fetch('partials/cardTaxas.html')
         .then(r => r.text())
         .then(html => {
@@ -3072,7 +3159,7 @@ function setupCardOutrasTaxasEvents() {
   
   if (btnSalvarTaxasFooter) {
     btnSalvarTaxasFooter.addEventListener('click', () => {
-      alert('Taxa salva com sucesso!');
+      alert("Taxa salva com sucesso!");
       fetch('partials/cardTaxas.html')
         .then(r => r.text())
         .then(html => {
@@ -3111,4 +3198,91 @@ function setupCardOutrasTaxasEvents() {
       // Manter na mesma tela, apenas mostrar o alerta
     });
   }
+}
+
+// Botão Adicionar Horário
+const btnAdicionarHorario = document.getElementById('btnAdicionarHorario');
+if (btnAdicionarHorario) {
+  btnAdicionarHorario.addEventListener('click', () => {
+    const tbody = document.querySelector('#tabelaHorarios tbody');
+    
+    // Criar nova linha
+    const tr = document.createElement('tr');
+    
+    // Coluna "Horário Inicial"
+    const tdInicial = document.createElement('td');
+    const inputInicial = document.createElement('input');
+    inputInicial.type = 'time';
+    inputInicial.className = 'form-control';
+    tdInicial.appendChild(inputInicial);
+    
+    // Coluna "Horário Final"
+    const tdFinal = document.createElement('td');
+    const inputFinal = document.createElement('input');
+    inputFinal.type = 'time';
+    inputFinal.className = 'form-control';
+    tdFinal.appendChild(inputFinal);
+    
+    // Coluna "Preço"
+    const tdPreco = document.createElement('td');
+    const inputGroupPreco = document.createElement('div');
+    inputGroupPreco.className = 'input-group';
+    
+    const inputGroupText = document.createElement('span');
+    inputGroupText.className = 'input-group-text';
+    inputGroupText.textContent = 'R$';
+    
+    const inputPreco = document.createElement('input');
+    inputPreco.type = 'number';
+    inputPreco.className = 'form-control';
+    inputPreco.min = '0';
+    inputPreco.step = '0.01';
+    
+    inputGroupPreco.appendChild(inputGroupText);
+    inputGroupPreco.appendChild(inputPreco);
+    tdPreco.appendChild(inputGroupPreco);
+    
+    // Coluna "Ações"
+    const tdAcoes = document.createElement('td');
+    tdAcoes.className = 'text-center';
+    
+    // Dropdown de ações
+    const dropdownDiv = document.createElement('div');
+    dropdownDiv.className = 'dropdown';
+    
+    const btnDropdown = document.createElement('button');
+    btnDropdown.className = 'btn btn-outline-info dropdown-toggle btn-sm';
+    btnDropdown.type = 'button';
+    btnDropdown.setAttribute('data-bs-toggle', 'dropdown');
+    btnDropdown.setAttribute('aria-expanded', 'false');
+    btnDropdown.innerHTML = 'Selecione';
+    
+    const dropdownMenu = document.createElement('ul');
+    dropdownMenu.className = 'dropdown-menu';
+    
+    const dropdownItem = document.createElement('li');
+    const dropdownLink = document.createElement('a');
+    dropdownLink.className = 'dropdown-item text-danger excluir-horario';
+    dropdownLink.href = '#';
+    dropdownLink.innerHTML = '<i class="bi bi-trash-fill"></i> Excluir';
+    dropdownLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      tr.remove();
+    });
+    
+    dropdownItem.appendChild(dropdownLink);
+    dropdownMenu.appendChild(dropdownItem);
+    dropdownDiv.appendChild(btnDropdown);
+    dropdownDiv.appendChild(dropdownMenu);
+    tdAcoes.appendChild(dropdownDiv);
+    
+    // Adicionar colunas à linha
+    tr.appendChild(tdInicial);
+    tr.appendChild(tdFinal);
+    tr.appendChild(tdPreco);
+    tr.appendChild(tdAcoes);
+    
+    // Adicionar linha à tabela
+    tbody.appendChild(tr);
+  });
 }
