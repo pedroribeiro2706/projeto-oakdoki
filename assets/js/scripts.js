@@ -1543,7 +1543,7 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
 
 // Função para configurar eventos do card Cupons
 function setupCardCuponsEvents() {
-  const btnAdicionarCupom = document.getElementById('btnAdicionarCupom');
+  const btnAdicionarCupom = document.getElementById('botaoAdicionarCupom');
   
   if (btnAdicionarCupom) {
     btnAdicionarCupom.addEventListener('click', function(e) {
@@ -1956,13 +1956,94 @@ function setupCardComposicoesEvents() {
   }
 }
 
-// Funções para os cards de adição (stubs para implementação futura)
 function setupCardComposicaoAddEvents() {
   // Implementação futura
 }
 
 function setupCardHorarioAddEvents() {
-  // Implementação futura
+  // Botão "Voltar" no Header
+  const btnVoltarHeader = document.getElementById('btnVoltarHorarioAddHeader');
+  if (btnVoltarHeader) {
+    btnVoltarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardComposicoes.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardComposicoesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComposicoes.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Header
+  const btnSalvarHeader = document.getElementById('btnSalvarHorarioAddHeader');
+  if (btnSalvarHeader) {
+    btnSalvarHeader.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Horário adicionado com sucesso (protótipo).");
+      fetch('partials/cardComposicoes.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardComposicoesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComposicoes.html:', err));
+    });
+  }
+  
+  // Botão "Voltar" no Footer
+  const btnVoltarFooter = document.getElementById('btnVoltarHorarioAddFooter');
+  if (btnVoltarFooter) {
+    btnVoltarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      fetch('partials/cardComposicoes.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardComposicoesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComposicoes.html:', err));
+    });
+  }
+  
+  // Botão "Salvar" no Footer
+  const btnSalvarFooter = document.getElementById('btnSalvarHorarioAddFooter');
+  if (btnSalvarFooter) {
+    btnSalvarFooter.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      alert("Horário adicionado com sucesso (protótipo).");
+      fetch('partials/cardComposicoes.html')
+        .then(r => r.text())
+        .then(html => {
+          cardComposicoesPlaceholder.innerHTML = html;
+          setupCardComposicoesEvents();
+        })
+        .catch(err => console.error('Erro ao carregar cardComposicoes.html:', err));
+    });
+  }
+  
+  // Botão Avançar
+  const btnAvancarHorario = document.getElementById('btnAvancarHorario');
+  if (btnAvancarHorario) {
+    btnAvancarHorario.addEventListener('click', () => {
+      // Abrir o segundo item do accordion
+      const collapseOne = document.getElementById('collapseOne');
+      const collapseTwo = document.getElementById('collapseTwo');
+      const headingOneButton = document.querySelector('#headingOne button');
+      const headingTwoButton = document.querySelector('#headingTwo button');
+      
+      // Fechar o primeiro item
+      collapseOne.classList.remove('show');
+      headingOneButton.classList.add('collapsed');
+      headingOneButton.setAttribute('aria-expanded', 'false');
+      
+      // Abrir o segundo item
+      collapseTwo.classList.add('show');
+      headingTwoButton.classList.remove('collapsed');
+      headingTwoButton.setAttribute('aria-expanded', 'true');
+    });
+  }
 }
 
 function setupCardPrazoAddEvents() {
@@ -2073,6 +2154,15 @@ function setupCardComplementosLojasEvents() {
         
         // Simulação de sucesso
         alert('Dados salvos com sucesso!');
+        
+        // Carrega o cardComplementosLojas.html novamente
+        fetch('partials/cardComplementosLojas.html')
+          .then(r => r.text())
+          .then(html => {
+            document.getElementById('cardComplementosLojasPlaceholder').innerHTML = html;
+            setupCardComplementosLojasEvents();
+          })
+          .catch(err => console.error('Erro ao carregar cardComplementosLojas.html:', err));
       });
     }
     
@@ -2732,8 +2822,7 @@ function setupCardMeiosPagamentoEvents() {
     console.log('Botão PIX encontrado');
     
     btnPagamento01.addEventListener('click', function() {
-      console.log('Botão PIX clicado');
-      
+      console.log('Botão PIX clicado.');
       fetch('partials/cardEditarPagamento01.html')
         .then(r => r.text())
         .then(html => {
@@ -2752,8 +2841,7 @@ function setupCardMeiosPagamentoEvents() {
     console.log('Botão Boleto encontrado');
     
     btnPagamento02.addEventListener('click', function() {
-      console.log('Botão Boleto clicado');
-      
+      console.log('Botão Boleto clicado.');
       fetch('partials/cardEditarPagamento02.html')
         .then(r => r.text())
         .then(html => {
@@ -2772,8 +2860,7 @@ function setupCardMeiosPagamentoEvents() {
     console.log('Botão Cartão de Crédito encontrado');
     
     btnPagamento03.addEventListener('click', function() {
-      console.log('Botão Cartão de Crédito clicado');
-      
+      console.log('Botão Cartão de Crédito clicado.');
       fetch('partials/cardEditarPagamento03.html')
         .then(r => r.text())
         .then(html => {
@@ -2796,7 +2883,7 @@ function setupCardEditarPagamento01Events() {
   // Botão Voltar
   const btnVoltar = document.getElementById('btnVoltarPagamento01');
   if (btnVoltar) {
-    btnVoltar.addEventListener('click', function() {
+    btnVoltar.addEventListener('click', () => {
       // Voltar para o card de Meios de Pagamento
       fetch('partials/cardMeiosPagamento.html')
         .then(r => r.text())
@@ -2811,8 +2898,8 @@ function setupCardEditarPagamento01Events() {
   // Botão Salvar
   const btnSalvar = document.getElementById('btnSalvarPagamento01');
   if (btnSalvar) {
-    btnSalvar.addEventListener('click', function() {
-      alert('Configurações de PIX salvas com sucesso! (protótipo)');
+    btnSalvar.addEventListener('click', () => {
+      alert('Configurações de PIX salvas com sucesso!');
       // Voltar para o card de Meios de Pagamento
       fetch('partials/cardMeiosPagamento.html')
         .then(r => r.text())
@@ -2834,7 +2921,7 @@ function setupCardEditarPagamento02Events() {
   // Botão Voltar
   const btnVoltar = document.getElementById('btnVoltarPagamento02');
   if (btnVoltar) {
-    btnVoltar.addEventListener('click', function() {
+    btnVoltar.addEventListener('click', () => {
       // Voltar para o card de Meios de Pagamento
       fetch('partials/cardMeiosPagamento.html')
         .then(r => r.text())
@@ -2849,8 +2936,8 @@ function setupCardEditarPagamento02Events() {
   // Botão Salvar
   const btnSalvar = document.getElementById('btnSalvarPagamento02');
   if (btnSalvar) {
-    btnSalvar.addEventListener('click', function() {
-      alert('Configurações de Boleto salvas com sucesso! (protótipo)');
+    btnSalvar.addEventListener('click', () => {
+      alert('Configurações de Boleto salvas com sucesso!');
       // Voltar para o card de Meios de Pagamento
       fetch('partials/cardMeiosPagamento.html')
         .then(r => r.text())
@@ -2872,7 +2959,7 @@ function setupCardEditarPagamento03Events() {
   // Botão Voltar
   const btnVoltar = document.getElementById('btnVoltarPagamento03');
   if (btnVoltar) {
-    btnVoltar.addEventListener('click', function() {
+    btnVoltar.addEventListener('click', () => {
       // Voltar para o card de Meios de Pagamento
       fetch('partials/cardMeiosPagamento.html')
         .then(r => r.text())
@@ -2887,8 +2974,8 @@ function setupCardEditarPagamento03Events() {
   // Botão Salvar
   const btnSalvar = document.getElementById('btnSalvarPagamento03');
   if (btnSalvar) {
-    btnSalvar.addEventListener('click', function() {
-      alert('Configurações de Cartão de Crédito salvas com sucesso! (protótipo)');
+    btnSalvar.addEventListener('click', () => {
+      alert('Configurações de Cartão de Crédito salvas com sucesso!');
       // Voltar para o card de Meios de Pagamento
       fetch('partials/cardMeiosPagamento.html')
         .then(r => r.text())

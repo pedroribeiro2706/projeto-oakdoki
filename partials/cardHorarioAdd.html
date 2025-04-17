@@ -1,0 +1,79 @@
+<!-- partials/cardHorarioAdd.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Adicionar Horário</h5>
+    <div>
+      <button class="btn btn-secondary me-2" id="btnVoltarHorarioAddHeader">Voltar</button>
+      <button class="btn btn-warning" id="btnSalvarHorarioAddHeader">Salvar</button>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <div class="accordion" id="accordionHorario">
+      <!-- Item 1 do Accordion -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Dados do Horário
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionHorario">
+          <div class="accordion-body">
+            <form id="formAdicionarHorario">
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label for="unidade" class="form-label">Unidade:</label>
+                  <input type="text" class="form-control" id="unidade" value="Colônia de férias - Flamengo" readonly>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="nomeHorario" class="form-label">Nome</label>
+                  <input type="text" class="form-control" id="nomeHorario" placeholder="Digite o nome do horário">
+                </div>
+                <div class="col-md-4">
+                  <label for="prazoHorario" class="form-label">Prazo para o horário</label>
+                  <select class="form-select" id="prazoHorario" style="line-height: 1.30">
+                    <option value="manha">Diárias manhã</option>
+                    <option value="tarde">Diárias tarde</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="tipoCobranca" class="form-label">Tipo de cobrança</label>
+                  <select class="form-select" id="tipoCobranca" style="line-height: 1.30">
+                    <option value="unica">Única</option>
+                    <option value="recorrente">Recorrente</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+            <div class="text-start mt-3">
+              <button class="btn btn-primary" id="btnAvancarHorario">Avançar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 2 do Accordion -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Informações do horário
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionHorario">
+          <div class="accordion-body">
+            <div class="text-start">
+              <p>Composições que esse horário faz parte:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-footer border-top text-center">
+    <button class="btn btn-secondary me-2" id="btnVoltarHorarioAddFooter">Voltar</button>
+    <button class="btn btn-warning" id="btnSalvarHorarioAddFooter">Salvar</button>
+  </div>
+</div>
