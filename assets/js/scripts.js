@@ -53,10 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardUsuariosAtendimentoPlaceholder  = document.getElementById('cardUsuariosAtendimentoPlaceholder');
     const cardUnidadesPlaceholder             = document.getElementById('cardUnidadesPlaceholder');
     const cardComposicoesPlaceholder          = document.getElementById('cardComposicoesPlaceholder');
+    const cardHorariosPlaceholder             = document.getElementById('cardHorariosPlaceholder');
     const cardComplementosLojasPlaceholder    = document.getElementById('cardComplementosLojasPlaceholder');
     const cardFormulariosPlaceholder          = document.getElementById('cardFormulariosPlaceholder');
     const cardTermosDeUsoPlaceholder          = document.getElementById('cardTermosDeUsoPlaceholder');
     const cardMeiosPagamentoPlaceholder       = document.getElementById('cardMeiosPagamentoPlaceholder');
+    const cardServicoPlaceholder              = document.getElementById('cardServicoPlaceholder');
     const cardBeneficiosPlaceholder           = document.getElementById('cardBeneficiosPlaceholder');
     const cardTaxasPlaceholder                = document.getElementById('cardTaxasPlaceholder');
     const cardDivisaoReceitasPlaceholder      = document.getElementById('cardDivisaoReceitasPlaceholder');
@@ -87,10 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (cardUsuariosAtendimentoPlaceholder) cardUsuariosAtendimentoPlaceholder.innerHTML = '';
       if (cardUnidadesPlaceholder) cardUnidadesPlaceholder.innerHTML = '';
       if (cardComposicoesPlaceholder) cardComposicoesPlaceholder.innerHTML = '';
+      if (cardHorariosPlaceholder) cardHorariosPlaceholder.innerHTML = '';
       if (cardComplementosLojasPlaceholder) cardComplementosLojasPlaceholder.innerHTML = '';
       if (cardFormulariosPlaceholder) cardFormulariosPlaceholder.innerHTML = '';
       if (cardTermosDeUsoPlaceholder) cardTermosDeUsoPlaceholder.innerHTML = '';
       if (cardMeiosPagamentoPlaceholder) cardMeiosPagamentoPlaceholder.innerHTML = '';
+      if (cardServicoPlaceholder) cardServicoPlaceholder.innerHTML = '';
       if (cardBeneficiosPlaceholder) cardBeneficiosPlaceholder.innerHTML = '';
       if (cardTaxasPlaceholder) cardTaxasPlaceholder.innerHTML = '';
       if (cardDivisaoReceitasPlaceholder) cardDivisaoReceitasPlaceholder.innerHTML = '';
@@ -1350,6 +1354,8 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
     function setupMenuConfigLojas() {
       const menuUnidades = document.getElementById('menuUnidades');
       const menuComposicoes = document.getElementById('menuComposicoes');
+      const menuHorarios = document.getElementById('menuHorarios');
+      const menuServicos = document.getElementById('menuServicos');
       const menuComplementosLojas = document.getElementById('menuComplementosLojas');
       const menuFormularios = document.getElementById('menuFormularios');
       const menuTermosDeUso = document.getElementById('menuTermosDeUso');
@@ -1411,6 +1417,36 @@ document.addEventListener('DOMContentLoaded', setupFormUsuario);
               setupCardComposicoesEvents();
             })
             .catch(err => console.error('Erro ao carregar cardComposicoes.html:', err));
+        });
+      }
+
+      if (menuServicos) {
+        menuServicos.addEventListener('click', (e) => {
+          e.preventDefault();
+          atualizarAtivo(menuServicos);
+          clearAllCards();
+          fetch('partials/cardServicos.html')
+            .then(r => r.text())
+            .then(html => {
+              document.getElementById('cardServicoPlaceholder').innerHTML = html;
+              setupCardServicosEvents();
+            })
+            .catch(err => console.error('Erro ao carregar cardServicos.html:', err));
+        });
+      }
+
+      if (menuHorarios) {
+        menuHorarios.addEventListener('click', (e) => {
+          e.preventDefault();
+          atualizarAtivo(menuHorarios);
+          clearAllCards();
+          fetch('partials/cardHorarios.html')
+            .then(r => r.text())
+            .then(html => {
+              document.getElementById('cardHorariosPlaceholder').innerHTML = html;
+              setupCardHorariosEvents(); // Chama a nova função
+            })
+            .catch(err => console.error('Erro ao carregar cardHorarios.html:', err));
         });
       }
 
@@ -1847,35 +1883,20 @@ function setupCardUnidadeEditEvents(unitName) {
 }
 
 // =========================================================
-// Funções para o Card "Composições"
+// Funções para o Card "Horários"
 // =========================================================
 
-// Configurar eventos do card Composições
-function setupCardComposicoesEvents() {
-  // Botão "Adicionar Composição" no header
-  const btnAddComposicao = document.getElementById('botaoAdicionarComposicao');
-  if (btnAddComposicao) {
-    btnAddComposicao.addEventListener('click', () => {
-      // Injetar cardComposicaoAdd.html:
-      fetch('partials/cardComposicaoAdd.html')
-        .then(r => r.text())
-        .then(html => {
-          cardComposicoesPlaceholder.innerHTML = html;
-          setupCardComposicaoAddEvents();
-        })
-        .catch(err => console.error('Erro ao carregar cardComposicaoAdd.html:', err));
-    });
-  }
-  
+// Configurar eventos do card Horários
+function setupCardHorariosEvents() {
   // Botão "Adicionar Horário" na aba Horários
-  const btnAddHorario = document.getElementById('btnAdicionarHorario');
+  const btnAddHorario = document.getElementById('btnAddHorario');
   if (btnAddHorario) {
     btnAddHorario.addEventListener('click', () => {
       // Injetar cardHorarioAdd.html:
       fetch('partials/cardHorarioAdd.html')
         .then(r => r.text())
         .then(html => {
-          cardComposicoesPlaceholder.innerHTML = html;
+          cardHorariosPlaceholder.innerHTML = html;
           setupCardHorarioAddEvents();
         })
         .catch(err => console.error('Erro ao carregar cardHorarioAdd.html:', err));
@@ -1883,69 +1904,49 @@ function setupCardComposicoesEvents() {
   }
   
   // Botão "Adicionar Prazo" na aba Prazos
-  const btnAddPrazo = document.getElementById('btnAdicionarPrazo');
-  if (btnAddPrazo) {
-    btnAddPrazo.addEventListener('click', () => {
+  const btnAdicionarPrazo = document.getElementById('btnAdicionarPrazo');
+  if (btnAdicionarPrazo) {
+    btnAdicionarPrazo.addEventListener('click', () => {
       // Injetar cardPrazoAdd.html:
       fetch('partials/cardPrazoAdd.html')
         .then(r => r.text())
         .then(html => {
-          cardComposicoesPlaceholder.innerHTML = html;
+          cardHorariosPlaceholder.innerHTML = html;
           setupCardPrazoAddEvents();
         })
         .catch(err => console.error('Erro ao carregar cardPrazoAdd.html:', err));
     });
   }
   
-  // Botão "Adicionar Serviço" na aba Serviços
-  const btnAddServico = document.getElementById('btnAdicionarServico');
-  if (btnAddServico) {
-    btnAddServico.addEventListener('click', () => {
-      // Injetar cardServicoAdd.html:
-      fetch('partials/cardServicoAdd.html')
-        .then(r => r.text())
-        .then(html => {
-          cardComposicoesPlaceholder.innerHTML = html;
-          setupCardServicoAddEvents();
-        })
-        .catch(err => console.error('Erro ao carregar cardServicoAdd.html:', err));
-    });
-  }
-  
   // Botão "Adicionar Composição" na aba Composições
-  const btnAddComposicaoTab = document.getElementById('btnAdicionarComposicaoTab');
-  if (btnAddComposicaoTab) {
-    btnAddComposicaoTab.addEventListener('click', () => {
+  const btnAdicionarComposicao = document.getElementById('btnAdicionarComposicao');
+  if (btnAdicionarComposicao) {
+    btnAdicionarComposicao.addEventListener('click', () => {
       // Injetar cardComposicaoAdd.html:
       fetch('partials/cardComposicaoAdd.html')
         .then(r => r.text())
         .then(html => {
-          cardComposicoesPlaceholder.innerHTML = html;
+          cardHorariosPlaceholder.innerHTML = html;
           setupCardComposicaoAddEvents();
         })
         .catch(err => console.error('Erro ao carregar cardComposicaoAdd.html:', err));
     });
   }
   
-  // Controle das abas para atualizar o contador
-  const tabButtons = document.querySelectorAll('#composicoesTab button[data-bs-toggle="tab"]');
+  // Contador de itens nas abas
   const composicoesCounter = document.getElementById('composicoesCounter');
-  
-  if (tabButtons.length && composicoesCounter) {
-    tabButtons.forEach(button => {
-      button.addEventListener('shown.bs.tab', function (event) {
-        // Atualizar o contador com base na aba ativa
-        const activeTab = event.target.getAttribute('id');
-        
-        switch (activeTab) {
+  if (composicoesCounter) {
+    // Atualizar o contador quando as abas forem alteradas
+    const tabs = document.querySelectorAll('#composicoesTab button[data-bs-toggle="tab"]');
+    tabs.forEach(tab => {
+      tab.addEventListener('shown.bs.tab', (e) => {
+        const activeTabId = e.target.id;
+        switch (activeTabId) {
           case 'horarios-tab':
-            composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>25</strong> horários';
+            composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>24</strong> horários';
             break;
           case 'prazos-tab':
             composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>18</strong> prazos';
-            break;
-          case 'servicos-tab':
-            composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>32</strong> serviços';
             break;
           case 'composicoes-tab':
             composicoesCounter.innerHTML = 'Mostrando <strong>1 a 10</strong> de <strong>25</strong> composições';
@@ -1966,13 +1967,13 @@ function setupCardHorarioAddEvents() {
   if (btnVoltarHeader) {
     btnVoltarHeader.addEventListener('click', (evt) => {
       evt.preventDefault();
-      fetch('partials/cardComposicoes.html')
+      fetch('partials/cardHorarios.html')
         .then(r => r.text())
         .then(html => {
-          cardComposicoesPlaceholder.innerHTML = html;
-          setupCardComposicoesEvents();
+          cardHorariosPlaceholder.innerHTML = html;
+          setupCardHorariosEvents();
         })
-        .catch(err => console.error('Erro ao carregar cardComposicoes.html:', err));
+        .catch(err => console.error('Erro ao carregar cardHorarios.html:', err));
     });
   }
   

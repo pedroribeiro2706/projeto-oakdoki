@@ -1,0 +1,260 @@
+<!-- partials/cardComposicaoAdd.html -->
+<div class="card card-small">
+    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Adicionar Composição</h5>
+      <div>
+        <button class="btn btn-secondary me-2" id="btnVoltarComposicaoAddHeader">Voltar</button>
+        <button class="btn btn-warning" id="btnSalvarComposicaoAddHeader">Salvar</button>
+      </div>
+    </div>
+    
+    <div class="card-body">
+      <!-- Formulário principal -->
+      <form id="formAdicionarComposicao">
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-3">
+            <label for="unidade" class="form-label">Unidade:</label>
+            <input type="text" class="form-control" id="unidade" value="Colônia de férias Lagoa - Flamengo" readonly>
+          </div>
+          <div class="col-md-2">
+            <label for="tipoCobranca" class="form-label">Tipo de cobrança:</label>
+            <input type="text" class="form-control" id="tipoCobranca" value="Única" readonly>
+          </div>
+          <div class="col-md-4">
+            <label for="nomeComposicao" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="nomeComposicao" placeholder="Digite o nome da composição">
+          </div>
+          <div class="col-md-3">
+            <label for="prazoInscricao" class="form-label">Prazo para inscrição neste horário:</label>
+            <select class="form-select" id="prazoInscricao">
+              <option value="">Selecione um prazo</option>
+              <option value="1">Diárias tarde</option>
+              <option value="2">Diárias manhã</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      
+      <!-- Cards de horários -->
+      <div class="row mb-4">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+            <div class="card-header" style="background-color: #00b8d8; color: white;">
+              Colônia de Férias - Manhã e Integrais
+            </div>
+            <div class="card-body text-info">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span>08:00 às 12:00</span>
+                <span class="fw-bold">R$ 156,80</span>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Segunda-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="segunda1">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Terça-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="terca1">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Quarta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="quarta1">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Quinta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="quinta1">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Sexta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sexta1">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Sábado</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sabado1">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Domingo</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="domingo1">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                <div class="card-header" style="background-color: #00b8d8; color: white;">
+                    Colônias de Férias - Tardes
+                </div>
+                <div class="card-body text-info">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span>08:00 às 17:00</span>
+                <span class="fw-bold">R$ 127,20</span>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Segunda-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="segunda2">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Terça-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="terca2">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Quarta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="quarta2">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Quinta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="quinta2">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Sexta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sexta2">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Sábado</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sabado2">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Domingo</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="domingo2">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card border-info shadow-none" style="border-color: #00b8d8;">
+                <div class="card-header" style="background-color: #00b8d8; color: white;">
+                  Colônia de Férias - Diárias Manhã, Int. e Semanas
+                </div>
+                <div class="card-body text-info">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span>08:00 às 12:00</span>
+                <span class="fw-bold">R$ 218,50</span>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Segunda-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="segunda3">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Terça-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="terca3">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Quarta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="quarta3">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Quinta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="quinta3">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Sexta-feira</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sexta3">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Sábado</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="sabado3">
+                </div>
+              </div>
+              
+              <div class="mb-3 d-flex justify-content-between align-items-center">
+                <span>Domingo</span>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="domingo3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Campos de cálculo -->
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <label for="somatorioHorarios" class="form-label">Somatório dos horários:</label>
+          <input type="number" class="form-control" id="somatorioHorarios" value="470.40" readonly>
+        </div>
+        <div class="col-md-4">
+          <label for="descontoComposicao" class="form-label">Desconto composição:</label>
+          <div class="input-group">
+            <input type="number" class="form-control" id="descontoComposicao" value="10">
+            <span class="input-group-text">%</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="precoFinal" class="form-label">Preço final:</label>
+          <div class="input-group">
+            <span class="input-group-text">R$</span>
+            <input type="number" class="form-control" id="precoFinal" value="423.36" readonly>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-footer border-top text-center">
+      <button class="btn btn-secondary me-2" id="btnVoltarComposicaoAddFooter">Voltar</button>
+      <button class="btn btn-warning" id="btnSalvarComposicaoAddFooter">Salvar</button>
+    </div>
+  </div>

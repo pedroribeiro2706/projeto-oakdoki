@@ -1,0 +1,358 @@
+<!-- partials/cardServicoAdd.html -->
+<div class="card card-small">
+  <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Adicionar Serviço</h5>
+    <div>
+      <button class="btn btn-secondary me-2" id="btnVoltarServicoAddHeader">Voltar</button>
+      <button class="btn btn-warning" id="btnSalvarServicoAddHeader">Salvar</button>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <div class="accordion" id="accordionServico">
+      <!-- Item 1 do Accordion: Dados do Serviço -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Dados do Serviço
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionServico">
+          <div class="accordion-body">
+            <form id="formAdicionarServico">
+              <!-- Unidade e Nome -->
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="unidade" class="form-label">Unidade:</label>
+                  <input type="text" class="form-control" id="unidade" value="Colônia de férias Lagoa - Flamengo" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label for="nomeServico" class="form-label">Nome:</label>
+                  <input type="text" class="form-control" id="nomeServico" placeholder="Digite o nome do serviço">
+                </div>
+              </div>
+              
+              <!-- Text Area para Descrição -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <label for="descricaoServico" class="form-label">Descrição:</label>
+                  <textarea class="form-control" id="descricaoServico" rows="3" placeholder="Digite a descrição do serviço"></textarea>
+                </div>
+              </div>
+              
+              <!-- Data Inicial, Data Final e Lotação -->
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="dataInicial" class="form-label">Data inicial:</label>
+                  <input type="date" class="form-control" id="dataInicial">
+                </div>
+                <div class="col-md-4">
+                  <label for="dataFinal" class="form-label">Data final:</label>
+                  <input type="date" class="form-control" id="dataFinal">
+                </div>
+                <div class="col-md-4">
+                  <label for="lotacao" class="form-label">Lotação:</label>
+                  <input type="number" class="form-control" id="lotacao" min="1" placeholder="Número máximo de participantes">
+                </div>
+              </div>
+              
+              <!-- Faixa Etária -->
+              <div class="row mb-3">
+                <div class="col-12 mb-2">
+                  <label class="form-label">Faixa etária:</label>
+                </div>
+                <div class="col-12">
+                  <div class="row align-items-center">
+                    <div class="col input-container">
+                      <input class="form-control" type="number" min="0" name="before_year_age" id="before_year_age" value="">
+                      <span class="placeholder">Anos</span>
+                    </div>   
+                    <span class="mt-1 text-center" style="width: auto;">e</span>
+                    <div class="col input-container">
+                      <input class="form-control" type="number" min="0" name="before_month_age" id="before_month_age" value="">
+                      <span class="placeholder">Meses</span>
+                    </div>
+                    <span class="mt-1 text-center" style="width: auto;">a</span>
+                    <div class="col input-container">
+                      <input class="form-control" type="number" min="0" name="after_year_age" id="after_year_age" value="">
+                      <span class="placeholder">Anos</span>
+                    </div>
+                    <span class="mt-1 text-center" style="width: auto;">e</span>
+                    <div class="col input-container">
+                      <input class="form-control" type="number" min="0" name="after_month_age" id="after_month_age" value="">
+                      <span class="placeholder">Meses</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Switch para Contratante -->
+              <div class="row mb-3">
+                <div class="col-12">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="switchContratante">
+                    <label class="form-check-label" for="switchContratante">O contratante poderá adquirir o serviço para outros usuários.</label>
+                  </div>
+                </div>
+              </div>
+            </form>
+            
+            <div class="text-start mt-3">
+              <button class="btn btn-primary" id="btnAvancarServico">Avançar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 2 do Accordion: Tipo de Cobrança -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Tipo de Cobrança
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionServico">
+          <div class="accordion-body">
+            <!-- Abas para Cobrança Única e Recorrente -->
+            <ul class="nav nav-tabs mb-3" id="cobrancaTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="cobranca-unica-tab" data-bs-toggle="tab" data-bs-target="#cobranca-unica" type="button" role="tab" aria-controls="cobranca-unica" aria-selected="true">Cobrança única</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cobranca-recorrente-tab" data-bs-toggle="tab" data-bs-target="#cobranca-recorrente" type="button" role="tab" aria-controls="cobranca-recorrente" aria-selected="false">Recorrente</button>
+              </li>
+            </ul>
+            
+            <!-- Conteúdo das Abas -->
+            <div class="tab-content" id="cobrancaTabContent">
+              <!-- Aba de Cobrança Única -->
+              <div class="tab-pane fade show active" id="cobranca-unica" role="tabpanel" aria-labelledby="cobranca-unica-tab">
+                <div class="table-responsive">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th style="width: 10%;"></th>
+                        <th style="width: 50%;">Nome</th>
+                        <th style="width: 20%;">Status</th>
+                        <th style="width: 20%;">Valor</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="switchManha" checked>
+                          </div>
+                        </td>
+                        <td>Semana manhã</td>
+                        <td>Ativo</td>
+                        <td>R$ 605,00</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="switchIntegral" checked>
+                          </div>
+                        </td>
+                        <td>Semana integral</td>
+                        <td>Ativo</td>
+                        <td>R$ 450,00</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="switchTarde" checked>
+                          </div>
+                        </td>
+                        <td>Semana tarde</td>
+                        <td>Ativo</td>
+                        <td>R$ 320,00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+              <!-- Aba de Cobrança Recorrente -->
+              <div class="tab-pane fade" id="cobranca-recorrente" role="tabpanel" aria-labelledby="cobranca-recorrente-tab">
+                <!-- Campos de Cobrança Recorrente -->
+                <div class="row mb-4">
+                  <div class="col-md-3">
+                    <label for="inicioCobranca" class="form-label">Início cobrança:</label>
+                    <input type="date" class="form-control" id="inicioCobranca">
+                  </div>
+                  <div class="col-md-3">
+                    <label for="finalCobranca" class="form-label">Final cobrança:</label>
+                    <input type="date" class="form-control" id="finalCobranca">
+                  </div>
+                  <div class="col-md-3">
+                    <label for="valorMatricula" class="form-label">Valor matrícula:</label>
+                    <div class="input-group">
+                      <span class="input-group-text">R$</span>
+                      <input type="number" class="form-control" id="valorMatricula" min="0" step="0.01">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label d-block">Abater da mensalidade:</label>
+                    <div class="form-check form-switch mt-2">
+                      <input class="form-check-input" type="checkbox" id="switchAbaterMensalidade">
+                      <label class="form-check-label" for="switchAbaterMensalidade"></label>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Dias de Cobrança (1-15) -->
+                <div class="row mb-2">
+                  <div class="col-12">
+                    <label class="form-label">Dias para cobrança:</label>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-12">
+                    <div class="d-flex flex-wrap gap-2">
+                      <!-- Dias 1-15 -->
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia1">
+                        <label class="form-check-label" for="dia1">1</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia2">
+                        <label class="form-check-label" for="dia2">2</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia3">
+                        <label class="form-check-label" for="dia3">3</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia4">
+                        <label class="form-check-label" for="dia4">4</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia5">
+                        <label class="form-check-label" for="dia5">5</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia6">
+                        <label class="form-check-label" for="dia6">6</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia7">
+                        <label class="form-check-label" for="dia7">7</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia8">
+                        <label class="form-check-label" for="dia8">8</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia9">
+                        <label class="form-check-label" for="dia9">9</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia10">
+                        <label class="form-check-label" for="dia10">10</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia11">
+                        <label class="form-check-label" for="dia11">11</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia12">
+                        <label class="form-check-label" for="dia12">12</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia13">
+                        <label class="form-check-label" for="dia13">13</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia14">
+                        <label class="form-check-label" for="dia14">14</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia15">
+                        <label class="form-check-label" for="dia15">15</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Dias de Cobrança (16-30) -->
+                <div class="row">
+                  <div class="col-12">
+                    <div class="d-flex flex-wrap gap-2">
+                      <!-- Dias 16-30 -->
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia16">
+                        <label class="form-check-label" for="dia16">16</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia17">
+                        <label class="form-check-label" for="dia17">17</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia18">
+                        <label class="form-check-label" for="dia18">18</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia19">
+                        <label class="form-check-label" for="dia19">19</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia20">
+                        <label class="form-check-label" for="dia20">20</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia21">
+                        <label class="form-check-label" for="dia21">21</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia22">
+                        <label class="form-check-label" for="dia22">22</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia23">
+                        <label class="form-check-label" for="dia23">23</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia24">
+                        <label class="form-check-label" for="dia24">24</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia25">
+                        <label class="form-check-label" for="dia25">25</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia26">
+                        <label class="form-check-label" for="dia26">26</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia27">
+                        <label class="form-check-label" for="dia27">27</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia28">
+                        <label class="form-check-label" for="dia28">28</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia29">
+                        <label class="form-check-label" for="dia29">29</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="dia30">
+                        <label class="form-check-label" for="dia30">30</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-footer border-top text-center">
+    <button class="btn btn-secondary me-2" id="btnVoltarServicoAddFooter">Voltar</button>
+    <button class="btn btn-warning" id="btnSalvarServicoAddFooter">Salvar</button>
+  </div>
+</div>

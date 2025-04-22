@@ -1,0 +1,153 @@
+<!-- partials/cardPrazoAdd.html -->
+<div class="card card-small">
+    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Adicionar Prazo</h5>
+      <div>
+        <button class="btn btn-secondary me-2" id="btnVoltarPrazoAddHeader">Voltar</button>
+        <button class="btn btn-warning" id="btnSalvarPrazoAddHeader">Salvar</button>
+      </div>
+    </div>
+    
+    <div class="card-body">
+      <!-- Formulário principal -->
+      <form id="formAdicionarPrazo">
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="unidade" class="form-label">Unidade:</label>
+            <input type="text" class="form-control" id="unidade" value="Colônia de férias Lagoa - Flamengo" readonly>
+          </div>
+          <div class="col-md-6">
+            <label for="nomePrazo" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="nomePrazo" placeholder="Digite o nome do prazo">
+          </div>
+        </div>
+      </form>
+      
+      <!-- Accordion -->
+      <div class="accordion mb-4" id="accordionPrazo">
+        <!-- Item 1: Antecedência mínima de compra -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Antecedência mínima de compra
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionPrazo">
+            <div class="accordion-body">
+              <div class="mb-4">
+                <p class="fw-bold mb-3">O meu contratante poderá comprar:</p>
+                
+                <div class="mb-3 row align-items-center">
+                  <div class="col-auto">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="switchMinutos">
+                      <label class="form-check-label" for="switchMinutos">Até</label>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <input type="number" class="form-control" id="inputMinutos" min="0">
+                  </div>
+                  <div class="col-auto">
+                    <span>minutos antes do horário</span>
+                  </div>
+                </div>
+                
+                <div class="mb-3 row align-items-center">
+                  <div class="col-auto">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="switchDurante">
+                      <label class="form-check-label" for="switchDurante">Inclusive durante o horário</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3 row align-items-center">
+                  <div class="col-auto">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="switchDias">
+                      <label class="form-check-label" for="switchDias">Até as</label>
+                    </div>
+                  </div>
+                  <div class="col-1">
+                    <input type="number" class="form-control" id="inputHoras" min="0" max="23">
+                  </div>
+                  <div class="col-auto">
+                    <span>horas</span>
+                  </div>
+                  <div class="col-1">
+                    <input type="number" class="form-control" id="inputDias" min="0">
+                  </div>
+                  <div class="col-2">
+                    <select class="form-select" id="selectTipoDias">
+                      <option value="corridos">corridos</option>
+                      <option value="uteis">úteis</option>
+                    </select>
+                  </div>
+                  <div class="col-auto">
+                    <span>antes do horário</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 2: Abertura da agenda -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Abertura da agenda
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPrazo">
+            <div class="accordion-body">
+              <div class="mb-4">
+                <p class="fw-bold mb-3">A minha agenda abrirá:</p>
+                
+                <div class="mb-3 row align-items-center">
+                  <div class="col-auto">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="switchDiasAntes">
+                      <label class="form-check-label" for="switchDiasAntes"></label>
+                    </div>
+                  </div>
+                  <div class="col-1">
+                    <input type="number" class="form-control" id="inputDiasAntes" min="0">
+                  </div>
+                  <div class="col-auto">
+                    <span>dias antes do horário</span>
+                  </div>
+                </div>
+                
+                <div class="mb-3 row align-items-center">
+                  <div class="col-auto">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="switchHorasMinutos">
+                      <label class="form-check-label" for="switchHorasMinutos"></label>
+                    </div>
+                  </div>
+                  <div class="col-1">
+                    <input type="number" class="form-control" id="inputHorasAntes" min="0" max="23">
+                  </div>
+                  <div class="col-auto">
+                    <span>horas e</span>
+                  </div>
+                  <div class="col-1">
+                    <input type="number" class="form-control" id="inputMinutosAntes" min="0" max="59">
+                  </div>
+                  <div class="col-auto">
+                    <span>minutos antes do horário</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-footer border-top text-center">
+      <button class="btn btn-secondary me-2" id="btnVoltarPrazoAddFooter">Voltar</button>
+      <button class="btn btn-warning" id="btnSalvarPrazoAddFooter">Salvar</button>
+    </div>
+  </div>
