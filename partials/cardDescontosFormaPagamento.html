@@ -92,23 +92,35 @@
               <div class="tab-content" id="myTabContent">
                 <!-- Aba de Horários -->
                 <div class="tab-pane fade show active" id="horarios" role="tabpanel" aria-labelledby="horarios-tab">
+                  <!-- Modificação no select para adicionar ícones de aviso -->
                   <div class="row mb-3">
                     <div class="col-12">
                       <label for="selectServico" class="form-label">Selecione o Serviço</label>
                       <select class="form-select" id="selectServico">
                         <option value="" selected disabled>Selecione um serviço</option>
-                        <option value="servico1">Serviço - 2025 Julho - Semana de 14 a 18</option>
+                        <option value="servico1">Serviço - 2025 Julho - Semana de 14 a 18 &#xf058;</option>
                         <option value="servico2">Serviço - 2025 Julho - Semana de 07 a 11</option>
-                        <option value="servico3">Serviço - 2025 Julho - Diárias</option>
+                        <option value="servico3">Serviço - 2025 Julho - Diárias &#xf058;</option>
                         <option value="servico4">Serviço - 2025 - Janeiro - Semana de 06 a 10</option>
                         <option value="servico5">Serviço - 2025 - Janeiro - Semana de 13 a 17</option>
                         <option value="servico6">Serviço - 2025 - Janeiro - Semana de 20 a 24</option>
-                        <option value="servico7">Serviço - 2025 - Janeiro - Semana de 27 a 31</option>
+                        <option value="servico7">Serviço - 2025 - Janeiro - Semana de 27 a 31 &#xf058;</option>
                         <option value="servico8">Serviço - 2024 - 08 a 12 de julho</option>
                         <option value="servico9">Serviço - 2024 - 15 a 19 de julho</option>
                         <option value="servico10">Serviço - 2024 - 22 a 26 de julho</option>
                         <option value="servico11">Serviço - 2024 - 29 de julho a 02 de agosto</option>
                       </select>
+                    </div>
+                  </div>
+
+                  <!-- Tags para os serviços selecionados -->
+                  <div class="row mb-3">
+                    <div class="col-12">
+                      <div class="d-flex flex-wrap gap-2 mt-2">
+                        <h6><span class="badge border border-primary text-white text-bg-primary px-3 py-2">Serviço - 2025 Julho - Semana de 14 a 18</span></h6>
+                        <h6><span class="badge border border-primary text-white text-bg-primary px-3 py-2">Serviço - 2025 Julho - Diárias</span></h6>
+                        <h6><span class="badge border border-primary text-white text-bg-primary px-3 py-2">Serviço - 2025 - Janeiro - Semana de 27 a 31</span></h6>
+                      </div>
                     </div>
                   </div>
 
@@ -211,3 +223,5 @@
     <button class="btn btn-warning" id="btnSalvarDescontosFormaPagamento">Salvar</button>
   </div>
 </div>
+
+

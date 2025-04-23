@@ -126,9 +126,21 @@ function setupCardBeneficiosEvents() {
             .then(html => {
               cardBeneficiosPlaceholder.innerHTML = html;
               setupCardDescontosFormaPagamentoEvents();
+              adicionarListenersNosBadges();
             })
             .catch(err => console.error('Erro ao carregar cardDescontosFormaPagamento.html:', err));
         }
+      });
+    }
+
+    function adicionarListenersNosBadges() {
+      document.querySelectorAll('.badge').forEach(function(badge) {
+        badge.addEventListener('click', function() {
+          var periodosDiv = document.getElementById('periodos');
+          if (periodosDiv) {
+            periodosDiv.classList.remove('d-none');
+          }
+        });
       });
     }
     
