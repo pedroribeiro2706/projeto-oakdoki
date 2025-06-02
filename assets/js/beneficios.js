@@ -514,6 +514,61 @@ function setupConfiguracaoAdicionalEvents() {
       }
     });
   }
+  
+  // Switch para exibir serviços inativos
+  const switchInativos = document.getElementById('switchExibirServicosInativos');
+  if (switchInativos) {
+    switchInativos.addEventListener('change', function() {
+      const badgesInativos = document.getElementById('badgesInativos');
+      if (badgesInativos) {
+        if (this.checked) {
+          badgesInativos.classList.remove('d-none');
+        } else {
+          badgesInativos.classList.add('d-none');
+        }
+      }
+    });
+  }
+
+  // Clique em badges para exibir períodos e alternar cores
+  const periodosAtivos = document.getElementById('periodosAtivos');
+  const periodosInativosEl = document.getElementById('periodosInativos');
+
+  // Função para resetar as cores originais das badges
+  function resetBadgeColors() {
+    document.querySelectorAll('#conteudoUnidade .badge').forEach(b => {
+      b.classList.remove('border-warning', 'text-bg-warning');
+      b.classList.add('border-primary', 'text-bg-primary');
+    });
+    document.querySelectorAll('#badgesInativos .badge').forEach(b => {
+      b.classList.remove('border-warning', 'text-bg-warning');
+      b.classList.add('border-secondary', 'text-bg-secondary');
+    });
+  }
+
+  // Handler para badges de serviços ativos
+  document.querySelectorAll('#conteudoUnidade .badge').forEach(badge => {
+    badge.style.cursor = 'pointer';
+    badge.addEventListener('click', () => {
+      resetBadgeColors();
+      badge.classList.remove('border-primary', 'text-bg-primary');
+      badge.classList.add('border-warning', 'text-bg-warning');
+      if (periodosAtivos) periodosAtivos.classList.remove('d-none');
+      if (periodosInativosEl) periodosInativosEl.classList.add('d-none');
+    });
+  });
+
+  // Handler para badges de serviços inativos
+  document.querySelectorAll('#badgesInativos .badge').forEach(badge => {
+    badge.style.cursor = 'pointer';
+    badge.addEventListener('click', () => {
+      resetBadgeColors();
+      badge.classList.remove('border-secondary', 'text-bg-secondary');
+      badge.classList.add('border-warning', 'text-bg-warning');
+      if (periodosInativosEl) periodosInativosEl.classList.remove('d-none');
+      if (periodosAtivos) periodosAtivos.classList.add('d-none');
+    });
+  });
 }
 
 /**
