@@ -330,3 +330,71 @@ select {
 .badge {
     cursor: pointer;
 }
+
+/* --- Nav-pills em formato seta usando clip-path --- */
+#menuConfigLojasNav .nav-link{
+    --bg-normal: var(--bs-light);
+    --bg-hover : var(--bs-gray-200);
+    --bg-active: var(--bs-primary);
+  
+    position: relative;
+    padding-right: 2rem;                 /* espaço p/ a ponta */
+    border-radius: .25rem 0 0 .25rem;    /* mantém canto arredondado esquerdo */
+    background: var(--bg-normal);
+    color: var(--bs-body-color);
+    clip-path: polygon(
+        0 0, calc(100% - 1.2rem) 0,
+        100% 50%,
+        calc(100% - 1.2rem) 100%,
+        0 100%
+    );
+    transition: background .2s;
+  }
+  
+  /* hover/focus */
+  #menuConfigLojasNav .nav-link:hover:not(.active){
+    background: var(--bg-hover);
+  }
+  
+  /* ativo */
+  #menuConfigLojasNav .nav-link.active{
+    background: var(--bg-active);
+    color:#fff;
+  }
+  
+  /* ajusta setas quando item quebra linha (evita sobrepor) */
+  #menuConfigLojasNav{
+    gap: 0;                     /* tira espaçamento extra do flex */
+  }
+  
+  @media (max-width: 575.98px){
+    #menuConfigLojasNav{
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+  }
+
+  /* remove seta do último item */
+  /* remove seta apenas do último item */
+#menuConfigLojasNav .nav-item:last-child .nav-link{
+    clip-path: none;
+    padding-right: 1rem;          /* volta espaçamento padrão */
+    border-radius: .25rem;        /* canto direito arredondado */
+  }
+
+  /* --- seta aplicada somente no item ativo --- */
+#menuConfigLojasNav .nav-link{
+    clip-path: none;              /* padrão sem seta */
+    padding-right: 1rem;
+    border-radius: .25rem;
+  }
+#menuConfigLojasNav .nav-link.active{
+    padding-right: 2rem;
+    border-radius: .25rem 0 0 .25rem;
+    clip-path: polygon(
+      0 0, calc(100% - 1.2rem) 0,
+      100% 50%,
+      calc(100% - 1.2rem) 100%,
+      0 100%
+    );
+  }
