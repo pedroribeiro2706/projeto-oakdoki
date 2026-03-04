@@ -6762,8 +6762,9 @@ html .ql-toolbar .ql-picker .ql-picker-options {
   user-select: none;
 }
 
-/* Tamanho dos checkboxes dentro da tree */
-.tree-view .form-check-input {
+/* Tamanho dos checkboxes dentro da tree (exclui o switch) */
+.tree-item .form-check-input,
+.tree-leaf .form-check-input {
   width: 1.1rem;
   height: 1.1rem;
   cursor: pointer;
