@@ -619,9 +619,20 @@ function setupCardDescontosFormaPagamentoEvents() {
       loadCardBeneficios();
     });
   }
-  
+
   // Configurar eventos para o segundo item do accordion (Configurações Adicionais)
   setupConfiguracaoAdicionalEvents();
+
+  // Toggles Ativos/Todos nas trees de Horários e Complementos
+  ['Horarios', 'Complementos'].forEach(function(id) {
+    var sw = document.getElementById('switch' + id);
+    var lbl = document.getElementById('labelSwitch' + id);
+    if (sw && lbl) {
+      sw.addEventListener('change', function() {
+        lbl.textContent = this.checked ? 'Ativos' : 'Todos';
+      });
+    }
+  });
 }
 
 /**
