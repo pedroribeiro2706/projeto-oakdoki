@@ -6689,3 +6689,75 @@ html .ql-toolbar .ql-picker .ql-picker-options {
         font-size: 90%
     }
 }
+/* =============================================
+   Tree View - Descontos por Forma de Pagamento
+   ============================================= */
+.tree-view {
+  font-size: 0.9rem;
+}
+
+.tree-node {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tree-node li {
+  list-style: none;
+}
+
+.tree-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  width: 60px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.tree-toggle[aria-expanded="false"]::before {
+  content: '▶';
+  font-size: 0.85rem;
+}
+
+.tree-toggle[aria-expanded="true"]::before {
+  content: '▼';
+  font-size: 0.85rem;
+}
+
+.tree-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 0;
+  cursor: default;
+}
+
+.tree-item label {
+  cursor: pointer;
+  margin: 0;
+  user-select: none;
+}
+
+.tree-children {
+  padding-left: 22px;
+}
+
+.tree-leaf {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  padding-left: 50px;
+}
+
+.tree-leaf label {
+  cursor: pointer;
+  margin: 0;
+  user-select: none;
+}

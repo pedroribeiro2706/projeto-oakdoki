@@ -1,4 +1,4 @@
-<!-- partials/cardDescontosFormaPagamento.html -->
+﻿<!-- partials/cardDescontosFormaPagamento.html -->
 <div class="card card-small">
   <div class="card-header border-bottom">
     <h5 class="mb-0">Descontos por Forma de Pagamento</h5>
@@ -57,210 +57,546 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionDescontosFormaPagamento">
           <div class="accordion-body">
-            <!-- Seleção de Unidade -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <label for="selectUnidade" class="form-label">Selecione a Unidade</label>
-                <select class="form-select" id="selectUnidade">
-                  <option value="" selected disabled>Selecione uma unidade</option>
-                  <option value="unidade1">Unidade - Colônia de férias Lagoa - Flamengo</option>
-                  <option value="unidade2">Unidade - Colônia de férias Laranjeiras</option>
-                  <option value="unidade3">Unidade - Colônia de férias Tijuca</option>
-                  <option value="unidade4">Unidade - Colônia de férias Leblon - Paissandu</option>
-                  <option value="unidade5">Unidade - Festa Esportiva</option>
-                  <option value="unidade6">Unidade - Festa Pool Party</option>
-                  <option value="unidade7">Unidade - Festa Gecrear</option>
-                  <option value="unidade8">Unidade - Festa Anima-Ação</option>
-                  <option value="unidade9">Unidade - Festa Radical</option>
-                </select>
-              </div>
-            </div>
 
-            <!-- Conteúdo condicional (aparece apenas quando uma unidade é selecionada) -->
-            <div id="conteudoUnidade" class="d-none">
-              <!-- Abas para Horários e Complementos -->
-              <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="horarios-tab" data-bs-toggle="tab" data-bs-target="#horarios" type="button" role="tab" aria-controls="horarios" aria-selected="true">Horários</button>
+            <div class="tree-view row">
+              <div class="col-md-6">
+              <ul class="tree-node ps-0">
+
+                <!-- ── HORÁRIOS ── -->
+                <li>
+                  <div class="tree-item">
+                    <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeHorarios" aria-expanded="false">
+                    </button>
+                    <input class="form-check-input mt-0" type="checkbox" id="chkHorarios">
+                    <label for="chkHorarios">Horários</label>
+                  </div>
+
+                  <div class="collapse tree-children" id="treeHorarios">
+                    <ul class="tree-node ps-0">
+
+                      <!-- Unidade 1 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u1" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u1">
+                          <label for="chkH-u1">Unidade - Colônia de férias Lagoa - Flamengo</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u1">
+                          <ul class="tree-node ps-0">
+
+                            <!-- Serviço 1 -->
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u1-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s1">
+                                <label for="chkH-u1-s1">Serviço - 2026 - Fevereiro - Semana de 02 a 06</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u1-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s1-p1"><label for="chkH-u1-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s1-p2"><label for="chkH-u1-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s1-p3"><label for="chkH-u1-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s1-p4"><label for="chkH-u1-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s1-p5"><label for="chkH-u1-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+
+                            <!-- Serviço 2 -->
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u1-s2" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s2">
+                                <label for="chkH-u1-s2">Serviço - 2025 / 2026 - Verão - DIÁRIAS</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u1-s2">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s2-p1"><label for="chkH-u1-s2-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s2-p2"><label for="chkH-u1-s2-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s2-p3"><label for="chkH-u1-s2-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s2-p4"><label for="chkH-u1-s2-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s2-p5"><label for="chkH-u1-s2-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+
+                            <!-- Serviço 3 -->
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u1-s3" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s3">
+                                <label for="chkH-u1-s3">Serviço - 2025 - Dezembro - Semana de 08 a 12</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u1-s3">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s3-p1"><label for="chkH-u1-s3-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s3-p2"><label for="chkH-u1-s3-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s3-p3"><label for="chkH-u1-s3-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s3-p4"><label for="chkH-u1-s3-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u1-s3-p5"><label for="chkH-u1-s3-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 2 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u2" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u2">
+                          <label for="chkH-u2">Unidade - Colônia de férias Laranjeiras</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u2">
+                          <ul class="tree-node ps-0">
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u2-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u2-s1">
+                                <label for="chkH-u2-s1">Serviço - 2025 / 2026 - Verão - DIÁRIAS</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u2-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u2-s1-p1"><label for="chkH-u2-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u2-s1-p2"><label for="chkH-u2-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u2-s1-p3"><label for="chkH-u2-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u2-s1-p4"><label for="chkH-u2-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u2-s1-p5"><label for="chkH-u2-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 3 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u3" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u3">
+                          <label for="chkH-u3">Unidade - Colônia de férias Tijuca</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u3">
+                          <ul class="tree-node ps-0">
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u3-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u3-s1">
+                                <label for="chkH-u3-s1">Serviço - 2025 / 2026 - Verão - DIÁRIAS</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u3-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u3-s1-p1"><label for="chkH-u3-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u3-s1-p2"><label for="chkH-u3-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u3-s1-p3"><label for="chkH-u3-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u3-s1-p4"><label for="chkH-u3-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u3-s1-p5"><label for="chkH-u3-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 4 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u4" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u4">
+                          <label for="chkH-u4">Unidade - Colônia de férias Leblon - Paissandu</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u4">
+                          <ul class="tree-node ps-0">
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u4-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u4-s1">
+                                <label for="chkH-u4-s1">Serviço - 2025 / 2026 - Verão - DIÁRIAS</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u4-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u4-s1-p1"><label for="chkH-u4-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u4-s1-p2"><label for="chkH-u4-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u4-s1-p3"><label for="chkH-u4-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u4-s1-p4"><label for="chkH-u4-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u4-s1-p5"><label for="chkH-u4-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 5 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u5" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u5">
+                          <label for="chkH-u5">Unidade - Festa Esportiva</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u5">
+                          <ul class="tree-node ps-0">
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u5-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u5-s1">
+                                <label for="chkH-u5-s1">Serviço - 2026 - Janeiro - Semana de 05 a 09</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u5-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u5-s1-p1"><label for="chkH-u5-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u5-s1-p2"><label for="chkH-u5-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u5-s1-p3"><label for="chkH-u5-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u5-s1-p4"><label for="chkH-u5-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u5-s1-p5"><label for="chkH-u5-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 6 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u6" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u6">
+                          <label for="chkH-u6">Unidade - Festa Pool Party</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u6">
+                          <ul class="tree-node ps-0">
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u6-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u6-s1">
+                                <label for="chkH-u6-s1">Serviço - 2026 - Janeiro - Semana de 12 a 16</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u6-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u6-s1-p1"><label for="chkH-u6-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u6-s1-p2"><label for="chkH-u6-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u6-s1-p3"><label for="chkH-u6-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u6-s1-p4"><label for="chkH-u6-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u6-s1-p5"><label for="chkH-u6-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 7 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u7" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u7">
+                          <label for="chkH-u7">Unidade - Festa Gecrear</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u7">
+                          <ul class="tree-node ps-0">
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u7-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u7-s1">
+                                <label for="chkH-u7-s1">Serviço - 2026 - Janeiro - Semana de 19 a 23</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u7-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u7-s1-p1"><label for="chkH-u7-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u7-s1-p2"><label for="chkH-u7-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u7-s1-p3"><label for="chkH-u7-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u7-s1-p4"><label for="chkH-u7-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u7-s1-p5"><label for="chkH-u7-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 8 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u8" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u8">
+                          <label for="chkH-u8">Unidade - Festa Anima-Ação</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u8">
+                          <ul class="tree-node ps-0">
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u8-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u8-s1">
+                                <label for="chkH-u8-s1">Serviço - 2026 - Janeiro - Semana de 26 a 30</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u8-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u8-s1-p1"><label for="chkH-u8-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u8-s1-p2"><label for="chkH-u8-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u8-s1-p3"><label for="chkH-u8-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u8-s1-p4"><label for="chkH-u8-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u8-s1-p5"><label for="chkH-u8-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 9 -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u9" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkH-u9">
+                          <label for="chkH-u9">Unidade - Festa Radical</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeH-u9">
+                          <ul class="tree-node ps-0">
+                            <li>
+                              <div class="tree-item">
+                                <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeH-u9-s1" aria-expanded="false">
+                                </button>
+                                <input class="form-check-input mt-0" type="checkbox" id="chkH-u9-s1">
+                                <label for="chkH-u9-s1">Serviço - 2026 - Fevereiro - Semana de 02 a 06</label>
+                              </div>
+                              <div class="collapse tree-children" id="treeH-u9-s1">
+                                <ul class="tree-node ps-0">
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u9-s1-p1"><label for="chkH-u9-s1-p1">Semana Manhã</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u9-s1-p2"><label for="chkH-u9-s1-p2">Semana Tarde</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u9-s1-p3"><label for="chkH-u9-s1-p3">Semana Tarde Estendida</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u9-s1-p4"><label for="chkH-u9-s1-p4">Semana Integral</label></li>
+                                  <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkH-u9-s1-p5"><label for="chkH-u9-s1-p5">Semana Integral Estendido</label></li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                    </ul>
+                  </div>
                 </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="complementos-tab" data-bs-toggle="tab" data-bs-target="#complementos" type="button" role="tab" aria-controls="complementos" aria-selected="false">Complementos</button>
-                </li>
+
               </ul>
+              </div><!-- /col Horários -->
 
-              <!-- Conteúdo das Abas -->
-              <div class="tab-content" id="myTabContent">
-                <!-- Aba de Horários -->
-                <div class="tab-pane fade show active" id="horarios" role="tabpanel" aria-labelledby="horarios-tab">
-                  <!-- Modificação de seletor de serviço para switch -->
-                  <div class="row mb-3">
-                    <div class="col-12">
-                      <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="switchExibirServicosInativos">
-                        <label class="form-check-label" for="switchExibirServicosInativos">Exibir serviços inativos</label>
-                      </div>
-                    </div>
-                  </div>
+              <div class="col-md-6">
+              <ul class="tree-node ps-0">
 
-                  <!-- Tags para os serviços selecionados -->
-                  <div class="row mb-3">
-                    <div class="col-12">
-                      <div class="d-flex flex-wrap gap-2 mt-2">
-                        <h6><span class="badge border border-primary text-white text-bg-primary px-3 py-2">Serviço - 2025 Julho - Semana de 14 a 18</span></h6>
-                        <h6><span class="badge border border-primary text-white text-bg-primary px-3 py-2">Serviço - 2025 Julho - Diárias</span></h6>
-                        <h6><span class="badge border border-primary text-white text-bg-primary px-3 py-2">Serviço - 2025 - Janeiro - Semana de 27 a 31</span></h6>
-                      </div>
-                    </div>
+                <!-- ── COMPLEMENTOS ── -->
+                <li>
+                  <div class="tree-item">
+                    <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeComplementos" aria-expanded="false">
+                    </button>
+                    <input class="form-check-input mt-0" type="checkbox" id="chkComplementos">
+                    <label for="chkComplementos">Complementos</label>
                   </div>
 
-                  <!-- Badges para serviços inativos (toggle via switch) -->
-                  <div class="row mb-3 d-none" id="badgesInativos">
-                    <div class="col-12">
-                      <div class="d-flex flex-wrap gap-2 mt-2">
-                        <h6><span class="badge border border-secondary text-white text-bg-secondary px-3 py-2">Serviço - 2025 Junho - Semana de 10 a 17</span></h6>
-                        <h6><span class="badge border border-secondary text-white text-bg-secondary px-3 py-2">Serviço - 2025 Junho - Diárias</span></h6>
-                        <h6><span class="badge border border-secondary text-white text-bg-secondary px-3 py-2">Serviço - 2025 - Dezembro - Semana de 12 a 19</span></h6>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="collapse tree-children" id="treeComplementos">
+                    <ul class="tree-node ps-0">
 
-                  <!-- Períodos para serviços ativos (alguns pré-selecionados) -->
-                  <div id="periodosAtivos" class="d-none">
-                    <div class="row mb-3">
-                      <div class="col-12">
-                        <label class="form-label">Selecione os Períodos</label>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo1" id="periodo1Ativo" checked>
-                          <label class="form-check-label" for="periodo1Ativo">Semana Tarde</label>
+                      <!-- Unidade 1 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u1" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u1">
+                          <label for="chkC-u1">Unidade - Colônia de férias Lagoa - Flamengo</label>
                         </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo2" id="periodo2Ativo">
-                          <label class="form-check-label" for="periodo2Ativo">Semana Tarde Estendida</label>
+                        <div class="collapse tree-children" id="treeC-u1">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c1"><label for="chkC-u1-c1">Extensão avulsa de horário até as 19h</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c2"><label for="chkC-u1-c2">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c3"><label for="chkC-u1-c3">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c4"><label for="chkC-u1-c4">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c5"><label for="chkC-u1-c5">Jantar</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c6"><label for="chkC-u1-c6">30 minutos adicionais</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c7"><label for="chkC-u1-c7">60 minutos adicionais</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c8"><label for="chkC-u1-c8">90 minutos adicionais</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u1-c9"><label for="chkC-u1-c9">120 minutos adicionais</label></li>
+                          </ul>
                         </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo3" id="periodo3Ativo" checked>
-                          <label class="form-check-label" for="periodo3Ativo">Semana Manhã</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo4" id="periodo4Ativo">
-                          <label class="form-check-label" for="periodo4Ativo">Semana Integral</label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo5" id="periodo5Ativo">
-                          <label class="form-check-label" for="periodo5Ativo">Semana Integral Estendido</label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo6" id="periodo6Ativo">
-                          <label class="form-check-label" for="periodo6Ativo">08:00 às 12:00</label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      </li>
 
-                  <!-- Períodos para serviços inativos (todos desmarcados) -->
-                  <div id="periodosInativos" class="d-none">
-                    <div class="row mb-3">
-                      <div class="col-12">
-                        <label class="form-label">Selecione os Períodos</label>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo1" id="periodo1">
-                          <label class="form-check-label" for="periodo1">Semana Tarde</label>
+                      <!-- Unidade 2 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u2" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u2">
+                          <label for="chkC-u2">Unidade - Colônia de férias Laranjeiras</label>
                         </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo2" id="periodo2">
-                          <label class="form-check-label" for="periodo2">Semana Tarde Estendida</label>
+                        <div class="collapse tree-children" id="treeC-u2">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u2-c1"><label for="chkC-u2-c1">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u2-c2"><label for="chkC-u2-c2">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u2-c3"><label for="chkC-u2-c3">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u2-c4"><label for="chkC-u2-c4">Jantar</label></li>
+                          </ul>
                         </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo3" id="periodo3">
-                          <label class="form-check-label" for="periodo3">Semana Manhã</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo4" id="periodo4">
-                          <label class="form-check-label" for="periodo4">Semana Integral</label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo5" id="periodo5">
-                          <label class="form-check-label" for="periodo5">Semana Integral Estendido</label>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="periodo6" id="periodo6">
-                          <label class="form-check-label" for="periodo6">08:00 às 12:00</label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                      </li>
 
-                <!-- Aba de Complementos -->
-                <div class="tab-pane fade" id="complementos" role="tabpanel" aria-labelledby="complementos-tab">
-                  <div class="row mb-3">
-                    <div class="col-12">
-                      <label class="form-label">Selecione os Complementos</label>
-                    </div>
+                      <!-- Unidade 3 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u3" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u3">
+                          <label for="chkC-u3">Unidade - Colônia de férias Tijuca</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeC-u3">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u3-c1"><label for="chkC-u3-c1">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u3-c2"><label for="chkC-u3-c2">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u3-c3"><label for="chkC-u3-c3">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u3-c4"><label for="chkC-u3-c4">Jantar</label></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 4 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u4" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u4">
+                          <label for="chkC-u4">Unidade - Colônia de férias Leblon - Paissandu</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeC-u4">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u4-c1"><label for="chkC-u4-c1">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u4-c2"><label for="chkC-u4-c2">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u4-c3"><label for="chkC-u4-c3">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u4-c4"><label for="chkC-u4-c4">Jantar</label></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 5 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u5" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u5">
+                          <label for="chkC-u5">Unidade - Festa Esportiva</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeC-u5">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u5-c1"><label for="chkC-u5-c1">Extensão avulsa de horário até as 19h</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u5-c2"><label for="chkC-u5-c2">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u5-c3"><label for="chkC-u5-c3">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u5-c4"><label for="chkC-u5-c4">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u5-c5"><label for="chkC-u5-c5">Jantar</label></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 6 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u6" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u6">
+                          <label for="chkC-u6">Unidade - Festa Pool Party</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeC-u6">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u6-c1"><label for="chkC-u6-c1">Extensão avulsa de horário até as 19h</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u6-c2"><label for="chkC-u6-c2">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u6-c3"><label for="chkC-u6-c3">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u6-c4"><label for="chkC-u6-c4">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u6-c5"><label for="chkC-u6-c5">Jantar</label></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 7 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u7" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u7">
+                          <label for="chkC-u7">Unidade - Festa Gecrear</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeC-u7">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u7-c1"><label for="chkC-u7-c1">Extensão avulsa de horário até as 19h</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u7-c2"><label for="chkC-u7-c2">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u7-c3"><label for="chkC-u7-c3">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u7-c4"><label for="chkC-u7-c4">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u7-c5"><label for="chkC-u7-c5">Jantar</label></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 8 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u8" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u8">
+                          <label for="chkC-u8">Unidade - Festa Anima-Ação</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeC-u8">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u8-c1"><label for="chkC-u8-c1">Extensão avulsa de horário até as 19h</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u8-c2"><label for="chkC-u8-c2">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u8-c3"><label for="chkC-u8-c3">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u8-c4"><label for="chkC-u8-c4">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u8-c5"><label for="chkC-u8-c5">Jantar</label></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <!-- Unidade 9 - Complementos -->
+                      <li>
+                        <div class="tree-item">
+                          <button class="tree-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#treeC-u9" aria-expanded="false">
+                          </button>
+                          <input class="form-check-input mt-0" type="checkbox" id="chkC-u9">
+                          <label for="chkC-u9">Unidade - Festa Radical</label>
+                        </div>
+                        <div class="collapse tree-children" id="treeC-u9">
+                          <ul class="tree-node ps-0">
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u9-c1"><label for="chkC-u9-c1">Extensão avulsa de horário até as 19h</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u9-c2"><label for="chkC-u9-c2">Lanche da manhã</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u9-c3"><label for="chkC-u9-c3">Almoço</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u9-c4"><label for="chkC-u9-c4">Lanche da tarde</label></li>
+                            <li class="tree-leaf"><input class="form-check-input mt-0" type="checkbox" id="chkC-u9-c5"><label for="chkC-u9-c5">Jantar</label></li>
+                          </ul>
+                        </div>
+                      </li>
+
+                    </ul>
                   </div>
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="complemento1" id="complemento1">
-                        <label class="form-check-label" for="complemento1">Lanche da manhã</label>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="complemento2" id="complemento2">
-                        <label class="form-check-label" for="complemento2">Almoço</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="complemento3" id="complemento3">
-                        <label class="form-check-label" for="complemento3">Lanche da tarde</label>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="complemento4" id="complemento4">
-                        <label class="form-check-label" for="complemento4">Jantar</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                </li>
+
+              </ul>
+              </div><!-- /col Complementos -->
+
+            </div><!-- /row tree-view -->
+
           </div>
         </div>
       </div>
