@@ -63,9 +63,19 @@
 
             <div class="tree-view row">
               <div class="col-md-6">
-                <div class="form-check form-switch mb-2">
-                  <input class="form-check-input" type="checkbox" id="switchHorarios" checked>
-                  <label class="form-check-label" for="switchHorarios" id="labelSwitchHorarios">Ativos</label>
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="form-check form-switch mb-0">
+                    <input class="form-check-input" type="checkbox" id="switchHorarios" checked>
+                    <label class="form-check-label" for="switchHorarios" id="labelSwitchHorarios">Ativos</label>
+                  </div>
+                  <select class="form-select w-auto" id="selectUnidadeHorarios">
+                    <option value="flamengo">Flamengo</option>
+                    <option value="tijuca">Tijuca</option>
+                    <option value="laranjeiras">Laranjeiras</option>
+                    <option value="leblon">Leblon</option>
+                    <option value="lagoa">Lagoa</option>
+                    <option value="">Todas as unidades</option>
+                  </select>
                 </div>
               <ul class="tree-node ps-0">
 
@@ -409,9 +419,19 @@
               </div><!-- /col Horários -->
 
               <div class="col-md-6">
-                <div class="form-check form-switch mb-2">
-                  <input class="form-check-input" type="checkbox" id="switchComplementos" checked>
-                  <label class="form-check-label" for="switchComplementos" id="labelSwitchComplementos">Ativos</label>
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="form-check form-switch mb-0">
+                    <input class="form-check-input" type="checkbox" id="switchComplementos" checked>
+                    <label class="form-check-label" for="switchComplementos" id="labelSwitchComplementos">Ativos</label>
+                  </div>
+                  <select class="form-select w-auto" id="selectUnidadeComplementos">
+                    <option value="flamengo">Flamengo</option>
+                    <option value="tijuca">Tijuca</option>
+                    <option value="laranjeiras">Laranjeiras</option>
+                    <option value="leblon">Leblon</option>
+                    <option value="lagoa">Lagoa</option>
+                    <option value="">Todas as unidades</option>
+                  </select>
                 </div>
               <ul class="tree-node ps-0">
 
