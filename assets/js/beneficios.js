@@ -633,6 +633,31 @@ function setupCardDescontosFormaPagamentoEvents() {
       });
     }
   });
+
+  // Filtro de unidades nos selects das trees
+  function filtrarUnidades(selectId, treeId) {
+    var select = document.getElementById(selectId);
+    var tree = document.getElementById(treeId);
+    if (!select || !tree) return;
+
+    function aplicarFiltro() {
+      var val = select.value;
+      tree.querySelectorAll('li[data-unidade]').forEach(function(li) {
+        if (!val) {
+          li.style.display = '';
+        } else {
+          var unidades = li.dataset.unidade.split(' ');
+          li.style.display = unidades.indexOf(val) !== -1 ? '' : 'none';
+        }
+      });
+    }
+
+    select.addEventListener('change', aplicarFiltro);
+    aplicarFiltro(); // aplica ao carregar com o valor padrão
+  }
+
+  filtrarUnidades('selectUnidadeHorarios', 'treeHorarios');
+  filtrarUnidades('selectUnidadeComplementos', 'treeComplementos');
 }
 
 /**
